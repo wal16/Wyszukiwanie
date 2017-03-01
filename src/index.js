@@ -1,9 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, browserHistory } from 'react-router'
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
+import App from './components/app'
+import UsersView from './components/users-view'
 
 ReactDOM.render(
-  <App />,
+  (
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <Route path="users" component={UsersView} />
+      </Route>
+    </Router>
+  ),
   document.getElementById('root')
 );
