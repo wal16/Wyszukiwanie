@@ -1,3 +1,14 @@
-/**
- * Created by rafalszatranski on 01.03.17.
- */
+import React from 'react'
+
+const UserProfileView = () =>
+  (
+    <div>
+
+      <h1>Profil Użytkownika</h1>
+
+
+    </div>
+
+  )
+
+export default UserProfileView

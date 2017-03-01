@@ -1,3 +1,14 @@
-/**
- * Created by rafalszatranski on 01.03.17.
- */
+import React from 'react'
+
+const UsersListView = () =>
+  (
+    <div>
+
+      <h1>Lista Użytkowników</h1>
+
+
+    </div>
+
+  )
+
+export default UsersListView
