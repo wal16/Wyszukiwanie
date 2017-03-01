@@ -6,13 +6,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import App from './components/app'
-import UsersView from './components/users-view'
+import GameProfileView from './components/game-profile/game-profile'
+import UsersListView from './components/users-list/users-list'
+import UserProfileView from './components/user-profile/user-profile'
+
+
 
 ReactDOM.render(
   (
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <Route path="users" component={UsersView} />
+        <Route path="/game-profile" component={GameProfileView}/>
+        <Route path="/users-list" component={UsersListView}/>
+        <Route path="/user-profile" component={UserProfileView}/>
       </Route>
     </Router>
   ),

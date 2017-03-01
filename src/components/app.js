@@ -1,27 +1,9 @@
 import React from 'react'
-import {Navbar, Nav, NavItem} from 'react-bootstrap'
-import {LinkContainer} from 'react-router-bootstrap'
-import {Link} from 'react-router'
+import  Nav from './nav/nav'
 
 const App = (props) => (
   <div>
-    <Navbar>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <Link to="/">
-            Home
-          </Link>
-        </Navbar.Brand>
-        <Navbar.Toggle />
-      </Navbar.Header>
-      <Navbar.Collapse>
-        <Nav>
-          <LinkContainer to="/users">
-            <NavItem eventKey={2}>Users</NavItem>
-          </LinkContainer>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+   <Nav/>
     {props.children}
   </div>
 )
