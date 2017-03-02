@@ -16,7 +16,7 @@ ReactDOM.render(
   (
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <Route path="/game-profile" component={GameProfileView}/>
+        <Route path="/game-profile/:id" component={GameProfileView}/>
         <Route path="/users-list" component={UsersListView}/>
         <Route path="/user-profile" component={UserProfileView}/>
       </Route>

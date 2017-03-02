@@ -1,21 +1,49 @@
 import React from 'react'
-import games from ''
+import {Button} from 'react-bootstrap'
+
+import data from '../../data'
 
 
 
-const GameProfileView = () =>
-  (
-       <div>
+const GameProfileView = (props) => {
+  console.log( data.games )
+  return (
+    <div>
 
-         <h1>Profil gry</h1>
-         <img src={process.env.PUBLIC_URL + '/img/scrabble.jpg'} alt="Zdjecie gry"/>
-         <h2>Nazwa gry</h2>
-         <p> Opis gry Opis gry Opis gry Opis gry Opis gry Opis gry </p>
+      <h1>Profil gry</h1>
+
+      <img src={process.env.PUBLIC_URL + '/img/scrabble.jpg'}
+           alt="Zdjecie gry"/>
+
+      <h2>
+        {
+          data.games.filter(
+            game => game.id === parseInt(props.params.id)
+          ).map(
+            game => (
+              <div key={game.id}>
+                <p>{game.gameName}</p>
+              </div>
+            )
+          )
+        }
+      </h2>
+
+      <p> Opis gry Opis gry Opis gry Opis gry Opis gry Opis gry </p>
+
+      <Button>
+        Poprzednia
+      </Button>
+
+      <Button>
+        Następna
+      </Button>
 
 
-
-     </div>
+    </div>
 
   )
+}
+
 
 export default GameProfileView
