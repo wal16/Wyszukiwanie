@@ -1,7 +1,9 @@
 import React from 'react'
 import { Grid, Row, Col, Thumbnail, Button } from 'react-bootstrap'
 
-const UserProfileView = () =>
+import data from '../../data'
+
+const UserProfileView = (props) =>
   (
     <Grid>
       <h1>Profil Użytkownika</h1>
@@ -12,7 +14,16 @@ const UserProfileView = () =>
         </Col>
 
         <Col xs={12} sm={8} md={8}>
-          <h3>Imię i nazwisko / nazwa użytkownika</h3>
+            {
+              data.users.filter(
+                user => user.id === parseInt(props.params.id)
+              ).map(
+                user => (
+                    <h3 key={user.d}>{user.name} {user.surname}</h3>
+                )
+              )
+            }
+
             <p>Sekcja o mnie</p>
         </Col>
       </Row>

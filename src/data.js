@@ -2,7 +2,7 @@ export default {
   users: [
     {
       id: 1,
-      name: 'Rafal',
+      name: 'Rafał',
       surname: 'Nowak',
       gameList: [
           {
