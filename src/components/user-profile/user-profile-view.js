@@ -16,6 +16,27 @@ const UserProfileView = () =>
             <p>Sekcja o mnie</p>
         </Col>
       </Row>
+      <Row>
+        <Col md={6}>
+          <ul>
+            <li>Mam1</li>
+            <li>Mam2</li>
+            <li>Mam3</li>
+            <li>Mam4</li>
+            <li>Mam5</li>
+          </ul>
+        </Col>
+
+        <Col md={6}>
+          <ul>
+            <li>Wypożyczę1</li>
+            <li>Wypożyczę1</li>
+            <li>Wypożyczę1</li>
+            <li>Wypożyczę1</li>
+            <li>Wypożyczę1</li>
+          </ul>
+        </Col>
+      </Row>
     </Grid>
   )
 
