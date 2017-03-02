@@ -2,7 +2,6 @@ import React from 'react'
 import {Button} from 'react-bootstrap'
 
 import data from '../../data'
-import GameName from './game-name'
 
 
 
@@ -17,11 +16,32 @@ const GameProfileView = (props) => {
            alt="Zdjecie gry"/>
 
       <h2>
-        <GameName/>
+        {
+          data.games.filter(
+            game => game.id === parseInt(props.params.id)
+          ).map(
+            game => (
+              <div key={game.id}>
+                <p>{game.gameName}</p>
+              </div>
+            )
+          )
+        }
       </h2>
 
-      <p> Opis gry Opis gry Opis gry Opis gry Opis gry Opis gry </p>
-
+      <div>
+        {
+          data.games.filter(
+            game => game.id === parseInt(props.params.id)
+          ).map(
+            game => (
+              <div key={game.id}>
+                <p>{game.gameDescription}</p>
+              </div>
+            )
+          )
+        }
+      </div>
 
       <Button>
         Poprzednia
