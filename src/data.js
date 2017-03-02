@@ -4,6 +4,33 @@ export default {
       id: 1,
       name: 'Rafal',
       surname: 'Nowak',
+      gameList: [
+          {
+            id: 1,
+            name: 'Scrabble',
+          },
+
+          {
+            id: 2,
+            name: 'Warcaby',
+          },
+
+          {
+            id: 3,
+            name: 'Jungle Speed',
+          }
+        ],
+      wishList: [
+        {
+          id: 1,
+          name: 'Monopoly',
+        },
+
+        {
+          id: 2,
+          name: 'Osadnicy z Katanu',
+        },
+      ]
     },
 
     {

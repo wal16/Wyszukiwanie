@@ -17,7 +17,8 @@ const UserProfileView = () =>
         </Col>
       </Row>
       <Row>
-        <Col md={6}>
+        <p>przyciski</p>
+        <Col md={6} bsStyle="tabs">
           <ul>
             <li>Mam1</li>
             <li>Mam2</li>
