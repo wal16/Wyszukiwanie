@@ -16,10 +16,13 @@ const NavComponent = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <LinkContainer to="/game-profile">
-            <NavItem eventKey={1}>Profil Gry</NavItem>
+          <LinkContainer to="/games-list">
+            <NavItem eventKey={1}>Lista gier</NavItem>
           </LinkContainer>
-          <LinkContainer to="/users-list">
+          <LinkContainer to="/game-profile">
+            <NavItem eventKey={1}>Karta gry</NavItem>
+          </LinkContainer>
+                    <LinkContainer to="/users-list">
             <NavItem eventKey={2}>Użytkownicy</NavItem>
           </LinkContainer>
           <LinkContainer to="/user-profile">
