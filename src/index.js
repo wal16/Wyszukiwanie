@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import App from './components/app'
 import GameProfileView from './components/game-profile/game-profile'
 import UsersListView from './components/users-list/users-list'
-import UserProfileView from './components/user-profile/user-profile'
+import UserProfileView from './components/user-profile/user-profile-view'
 
 
 
