@@ -34,27 +34,27 @@ export default {
   games: [
     {
       id: 1,
-      name: 'Scrabble',
+      gameName: 'Scrabble',
     },
 
     {
       id: 2,
-      name: 'Warcaby',
+      gameName: 'Warcaby',
     },
 
     {
       id: 3,
-      name: 'Monopoly',
+      gameName: 'Monopoly',
     },
 
     {
       id: 4,
-      name: 'Jungle Speed',
+      gameName: 'Jungle Speed',
     },
 
     {
       id: 5,
-      name: 'Osadnicy z Katanu',
+      gameName: 'Osadnicy z Katanu',
     },
   ]
 }

@@ -17,7 +17,7 @@ const NavComponent = () => (
       <Navbar.Collapse>
         <Nav>
           <LinkContainer to="/game-profile">
-            <NavItem eventKey={1}>Gry</NavItem>
+            <NavItem eventKey={1}>Profil Gry</NavItem>
           </LinkContainer>
           <LinkContainer to="/users-list">
             <NavItem eventKey={2}>Użytkownicy</NavItem>
