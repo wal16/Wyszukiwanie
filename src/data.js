@@ -37,24 +37,48 @@ export default {
       id: 2,
       name: 'Natalia',
       surname: 'React',
+      gameList: [
+
+      ],
+      wishList: [
+
+      ]
     },
 
     {
       id: 3,
       name: 'Marta',
       surname: 'Zupa',
+      gameList: [
+
+      ],
+      wishList: [
+
+      ]
     },
 
     {
       id: 4,
       name: 'Karol',
       surname: 'Wielki',
+      gameList: [
+
+      ],
+      wishList: [
+
+      ]
     },
 
     {
       id: 5,
       name: 'Bartosz',
       surname: 'Wszystkowiedzacy',
+      gameList: [
+
+      ],
+      wishList: [
+
+      ]
     },
   ],
 
