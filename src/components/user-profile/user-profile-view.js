@@ -19,7 +19,7 @@ const UserProfileView = (props) =>
                 user => user.id === parseInt(props.params.id)
               ).map(
                 user => (
-                    <h3 key={user.d}>{user.name} {user.surname}</h3>
+                    <h3 key={user.id}>{user.name} {user.surname}</h3>
                 )
               )
             }
@@ -28,25 +28,34 @@ const UserProfileView = (props) =>
         </Col>
       </Row>
       <Row>
-        <p>przyciski</p>
         <Col md={6} bsStyle="tabs">
+          <h3>Posiadam</h3>
           <ul>
-            <li>Mam1</li>
-            <li>Mam2</li>
-            <li>Mam3</li>
-            <li>Mam4</li>
-            <li>Mam5</li>
+            {
+              data.users.find(
+                user => user.id === parseInt(props.params.id)
+              ).gameList.map(
+                game => (
+                  <li key={game.id}>{game.name}</li>
+                )
+              )
+            }
           </ul>
         </Col>
 
         <Col md={6}>
+          <h3>Szukam</h3>
           <ul>
-            <li>Wypożyczę1</li>
-            <li>Wypożyczę1</li>
-            <li>Wypożyczę1</li>
-            <li>Wypożyczę1</li>
-            <li>Wypożyczę1</li>
-          </ul>
+          {
+            data.users.find(
+              user => user.id === parseInt(props.params.id)
+            ).wishList.map(
+              game => (
+                <li key={game.id}>{game.name}</li>
+              )
+            )
+          }
+        </ul>
         </Col>
       </Row>
     </Grid>
