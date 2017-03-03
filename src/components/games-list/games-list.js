@@ -10,12 +10,13 @@ const GamesListView = ({}) => (
     <Table striped>
       <thead>
       <tr>
-        <th>Obrazek</th>
-        <th>Nazwa Gry</th>
-        <th>Opis</th>
+        <th>Id</th>
+        <th>Nazwa gry</th>
+        <th>Liczba graczy</th>
       </tr>
       </thead>
       <tbody>
+
       <tr>
         <td></td>
         <td></td>
