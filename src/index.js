@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, browserHistory } from 'react-router'
+import {Router, Route, browserHistory} from 'react-router'
+import { Provider } from 'react-redux'
+import store from './store'
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -12,17 +15,21 @@ import UsersListView from './components/users-list/users-list'
 import UserProfileView from './components/user-profile/user-profile'
 
 
-
 ReactDOM.render(
   (
-    <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <Route path="/games-list/" component={GamesListView}/>
-        <Route path="/game-profile/:id" component={GameProfileView}/>
-        <Route path="/users-list" component={UsersListView}/>
-        <Route path="/user-profile" component={UserProfileView}/>
-      </Route>
-    </Router>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <Route path="/games-list" component={GamesListView}/>
+
+          <Route path="/game-profile/:id" component={GameProfileView}/>
+
+
+          <Route path="/users-list" component={UsersListView}/>
+          <Route path="/user-profile" component={UserProfileView}/>
+        </Route>
+      </Router>
+    </Provider>
   ),
   document.getElementById('root')
 );
