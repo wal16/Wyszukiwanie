@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Row, Col, Thumbnail } from 'react-bootstrap'
+import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import data from '../../data'
 
@@ -28,7 +29,9 @@ const UserProfileView = (props) =>
         </Col>
       </Row>
       <Row>
-        <Col md={6} bsStyle="tabs">
+      <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
+        <Tab label="Posiadam">
+          <Col md={6} bsStyle="tabs">
           <h3>Posiadam</h3>
           <ul>
             {
@@ -42,21 +45,27 @@ const UserProfileView = (props) =>
             }
           </ul>
         </Col>
-
-        <Col md={6}>
+        </Tab>
+        <Tab label="Szukam">
+          <Col md={6}>
           <h3>Szukam</h3>
           <ul>
-          {
-            data.users.find(
-              user => user.id === parseInt(props.params.id)
-            ).wishList.map(
-              game => (
-                <li key={game.id}>{game.name}</li>
+            {
+              data.users.find(
+                user => user.id === parseInt(props.params.id)
+              ).wishList.map(
+                game => (
+                  <li key={game.id}>{game.name}</li>
+                )
               )
-            )
-          }
-        </ul>
+            }
+          </ul>
         </Col>
+        </Tab>
+      </Tabs>
+
+
+
       </Row>
     </Grid>
   )

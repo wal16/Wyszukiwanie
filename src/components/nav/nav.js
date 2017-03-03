@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Nav, NavItem, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 
@@ -25,6 +25,8 @@ const NavComponent = () => (
           <LinkContainer to="/user-profile">
             <NavItem eventKey={3}>Profil Użytkownika</NavItem>
           </LinkContainer>
+        </Nav>
+        <Nav pullRight>
           <LinkContainer to="/user-profile/1">
             <NavItem>Zaloguj się</NavItem>
           </LinkContainer>
