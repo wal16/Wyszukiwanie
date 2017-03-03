@@ -38,9 +38,9 @@ const UserProfileView = (props) => {
         </Col>
       </Row>
       <Row>
+        <Col xs={12} md={12}>
         <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
           <Tab label="Posiadam">
-            <Col md={6} bsStyle="tabs">
               <h3>Posiadam</h3>
               <ul>
                 {
@@ -51,10 +51,8 @@ const UserProfileView = (props) => {
                   )
                 }
               </ul>
-            </Col>
           </Tab>
           <Tab label="Szukam">
-            <Col md={6}>
               <h3>Szukam</h3>
               <ul>
                 {
@@ -65,10 +63,9 @@ const UserProfileView = (props) => {
                   )
                 }
               </ul>
-            </Col>
           </Tab>
         </Tabs>
-
+        </Col>
       </Row>
     </Grid>
   )
