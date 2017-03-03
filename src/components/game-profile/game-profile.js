@@ -18,7 +18,7 @@ const GameProfileView = (props) => {
       <h2>
         {
           data.games.filter(
-            game => game.id === parseInt(props.params.id)
+            game => game.id === parseInt(props.params.id, 10)
           ).map(
             game => (
               <div key={game.id}>
@@ -32,7 +32,7 @@ const GameProfileView = (props) => {
       <div>
         {
           data.games.filter(
-            game => game.id === parseInt(props.params.id)
+            game => game.id === parseInt(props.params.id, 10)
           ).map(
             game => (
               <div key={game.id}>

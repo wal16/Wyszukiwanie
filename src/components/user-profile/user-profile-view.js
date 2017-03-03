@@ -28,8 +28,8 @@ const UserProfileView = (props) => {
           {
             currentUser.map(
               user => (
-                <div>
-                  <h3 key={user.id}>{user.name} {user.surname}</h3>
+                <div key={user.id}>
+                  <h3>{user.name} {user.surname}</h3>
                   <p>{user.about}</p>
                 </div>
               )
