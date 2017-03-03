@@ -4,6 +4,7 @@ export default {
       id: 1,
       name: 'Rafał',
       surname: 'Nowak',
+      about: 'Lorem Ibsem',
       gameList: [
           {
             id: 1,
@@ -37,6 +38,7 @@ export default {
       id: 2,
       name: 'Natalia',
       surname: 'React',
+      about: 'Lorem Ibsem',
       gameList: [
 
       ],
@@ -49,6 +51,7 @@ export default {
       id: 3,
       name: 'Marta',
       surname: 'Zupa',
+      about: 'Lorem Ibsem',
       gameList: [
 
       ],
@@ -61,6 +64,7 @@ export default {
       id: 4,
       name: 'Karol',
       surname: 'Wielki',
+      about: 'Lorem Ibsem',
       gameList: [
 
       ],
@@ -73,6 +77,7 @@ export default {
       id: 5,
       name: 'Bartosz',
       surname: 'Wszystkowiedzacy',
+      about: 'Lorem Ibsem',
       gameList: [
 
       ],
