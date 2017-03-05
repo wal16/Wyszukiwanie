@@ -9,7 +9,8 @@ const NavComponent = () => (
       <Navbar.Header>
         <Navbar.Brand>
           <Link to="/">
-            logo
+            <img src={process.env.PUBLIC_URL + '/img/pozyczme-logo-blue2.svg'}
+                 alt="Logo PożyczME"/>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle />
