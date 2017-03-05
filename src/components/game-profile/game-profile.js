@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Grid, Button} from 'react-bootstrap'
+import {Grid, PageHeader, Panel, Button} from 'react-bootstrap'
 
 import data from '../../data'
 
@@ -9,7 +9,7 @@ const GameProfileView = (props) => {
   return (
     <Grid>
     <div>
-      <h1>Profil gry</h1>
+      <PageHeader>Profil gry <small>Zapoznaj się ze szczegółami wybranej pozycji</small></PageHeader>
       {
         data.games.filter(
           game => game.id === parseInt(props.params.id, 10)
@@ -22,9 +22,9 @@ const GameProfileView = (props) => {
 
               <h2>{game.name}</h2>
 
-              <p>Ilość graczy: {game.players}</p>
+              <Panel header="Ilość graczy">{game.players}</Panel>
 
-              <p>{game.description}</p>
+              <Panel header="Opis">{game.description}</Panel>
             </div>
           )
         )
