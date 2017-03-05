@@ -1,47 +1,34 @@
 import React from 'react'
-import {Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
+import {Grid, PageHeader, Panel, Button} from 'react-bootstrap'
 
 import data from '../../data'
 
-
-
 const GameProfileView = (props) => {
-  console.log( data.games )
+  console.log(data.games)
   return (
+    <Grid>
     <div>
+      <PageHeader>Profil gry <small>Zapoznaj się ze szczegółami wybranej pozycji</small></PageHeader>
+      {
+        data.games.filter(
+          game => game.id === parseInt(props.params.id, 10)
+        ).map(
+          game => (
+            <div key={game.id}>
 
-      <h1>Profil gry</h1>
+              <img src={process.env.PUBLIC_URL + '/img/scrabble.jpg'}
+                   alt="Zdjecie gry"/>
 
-      <img src={process.env.PUBLIC_URL + '/img/scrabble.jpg'}
-           alt="Zdjecie gry"/>
+              <h2>{game.name}</h2>
 
-      <h2>
-        {
-          data.games.filter(
-            game => game.id === parseInt(props.params.id, 10)
-          ).map(
-            game => (
-              <div key={game.id}>
-                <p>{game.gameName}</p>
-              </div>
-            )
+              <Panel header="Ilość graczy">{game.players}</Panel>
+
+              <Panel header="Opis">{game.description}</Panel>
+            </div>
           )
-        }
-      </h2>
-
-      <div>
-        {
-          data.games.filter(
-            game => game.id === parseInt(props.params.id, 10)
-          ).map(
-            game => (
-              <div key={game.id}>
-                <p>{game.gameDescription}</p>
-              </div>
-            )
-          )
-        }
-      </div>
+        )
+      }
 
       <Button>
         Poprzednia
@@ -50,12 +37,9 @@ const GameProfileView = (props) => {
       <Button>
         Następna
       </Button>
-
-
     </div>
-
+    </Grid>
   )
 }
-
 
 export default GameProfileView
