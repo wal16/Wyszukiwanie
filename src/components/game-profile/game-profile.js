@@ -1,12 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Button} from 'react-bootstrap'
+import {Grid, Button} from 'react-bootstrap'
 
 import data from '../../data'
 
 const GameProfileView = (props) => {
   console.log(data.games)
   return (
+    <Grid>
     <div>
       <h1>Profil gry</h1>
       {
@@ -20,6 +21,8 @@ const GameProfileView = (props) => {
                    alt="Zdjecie gry"/>
 
               <h2>{game.name}</h2>
+
+              <p>Ilość graczy: {game.players}</p>
 
               <p>{game.description}</p>
             </div>
@@ -35,6 +38,7 @@ const GameProfileView = (props) => {
         Następna
       </Button>
     </div>
+    </Grid>
   )
 }
 
