@@ -2,7 +2,8 @@ import {createStore} from 'redux'
 import data from './data'
 
 const initialState = {
-  usersData: data.users
+  usersData: data.users,
+  gamesData: data.games
 }
 
 const reducer = (state = initialState, action = {}) => {
