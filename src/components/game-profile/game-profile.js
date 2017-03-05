@@ -1,9 +1,8 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {Button} from 'react-bootstrap'
 
 import data from '../../data'
-
-
 
 const GameProfileView = (props) => {
   console.log( data.games )
@@ -22,7 +21,7 @@ const GameProfileView = (props) => {
           ).map(
             game => (
               <div key={game.id}>
-                <p>{game.gameName}</p>
+                <p>{game.name}</p>
               </div>
             )
           )
@@ -36,7 +35,7 @@ const GameProfileView = (props) => {
           ).map(
             game => (
               <div key={game.id}>
-                <p>{game.gameDescription}</p>
+                <p>{game.description}</p>
               </div>
             )
           )

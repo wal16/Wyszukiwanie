@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Grid, Table, Button} from 'react-bootstrap'
+
 import data from '../../data'
 
 const GamesListView = (props) => (
