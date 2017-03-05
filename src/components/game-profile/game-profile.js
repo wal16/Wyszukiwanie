@@ -5,42 +5,27 @@ import {Button} from 'react-bootstrap'
 import data from '../../data'
 
 const GameProfileView = (props) => {
-  console.log( data.games )
+  console.log(data.games)
   return (
     <div>
-
       <h1>Profil gry</h1>
+      {
+        data.games.filter(
+          game => game.id === parseInt(props.params.id, 10)
+        ).map(
+          game => (
+            <div key={game.id}>
 
-      <img src={process.env.PUBLIC_URL + '/img/scrabble.jpg'}
-           alt="Zdjecie gry"/>
+              <img src={process.env.PUBLIC_URL + '/img/scrabble.jpg'}
+                   alt="Zdjecie gry"/>
 
-      <h2>
-        {
-          data.games.filter(
-            game => game.id === parseInt(props.params.id, 10)
-          ).map(
-            game => (
-              <div key={game.id}>
-                <p>{game.name}</p>
-              </div>
-            )
+              <h2>{game.name}</h2>
+
+              <p>{game.description}</p>
+            </div>
           )
-        }
-      </h2>
-
-      <div>
-        {
-          data.games.filter(
-            game => game.id === parseInt(props.params.id, 10)
-          ).map(
-            game => (
-              <div key={game.id}>
-                <p>{game.description}</p>
-              </div>
-            )
-          )
-        }
-      </div>
+        )
+      }
 
       <Button>
         Poprzednia
@@ -49,12 +34,8 @@ const GameProfileView = (props) => {
       <Button>
         Następna
       </Button>
-
-
     </div>
-
   )
 }
-
 
 export default GameProfileView
