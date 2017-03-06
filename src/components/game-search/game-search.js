@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 const GameSearch = ({ games, searchString, set }) => (
   <div>
-    <label htmlFor="search">Wyszukiwarka gier</label>
+    <label htmlFor="search">Wyszukiwarka gier</label>{' '}
     <input
       id="search"
       type="text"
