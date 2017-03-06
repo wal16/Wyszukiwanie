@@ -10,13 +10,12 @@ const GameProfileView = ({ games, params }) => {
     game => game.id === parseInt(params.id, 10)
   )
 
-  const prevGame = games.find(
-    game => game.id === parseInt(params.id, 10)
-  )
+  const prevGame = (
+    (currentGame.id  > 0) && (currentGame.id  <= games.length)) ?
+    (currentGame.id - 1) : ''
 
-  const nextGame = games.find(
-    game => game.id === parseInt(params.id, 10)
-  )
+  const nextGame = ((currentGame.id  > 0) && (currentGame.id  <= games.length)) ?
+    (currentGame.id + 1) : ''
 
 
   return (
@@ -35,16 +34,16 @@ const GameProfileView = ({ games, params }) => {
               <Panel header="Opis">{currentGame.description}</Panel>
             </div>
       }
-    <LinkContainer to={'/game-profile/' + prevGame}>
-      <Button>
-        Poprzednia
-      </Button>
-    </LinkContainer>
+      <LinkContainer to={'/game-profile/' + prevGame}>
+        <Button>
+          Poprzednia
+        </Button>
+      </LinkContainer>
 
       <LinkContainer to={'/game-profile/' + nextGame}>
-      <Button>
-        Następna
-      </Button>
+        <Button>
+          Następna
+        </Button>
         </LinkContainer>
     </div>
     </Grid>
