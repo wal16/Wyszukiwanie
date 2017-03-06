@@ -17,7 +17,7 @@ const GameProfileView = (props) => {
       {
             <div key={currentGame.id}>
 
-              <img src={process.env.PUBLIC_URL + '/img/scrabble.jpg'}
+              <img src={currentGame.image}
                    alt="Zdjecie gry"/>
 
               <h2>{currentGame.name}</h2>
