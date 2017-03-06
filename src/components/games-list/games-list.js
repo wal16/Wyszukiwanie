@@ -1,13 +1,13 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {Grid, PageHeader, Table, Button} from 'react-bootstrap'
+import GameSearch from '../game-search/game-search'
 
 import data from '../../data'
 
 const GamesListView = (props) => (
   <Grid>
     <PageHeader>Lista Gier<br/><small>Poniżej znajdziesz listę dostępnych u nas pozycji</small></PageHeader>
-
+    <GameSearch/>
     <Table striped>
       <thead>
       <tr>
