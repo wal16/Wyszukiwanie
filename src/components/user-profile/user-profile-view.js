@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Row, Col, Thumbnail} from 'react-bootstrap'
+import {Grid, Row, Col } from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import data from '../../data'
@@ -23,7 +23,7 @@ const UserProfileView = (props) => {
               currentUser.map(
                 user => (
                   <div key={user.id}>
-                    <img src={process.env.PUBLIC_URL}>{user.picture}</img>
+                    <img src={process.env.PUBLIC_URL + user.picture} />
                   </div>
                 )
               )
