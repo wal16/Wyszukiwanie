@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Row, Col, Thumbnail} from 'react-bootstrap'
+import {Grid, Row, Col} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import data from '../../data'
@@ -15,9 +15,9 @@ const UserProfileView = (props) => {
       <h1>Profil Użytkownika</h1>
       <Row>
         <Col xs={12} sm={4} md={4}>
-          <Thumbnail className="user--avatar" src={process.env.PUBLIC_URL + '/img/board-games-with-roles.svg'}
-                     alt="Avatar użytkownika">
-          </Thumbnail>
+          <div key={currentUser.id}>
+            <img src={process.env.PUBLIC_URL + currentUser.picture}/>
+          </div>
         </Col>
 
         <Col xs={12} sm={8} md={8}>
@@ -29,8 +29,8 @@ const UserProfileView = (props) => {
       </Row>
       <Row>
         <Col xs={12} md={12}>
-        <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
-          <Tab label="Posiadam">
+          <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
+            <Tab label="Posiadam">
               <h3>Posiadam</h3>
               <ul>
                 {
@@ -41,8 +41,8 @@ const UserProfileView = (props) => {
                   )
                 }
               </ul>
-          </Tab>
-          <Tab label="Szukam">
+            </Tab>
+            <Tab label="Szukam">
               <h3>Szukam</h3>
               <ul>
                 {
@@ -53,8 +53,8 @@ const UserProfileView = (props) => {
                   )
                 }
               </ul>
-          </Tab>
-        </Tabs>
+            </Tab>
+          </Tabs>
         </Col>
       </Row>
     </Grid>
