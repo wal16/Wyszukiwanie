@@ -5,6 +5,7 @@ export default {
       name: 'Rafał',
       surname: 'Nowak',
       about: 'Lorem Ibsem',
+      picture: '/img/board-games-with-roles.svg',
       gameList: [
           {
             id: 1,
