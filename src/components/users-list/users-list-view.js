@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router'
+import {LinkContainer} from 'react-bootstrap'
 import {Grid, Table} from 'react-bootstrap'
 import data from '../../data'
 
@@ -11,7 +13,6 @@ const UsersListView = (props) =>
         <tr>
           <th>Id</th>
           <th>Name</th>
-          <th>Surname</th>
           <th>Games</th>
           <th>Wishlist</th>
         </tr>
@@ -22,8 +23,11 @@ const UsersListView = (props) =>
             user => (
               <tr key={user.id}>
                 <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.surname}</td>
+
+                <Link to={'/user-profile/' + user.id}>
+                  <td>{user.name} {user.surname}</td>
+                </Link>
+
                 <td>
                   {
                     (user.gameList).map(
@@ -33,6 +37,7 @@ const UsersListView = (props) =>
                     )
                   }
                 </td>
+
                 <td>
                   {
                     (user.wishList).map(
