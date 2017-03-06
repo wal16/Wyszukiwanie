@@ -1,15 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router'
-import {LinkContainer} from 'react-bootstrap'
 import {Grid, Table} from 'react-bootstrap'
-import GameSearch from '../game-search/game-search'
+// import GameSearch from '../game-search/game-search'
 import data from '../../data'
 
 const UsersListView = (props) =>
   (
     <Grid>
       <h1>Lista uzytkownikow</h1>
-      /*<GameSearch/>*/
+      {/*<GameSearch/>*/}
       <Table striped>
         <thead>
         <tr>
