@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { set } from '../../state/games'
+import { search } from '../../state/games'
 
-const GameSearch = ({ games, searchString, set }) => (
+const GameSearch = ({ games, searchString, search }) => (
   <div>
     <label htmlFor="search">Wyszukiwarka gier</label>{' '}
     <input
@@ -10,7 +10,7 @@ const GameSearch = ({ games, searchString, set }) => (
       type="text"
       placeholder="Zacznij wpisywać tytuł..."
       value={searchString}
-      onChange={ (event) => set(event.target.value) }
+      onChange={ (event) => search(event.target.value) }
     />
   </div>
 )
@@ -21,6 +21,6 @@ export default connect(
     searchString: state.games.searchString
   }),
   dispatch => ({
-    set: (value) => dispatch(set(value))
+    search: (value) => dispatch(search(value))
   })
 )(GameSearch)

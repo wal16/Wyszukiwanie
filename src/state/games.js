@@ -1,9 +1,9 @@
 import data from '../data'
 
-const SET = 'game-list/SET'
+const SEARCH = 'game-list/SEARCH'
 
-export const set = (value) => ({
-  type: SET,
+export const search = (value) => ({
+  type: SEARCH,
   value
 })
 
@@ -14,7 +14,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case SET:
+    case SEARCH:
       return {
         ...state,
         searchString: action.value
