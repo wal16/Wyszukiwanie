@@ -5,7 +5,7 @@ export default {
       name: 'Rafał',
       surname: 'Nowak',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
-      picture: '/img/board-games-with-roles.svg',
+      picture: '/img/board-games-with-roles-blue.png',
       gameList: [
           {
             id: 1,
@@ -40,7 +40,7 @@ export default {
       name: 'Natalia',
       surname: 'React',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
-      picture: '/img/board-games-with-roles.svg',
+      picture: '/img/board-games-with-roles-blue.png',
       gameList: [
         {
           id: 1,
@@ -75,7 +75,7 @@ export default {
       name: 'Marta',
       surname: 'Zupa',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
-      picture: '/img/board-games-with-roles.svg',
+      picture: '/img/board-games-with-roles-blue.png',
       gameList: [
         {
           id: 1,
@@ -110,7 +110,7 @@ export default {
       name: 'Karol',
       surname: 'Wielki',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
-      picture: '/img/board-games-with-roles.svg',
+      picture: '/img/board-games-with-roles-blue.png',
       gameList: [
         {
           id: 1,
@@ -145,6 +145,7 @@ export default {
       name: 'Bartosz',
       surname: 'Wszystkowiedzacy',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
+      picture: '/img/board-games-with-roles-blue.png',
       gameList: [
         {
           id: 1,
