@@ -19,9 +19,15 @@ const UserProfileView = (props) => {
       <h1>Profil Użytkownika</h1>
       <Row>
         <Col xs={12} sm={4} md={4}>
-          <Thumbnail className="user--avatar" src={process.env.PUBLIC_URL + '/img/board-games-with-roles.svg'}
-                     alt="Avatar użytkownika">
-          </Thumbnail>
+            {
+              currentUser.map(
+                user => (
+                  <div key={user.id}>
+                    <img src={process.env.PUBLIC_URL}>{user.picture}</img>
+                  </div>
+                )
+              )
+            }
         </Col>
 
         <Col xs={12} sm={8} md={8}>
