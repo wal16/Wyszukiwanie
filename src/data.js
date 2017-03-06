@@ -5,7 +5,7 @@ export default {
       name: 'Rafał',
       surname: 'Nowak',
       about: 'Lorem Ibsem',
-      picture: '/img/board-games-with-roles.svg',
+      picture: '/img/target.png',
       gameList: [
           {
             id: 1,
@@ -40,6 +40,7 @@ export default {
       name: 'Natalia',
       surname: 'React',
       about: 'Lorem Ibsem',
+      picture: '/img/darts-game.png',
       gameList: [
         {
           id: 1,
@@ -74,6 +75,7 @@ export default {
       name: 'Marta',
       surname: 'Zupa',
       about: 'Lorem Ibsem',
+      picture: '/img/chinese-checkers.png',
       gameList: [
         {
           id: 1,
@@ -108,6 +110,7 @@ export default {
       name: 'Karol',
       surname: 'Wielki',
       about: 'Lorem Ibsem',
+      picture: '/img/game-with-hexagons.png',
       gameList: [
         {
           id: 1,
