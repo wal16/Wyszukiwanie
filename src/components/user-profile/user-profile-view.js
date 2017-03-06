@@ -6,11 +6,7 @@ import data from '../../data'
 
 const UserProfileView = (props) => {
 
-  const currentUser = data.users.filter(
-    user => user.id === parseInt(props.params.id, 10)
-  )
-
-  const currentUserGameList = data.users.find(
+  const currentUser = data.users.find(
     user => user.id === parseInt(props.params.id, 10)
   )
 
@@ -31,16 +27,10 @@ const UserProfileView = (props) => {
         </Col>
 
         <Col xs={12} sm={8} md={8}>
-          {
-            currentUser.map(
-              user => (
-                <div key={user.id}>
-                  <h3>{user.name} {user.surname}</h3>
-                  <p>{user.about}</p>
-                </div>
-              )
-            )
-          }
+          <div key={currentUser.id}>
+            <h3>{currentUser.name} {currentUser.surname}</h3>
+            <p>{currentUser.about}</p>
+          </div>
         </Col>
       </Row>
       <Row>
@@ -50,7 +40,7 @@ const UserProfileView = (props) => {
               <h3>Posiadam</h3>
               <ul>
                 {
-                  currentUserGameList.gameList.map(
+                  currentUser.gameList.map(
                     game => (
                       <li key={game.id}>{game.name}</li>
                     )
@@ -62,7 +52,7 @@ const UserProfileView = (props) => {
               <h3>Szukam</h3>
               <ul>
                 {
-                  currentUserGameList.wishList.map(
+                  currentUser.wishList.map(
                     game => (
                       <li key={game.id}>{game.name}</li>
                     )
