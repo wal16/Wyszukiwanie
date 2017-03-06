@@ -20,6 +20,11 @@ export default {
           {
             id: 3,
             name: 'Jungle Speed',
+          },
+
+          {
+          id: 4,
+            name: 'Dobble',
           }
         ],
       wishList: [
@@ -67,6 +72,11 @@ export default {
           id: 2,
           name: 'Osadnicy z Katanu',
         },
+
+        {
+          id: 3,
+          name: 'Dobble',
+        }
       ]
     },
 
