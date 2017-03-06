@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+// import { set } from '../../state/games'
 
-const GameSearch = (props) => (
+const GameSearch = ({ games, searchString, set }) => (
   <div>
     <label htmlFor="search">Wyszukiwarka gier</label>
     <input
@@ -16,6 +17,7 @@ const GameSearch = (props) => (
 export default connect(
   state => ({
     games: state.games.gamesData,
-    searchString: action.value
+    searchString: state.games.searchString
   })
+
 )(GameSearch)
