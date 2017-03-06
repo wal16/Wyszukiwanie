@@ -1,13 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import {Grid, PageHeader, Panel, Button} from 'react-bootstrap'
 
-import data from '../../data'
+const GameProfileView = ({ games, params }) => {
 
-const GameProfileView = (props) => {
-
-  const currentGame = data.games.find(
-    game => game.id === parseInt(props.params.id, 10)
+  const currentGame = games.find(
+    game => game.id === parseInt(params.id, 10)
   )
 
   return (
@@ -16,7 +15,6 @@ const GameProfileView = (props) => {
       <PageHeader>Profil gry <small>Zapoznaj się ze szczegółami wybranej pozycji</small></PageHeader>
       {
             <div key={currentGame.id}>
-
               <img src={currentGame.image}
                    alt="Zdjecie gry"/>
 
@@ -40,4 +38,8 @@ const GameProfileView = (props) => {
   )
 }
 
-export default GameProfileView
+export default connect(
+  state => ({
+    games: state.games.gamesData
+  })
+)(GameProfileView)

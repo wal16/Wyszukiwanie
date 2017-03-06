@@ -1,17 +1,12 @@
-import {createStore} from 'redux'
-import data from './data'
+import {createStore, combineReducers} from 'redux'
 
-const initialState = {
-  usersData: data.users,
-  gamesData: data.games
-}
+import gamesReducer from './state/games'
 
-const reducer = (state = initialState, action = {}) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+
+
+const reducer = combineReducers({
+  games: gamesReducer
+})
 
 const store = createStore(
   reducer,
