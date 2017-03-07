@@ -18,7 +18,6 @@ const GameProfileView = ({ games, params }) => {
     (currentGame.id <= games.length  - 1) ? (currentGame.id + 1) : (currentGame.id)
   )
 
-
   return (
     <Grid>
     <div>
