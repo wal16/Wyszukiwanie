@@ -8,6 +8,8 @@ import data from '../../data'
 const GamesListView = ({ searchString }) => (
   <Grid>
     <PageHeader>Lista Gier<br/><small>Poniżej znajdziesz listę dostępnych u nas pozycji</small></PageHeader>
+    <Button>Dodaj do posiadanych gier</Button>
+    <Button>Dodaj do wyszukiwanych gier</Button>
     <GameSearch/>
     <Table striped>
       <thead>
