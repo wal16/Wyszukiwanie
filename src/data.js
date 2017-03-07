@@ -6,38 +6,8 @@ export default {
       surname: 'Nowak',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
       picture: '/img/board-games-with-roles-blue.png',
-      gameList: [
-          {
-            id: 1,
-            name: 'Scrabble',
-          },
-
-          {
-            id: 2,
-            name: 'Warcaby',
-          },
-
-          {
-            id: 3,
-            name: 'Jungle Speed',
-          },
-
-          {
-          id: 4,
-            name: 'Dobble',
-          }
-        ],
-      wishList: [
-        {
-          id: 1,
-          name: 'Monopoly',
-        },
-
-        {
-          id: 2,
-          name: 'Osadnicy z Katanu',
-        },
-      ]
+      gameList: [1,2,3,4],
+      wishList: [1,2]
     },
 
     {
@@ -46,38 +16,8 @@ export default {
       surname: 'React',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
       picture: '/img/board-games-with-roles-blue.png',
-      gameList: [
-        {
-          id: 1,
-          name: 'Scrabble',
-        },
-
-        {
-          id: 2,
-          name: 'Warcaby',
-        },
-
-        {
-          id: 3,
-          name: 'Jungle Speed',
-        }
-      ],
-      wishList: [
-        {
-          id: 1,
-          name: 'Monopoly',
-        },
-
-        {
-          id: 2,
-          name: 'Osadnicy z Katanu',
-        },
-
-        {
-          id: 3,
-          name: 'Dobble',
-        }
-      ]
+      gameList: [],
+      wishList: []
     },
 
     {
@@ -86,33 +26,8 @@ export default {
       surname: 'Zupa',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
       picture: '/img/board-games-with-roles-blue.png',
-      gameList: [
-        {
-          id: 1,
-          name: 'Scrabble',
-        },
-
-        {
-          id: 2,
-          name: 'Warcaby',
-        },
-
-        {
-          id: 3,
-          name: 'Jungle Speed',
-        }
-      ],
-      wishList: [
-        {
-          id: 1,
-          name: 'Monopoly',
-        },
-
-        {
-          id: 2,
-          name: 'Osadnicy z Katanu',
-        },
-      ]
+      gameList: [],
+      wishList: []
     },
 
     {
@@ -121,33 +36,8 @@ export default {
       surname: 'Wielki',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
       picture: '/img/board-games-with-roles-blue.png',
-      gameList: [
-        {
-          id: 1,
-          name: 'Scrabble',
-        },
-
-        {
-          id: 2,
-          name: 'Warcaby',
-        },
-
-        {
-          id: 3,
-          name: 'Jungle Speed',
-        }
-      ],
-      wishList: [
-        {
-          id: 1,
-          name: 'Monopoly',
-        },
-
-        {
-          id: 2,
-          name: 'Osadnicy z Katanu',
-        },
-      ]
+      gameList: [],
+      wishList: []
     },
 
     {
@@ -156,33 +46,8 @@ export default {
       surname: 'Wszystkowiedzacy',
       about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet libero ex. Aliquam blandit erat vitae congue iaculis. Sed commodo ut justo sed cursus. Nullam blandit neque vitae metus consectetur posuere ac ac eros. Maecenas lobortis blandit purus, ut placerat ante sollicitudin id. Aliquam euismod dolor lectus, vitae pretium diam facilisis in. Morbi et massa tellus.',
       picture: '/img/board-games-with-roles-blue.png',
-      gameList: [
-        {
-          id: 1,
-          name: 'Scrabble',
-        },
-
-        {
-          id: 2,
-          name: 'Warcaby',
-        },
-
-        {
-          id: 3,
-          name: 'Jungle Speed',
-        }
-      ],
-      wishList: [
-        {
-          id: 1,
-          name: 'Monopoly',
-        },
-
-        {
-          id: 2,
-          name: 'Osadnicy z Katanu',
-        },
-      ]
+      gameList: [],
+      wishList: []
     },
   ],
 

@@ -24,7 +24,7 @@ ReactDOM.render(
           <Route path="/games-list" component={GamesListView}/>
           <Route path="/game-profile/:id" component={GameProfileView}/>
           <Route path="/users-list" component={UsersListView}/>
-          <Route path="/user-profile/:id" component={UserProfileView}/>
+          <Route path="/user-profile/:userId" component={UserProfileView}/>
         </Route>
       </Router>
     </Provider>

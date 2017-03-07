@@ -1,13 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
 import {Grid, Row, Col} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import data from '../../data'
 
-const UserProfileView = (props) => {
+const UserProfileView = ({ gameList, games, params: {userId}, users }) => {
 
   const currentUser = data.users.find(
-    user => user.id === parseInt(props.params.id, 10)
+    user => user.id === parseInt(userId, 10)
   )
 
   return (
@@ -33,12 +35,24 @@ const UserProfileView = (props) => {
             <Tab label="Posiadam">
               <h3>Posiadam</h3>
               <ul>
+
                 {
+                  currentUser.gameList ?
                   currentUser.gameList.map(
                     game => (
-                      <li key={game.id}>{game.name}</li>
+                      <li key={gameList}>
+                        <Link to={'/games/' + gameList}>
+                          {
+                            games.data.filter(
+                              game => game.id === gameList
+                            ).map(
+                              game => game.name
+                            )
+                          }
+                        </Link>
+                      </li>
                     )
-                  )
+                  ) : null
                 }
               </ul>
             </Tab>
@@ -60,4 +74,8 @@ const UserProfileView = (props) => {
     </Grid>
   )
 }
-export default UserProfileView
+export default connect (
+  state => ({
+    games: state.games
+  })
+)(UserProfileView)
