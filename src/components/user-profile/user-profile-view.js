@@ -9,7 +9,7 @@ class UserProfileView extends React.Component {
       users,
       params
     } = this.props
-    const currentUser = users.find(
+    const currentUser = users.data.users.find(
       user => user.id === parseInt(params.id, 10)
     )
 
