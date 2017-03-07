@@ -10,7 +10,6 @@ export const search = (value) => ({
 const initialState = {
   gamesData: data.games,
   searchString: '',
-  searchResults: []
 }
 
 export default (state = initialState, action = {}) => {
@@ -18,10 +17,7 @@ export default (state = initialState, action = {}) => {
     case SEARCH:
       return {
         ...state,
-        searchString: action.value,
-        searchResults: initialState.gamesData.filter(
-          game => game.name.includes(action.value)
-          )
+        searchString: action.value
       }
 
     default:

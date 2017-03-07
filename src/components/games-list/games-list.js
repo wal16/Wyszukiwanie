@@ -1,10 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {Grid, PageHeader, Table, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
 import data from '../../data'
 
-const GamesListView = (props) => (
+const GamesListView = ({ searchString }) => (
   <Grid>
     <PageHeader>Lista Gier<br/><small>Poniżej znajdziesz listę dostępnych u nas pozycji</small></PageHeader>
     <GameSearch/>
@@ -19,7 +20,9 @@ const GamesListView = (props) => (
       </thead>
       <tbody>
       {
-        data.games.map(
+        data.games.filter(
+          game => game.name.includes(searchString)
+        ).map(
           game => (
             <tr key={game.id}>
               <td>{game.id}</td>
@@ -35,4 +38,9 @@ const GamesListView = (props) => (
   </Grid>
 )
 
-export default GamesListView
+export default connect(
+  state => ({
+    games: state.games.gamesData,
+    searchString: state.games.searchString
+  })
+)(GamesListView)
