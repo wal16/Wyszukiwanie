@@ -11,11 +11,12 @@ const GameProfileView = ({ games, params }) => {
   )
 
   const prevGame = (
-    (currentGame.id  > 0) && (currentGame.id  <= games.length)) ?
-    (currentGame.id - 1) : ''
+    (currentGame.id  > 1) ? (currentGame.id - 1) : (currentGame.id)
+  )
 
-  const nextGame = ((currentGame.id  > 0) && (currentGame.id  <= games.length)) ?
-    (currentGame.id + 1) : ''
+  const nextGame = (
+    (currentGame.id <= games.length  - 1) ? (currentGame.id + 1) : (currentGame.id)
+  )
 
 
   return (
