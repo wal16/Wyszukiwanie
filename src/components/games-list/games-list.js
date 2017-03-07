@@ -12,7 +12,6 @@ const GamesListView = (props) => (
       <thead>
       <tr>
         <th>Id</th>
-        <th>Miniatura</th>
         <th>Nazwa gry</th>
         <th>Liczba graczy</th>
       </tr>
@@ -23,7 +22,6 @@ const GamesListView = (props) => (
           game => (
             <tr key={game.id}>
               <td>{game.id}</td>
-              <td>{game.image}</td>
               <td>{game.name}</td>
               <td>{game.players}</td>
             </tr>
