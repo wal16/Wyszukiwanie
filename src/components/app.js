@@ -13,7 +13,7 @@ class App extends React.Component {
     return (
       <div>
         <Nav/>
-        {props.children}
+        {this.props.children}
       </div>
     )
   }

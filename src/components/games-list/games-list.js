@@ -41,7 +41,7 @@ class GamesListView extends React.component {
 
 export default connect(
   state => ({
-    games: state.data
+
   }),
   dispatch => ({})
 )(GamesListView)
