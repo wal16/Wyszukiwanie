@@ -2,33 +2,46 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Grid, PageHeader, Table, Button} from 'react-bootstrap'
 
-const GamesListView = (props) => (
-  <Grid>
-    <PageHeader>Lista Gier<br/><small>Poniżej znajdziesz listę dostępnych u nas pozycji</small></PageHeader>
+import {fetchGames} from '/../state/games'
 
-    <Table striped>
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Nazwa gry</th>
-        <th>Liczba graczy</th>
-      </tr>
-      </thead>
-      <tbody>
-      {
-        data.games.map(
-          game => (
-            <tr key={game.id}>
-              <td>{game.id}</td>
-              <td>{game.name}</td>
-              <td>{game.players}</td>
-            </tr>
-          )
-        )
-      }
-      </tbody>
-    </Table>
-  </Grid>
-)
+class GamesListView extends React.component {
+  render() {
+    return (
+      <Grid>
+        <PageHeader>Lista Gier<br/>
+          <small>Poniżej znajdziesz listę dostępnych u nas pozycji</small>
+        </PageHeader>
 
-export default GamesListView
+        <Table striped>
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nazwa gry</th>
+            <th>Liczba graczy</th>
+          </tr>
+          </thead>
+          <tbody>
+          {
+            data.games.map(
+              game => (
+                <tr key={game.id}>
+                  <td>{game.id}</td>
+                  <td>{game.name}</td>
+                  <td>{game.players}</td>
+                </tr>
+              )
+            )
+          }
+          </tbody>
+        </Table>
+      </Grid>
+    )
+  }
+}
+
+export default connect(
+  state => ({
+    games: state.data
+  }),
+  dispatch => ({})
+)(GamesListView)
