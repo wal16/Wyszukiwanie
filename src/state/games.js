@@ -20,7 +20,7 @@ export default (state = initialState, action = {}) => {
         ...state,
         searchString: action.value,
         searchResults: initialState.gamesData.filter(
-          game => game.name.includes(action.value)
+          game => (game.name.toLowerCase()).includes((action.value).toLowerCase())
           )
       }
 
