@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {LinkContainer} from 'react-router-bootstrap'
 
 import {Grid, PageHeader, Panel, Button} from 'react-bootstrap'
 
@@ -7,6 +8,14 @@ const GameProfileView = ({ games, params }) => {
 
   const currentGame = games.find(
     game => game.id === parseInt(params.id, 10)
+  )
+
+  const prevGame = (
+    (currentGame.id  > 1) ? (currentGame.id - 1) : (currentGame.id)
+  )
+
+  const nextGame = (
+    (currentGame.id <= games.length  - 1) ? (currentGame.id + 1) : (currentGame.id)
   )
 
   return (
@@ -25,14 +34,17 @@ const GameProfileView = ({ games, params }) => {
               <Panel header="Opis">{currentGame.description}</Panel>
             </div>
       }
+      <LinkContainer to={'/game-profile/' + prevGame}>
+        <Button>
+          Poprzednia
+        </Button>
+      </LinkContainer>
 
-      <Button>
-        Poprzednia
-      </Button>
-
-      <Button>
-        Następna
-      </Button>
+      <LinkContainer to={'/game-profile/' + nextGame}>
+        <Button>
+          Następna
+        </Button>
+        </LinkContainer>
     </div>
     </Grid>
   )
