@@ -1,6 +1,7 @@
 import {createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import gamesReducer from './state/games'
 import thunk from 'redux-thunk'
+
+import gamesReducer from './state/games'
 
 const reducer = combineReducers({
   games: gamesReducer
