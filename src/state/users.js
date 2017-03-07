@@ -1,11 +1,11 @@
-const FETCH__BEGIN = 'games/FETCH__BEGIN'
-const FETCH__SUCCESS = 'games/FETCH__SUCCESS'
-const FETCH__FAIL = 'games/FETCH__FAILED'
+const FETCH__BEGIN = 'users/FETCH__BEGIN'
+const FETCH__SUCCESS = 'users/FETCH__SUCCESS'
+const FETCH__FAIL = 'users/FETCH__FAILED'
 
-export const fetchGames = () => dispatch => {
+export const fetchUsers = () => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    process.env.PUBLIC_URL + '/data/games.json'
+    process.env.PUBLIC_URL + '/data/users.json'
   ).then(
     response => {
       if (response.ok) {

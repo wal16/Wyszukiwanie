@@ -2,10 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Grid, PageHeader, Table, Button} from 'react-bootstrap'
 
-import {fetchGames} from '/../state/games'
 
-class GamesListView extends React.component {
+class GamesListView extends React.Component {
   render() {
+    const {
+      games
+    } = this.props
+
     return (
       <Grid>
         <PageHeader>Lista Gier<br/>
@@ -22,7 +25,7 @@ class GamesListView extends React.component {
           </thead>
           <tbody>
           {
-            data.games.map(
+            games.map(
               game => (
                 <tr key={game.id}>
                   <td>{game.id}</td>
@@ -41,7 +44,7 @@ class GamesListView extends React.component {
 
 export default connect(
   state => ({
-
+    games: state.games
   }),
   dispatch => ({})
 )(GamesListView)

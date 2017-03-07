@@ -53,6 +53,6 @@ const GameProfileView = ({ games, params }) => {
 
 export default connect(
   state => ({
-    games: state.games.gamesData
+    games: state.games
   })
 )(GameProfileView)
