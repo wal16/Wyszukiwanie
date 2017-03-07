@@ -43,7 +43,7 @@ const UserProfileView = ({ gameList, games, params: {userId}, users }) => {
                       <li key={gameList}>
                         <Link to={'/games/' + gameList}>
                           {
-                            games.data.filter(
+                            games.gamesData.filter(
                               game => game.id === gameList
                             ).map(
                               game => game.name
