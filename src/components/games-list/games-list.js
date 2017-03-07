@@ -21,7 +21,7 @@ const GamesListView = ({ searchString }) => (
       <tbody>
       {
         data.games.filter(
-          game => game.name.includes(searchString)
+          game => (game.name.toLowerCase()).includes(searchString)
         ).map(
           game => (
             <tr key={game.id}>

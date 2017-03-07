@@ -17,7 +17,7 @@ export default (state = initialState, action = {}) => {
     case SEARCH:
       return {
         ...state,
-        searchString: action.value
+        searchString: action.value.toLowerCase()
       }
 
     default:
