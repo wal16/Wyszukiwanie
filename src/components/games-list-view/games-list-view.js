@@ -41,8 +41,8 @@ export default connect(
 
       return (
         <Grid>
-          <PageHeader>Lista Gier<br/>
-            <small>Poniżej znajdziesz listę dostępnych u nas pozycji</small>
+          <PageHeader>Lista gier<br/>
+            <small>Poniżej znajdziesz listę dostępnych planszówek</small>
           </PageHeader>
 
           <Panel>
@@ -59,7 +59,7 @@ export default connect(
                 <Table striped>
                   <thead>
                   <tr>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Miniatura</th>
                     <th>Nazwa gry</th>
                     <th>Liczba graczy</th>

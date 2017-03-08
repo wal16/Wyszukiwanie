@@ -4,57 +4,57 @@ import {Link} from 'react-router'
 import {Grid, Table} from 'react-bootstrap'
 
 class UsersListView extends React.Component {
-  render () {
+  render() {
     const {
       users
     } = this.props
 
     return (
       <Grid>
-        <h1>Lista uzytkownikow</h1>
+        <h1>Lista użytkowników</h1>
         <Table striped>
           <thead>
           <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Games</th>
-            <th>Wishlist</th>
+            <th>ID</th>
+            <th>Imię i nazwisko</th>
+            <th>Posiadane gry</th>
+            <th>Lista życzeń</th>
           </tr>
           </thead>
           <tbody>
           {
             users.data ?
               users.data.map(
-              user => (
-                <tr key={user.id}>
-                  <td>{user.id}</td>
-                  <Link to={'/user-profile/' + user.id}>
-                  <td>{user.name}</td>
-                  <td>{user.surname}</td>
-                  </Link>
-                  <td>
-                    {
-                      (user.gameList).map(
-                        game => (
-                          <li>{game.name}</li>
+                user => (
+                  <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>
+                      <Link to={'/user-profile/' + user.id}>
+                        {user.name} {user.surname}
+                      </Link>
+                    </td>
+                    <td>
+                      {
+                        (user.gameList).map(
+                          game => (
+                            <li key={game.id}>{game.name}</li>
+                          )
                         )
-                      )
-                    }
-                  </td>
-                  <td>
-                    {
-                      (user.wishList).map(
-                        game => (
-                          <li>{game.name}</li>
+                      }
+                    </td>
+                    <td>
+                      {
+                        (user.wishList).map(
+                          game => (
+                            <li key={game.id}>{game.name}</li>
+                          )
                         )
-                      )
-                    }
-                  </td>
-                </tr>
+                      }
+                    </td>
+                  </tr>
+                )
               )
-            )
-              : <p>Waiting for users data..</p>
+              : <tr><td colSpan="4">Oczekiwanie na dane użytkowników...</td></tr>
           }
           </tbody>
         </Table>
