@@ -8,7 +8,7 @@ import { fetchUsers } from '../state/users'
 class App extends React.Component {
 
   componentWillMount() {
-    this.props.fetchGamesHelper(),
+    this.props.fetchGamesHelper()
     this.props.fetchUsersHelper()
   }
   render() {

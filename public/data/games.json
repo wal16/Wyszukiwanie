@@ -1,5 +1,4 @@
-{
-  "games": [
+[
     {
       "id": 1,
       "name": "Scrabble",
@@ -36,4 +35,3 @@
       "image": "/img/games-images/catan.png"
     }
   ]
-}
