@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Grid, PageHeader, Table} from 'react-bootstrap'
 
-import { fetchGames } from '../../state/games'
+import {fetchGames} from '../../state/games'
 
 export default connect(
   state => ({
@@ -14,7 +14,7 @@ export default connect(
 )(
   class GamesListView extends React.Component {
     render() {
-      const { games } = this.props
+      const {games} = this.props
 
       return (
         <Grid>
@@ -42,7 +42,7 @@ export default connect(
                     </tr>
                   )
                 ) : <tr>
-                <td>Waiting for games data... </td>
+                <td>Waiting for games data...</td>
               </tr>
             }
             </tbody>

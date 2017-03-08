@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Grid, Row, Col} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
-import { fetchUsers } from '../../state/users'
+import {fetchUsers} from '../../state/users'
 
 
 export default connect(
@@ -15,7 +15,7 @@ export default connect(
   })
 )(
   class UserProfileView extends React.Component {
-    render () {
+    render() {
       const {
         users,
         params
@@ -25,7 +25,7 @@ export default connect(
         users.data ?
           users.data.find(
             user => user.id === parseInt(params.id, 10))
-            : <p>Waiting for users data..</p>
+          : <p>Waiting for users data..</p>
 
       return (
         <Grid>
@@ -55,8 +55,8 @@ export default connect(
                         currentUser.gameList.map(
                           game => (
                             <li key={game.id}>{game.name}</li>
+                          )
                         )
-                      )
                         : <p>Waiting for users data..</p>
                     }
                   </ul>
@@ -68,9 +68,9 @@ export default connect(
                       currentUser.id ?
                         currentUser.wishList.map(
                           game => (
-                          <li key={game.id}>{game.name}</li>
+                            <li key={game.id}>{game.name}</li>
+                          )
                         )
-                      )
                         : <p>Waiting for users data..</p>
                     }
                   </ul>
