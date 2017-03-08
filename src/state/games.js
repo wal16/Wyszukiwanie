@@ -1,6 +1,15 @@
+import data from '../data'
+
 const FETCH__BEGIN = 'games/FETCH__BEGIN'
 const FETCH__SUCCESS = 'games/FETCH__SUCCESS'
 const FETCH__FAIL = 'games/FETCH__FAILED'
+
+const SET = 'game-list/SET'
+
+export const set = (value) => ({
+  type: SET,
+  value
+})
 
 export const fetchGames = () => dispatch => {
   dispatch({ type: FETCH__BEGIN })
@@ -35,6 +44,8 @@ const initialState = {
   data: null,
   fetching: false,
   error: null
+  gamesData: data.games,
+  searchString: ''
 }
 
 export default (state = initialState, action = {}) => {
@@ -56,6 +67,11 @@ export default (state = initialState, action = {}) => {
         ...state,
         fetching: false,
         error: action.error
+      }
+    case SET:
+      return {
+        ...state,
+        searchString: action.value
       }
     default:
       return state

@@ -4,8 +4,6 @@ import thunk from 'redux-thunk'
 import gamesReducer from './state/games'
 import usersReducer from './state/users'
 
-
-
 const reducer = combineReducers({
   games: gamesReducer,
   users: usersReducer
