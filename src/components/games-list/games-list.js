@@ -55,7 +55,6 @@ const GamesListView = ({searchString}) => {
     </Grid>
   )
 }
-//TODO: FD6SL-148 poprawić ten ternary powyżej, bo nie działa
 export default connect(
   state => ({
     games: state.games.gamesData,
