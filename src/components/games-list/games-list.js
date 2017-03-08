@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Grid, PageHeader, Table, Button, Alert} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Button, Alert, Panel} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
 import data from '../../data'
@@ -27,22 +27,29 @@ const GamesListView = ({searchString}) => {
       <PageHeader>Lista Gier<br/>
         <small>Poniżej znajdziesz listę dostępnych u nas pozycji</small>
       </PageHeader>
-      <Button>Dodaj do posiadanych gier</Button>
-      <Button>Dodaj do wyszukiwanych gier</Button>
-      <GameSearch/>
+
+      <Panel>
+        <Button>Dodaj do posiadanych gier</Button>
+        <Button>Dodaj do wyszukiwanych gier</Button>
+      </Panel>
+
+      <Panel>
+        <GameSearch/>
+      </Panel>
       {
         searchResults.length !== 0 ? (
           <Table striped>
             <thead>
-            <tr>
-              <th>Id</th>
-              <th>Miniatura</th>
-              <th>Nazwa gry</th>
-              <th>Liczba graczy</th>
-            </tr>
+              <tr>
+                <th>Id</th>
+                <th>Miniatura</th>
+                <th>Nazwa gry</th>
+                <th>Liczba graczy</th>
+              </tr>
             </thead>
+
             <tbody>
-            {searchResults}
+              {searchResults}
             </tbody>
           </Table>
         ) :
