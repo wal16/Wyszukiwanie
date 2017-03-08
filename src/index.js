@@ -12,8 +12,8 @@ import App from './components/app'
 import GamesListView from './components/games-list/games-list'
 import GameProfileView from './components/game-profile/game-profile'
 
-import UsersListView from './components/users-list/users-list-view'
-import UserProfileView from './components/user-profile/user-profile-view'
+import UsersListView from './components/users-list-view/users-list-view'
+import UserProfileView from './components/user-profile-view/user-profile-view'
 
 
 ReactDOM.render(
