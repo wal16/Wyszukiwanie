@@ -25,12 +25,18 @@ const GamesListView = ({ searchString }) => (
         data.games.filter(
           game => (game.name.toLowerCase()).includes(searchString.toLowerCase())
         ).map(
-          game => (
+          game => game ? (
             <tr key={game.id}>
               <td>{game.id}</td>
               <td>{game.image}</td>
               <td>{game.name}</td>
               <td>{game.players}</td>
+            </tr>
+          ) : (
+            <tr>
+              <td>
+                Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
+              </td>
             </tr>
           )
         )
@@ -39,7 +45,7 @@ const GamesListView = ({ searchString }) => (
     </Table>
   </Grid>
 )
-
+//TODO: FD6SL-148 poprawić ten ternary powyżej, bo nie działa
 export default connect(
   state => ({
     games: state.games.gamesData,
