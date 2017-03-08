@@ -18,17 +18,20 @@ export default connect(
   class UserProfileView extends React.Component {
     render() {
       const {
-        gameList,
-        games,
-        params: {userId},
+        params,
         users
       } = this.props
 
       const currentUser =
         users.data ?
           users.data.find(
-            user => user.id === parseInt(params.id, 10))
-          : <p>Waiting for games data..</p>
+            user => user.id === parseInt(params.userId, 10)
+          ) : null
+
+      if (currentUser === null) {
+        return <p>Waiting for users data...</p>
+      }
+
 
       return (
         <Grid>
