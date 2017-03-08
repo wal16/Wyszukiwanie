@@ -25,7 +25,7 @@ export default connect(
         users.data ?
           users.data.find(
             user => user.id === parseInt(params.id, 10))
-          : <p>Waiting for users data..</p>
+          : <p>Waiting for games data..</p>
 
       return (
         <Grid>

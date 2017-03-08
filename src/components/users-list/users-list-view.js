@@ -24,7 +24,8 @@ class UsersListView extends React.Component {
           </thead>
           <tbody>
           {
-            users.map(
+            users.data ?
+              users.data.map(
               user => (
                 <tr key={user.id}>
                   <td>{user.id}</td>
@@ -53,6 +54,7 @@ class UsersListView extends React.Component {
                 </tr>
               )
             )
+              : <p>Waiting for users data..</p>
           }
           </tbody>
         </Table>

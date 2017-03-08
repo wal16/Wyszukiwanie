@@ -1,5 +1,3 @@
-import data from '../data'
-
 const FETCH__BEGIN = 'games/FETCH__BEGIN'
 const FETCH__SUCCESS = 'games/FETCH__SUCCESS'
 const FETCH__FAIL = 'games/FETCH__FAILED'
@@ -43,8 +41,8 @@ export const fetchGames = () => dispatch => {
 const initialState = {
   data: null,
   fetching: false,
-  error: null
-  gamesData: data.games,
+  error: null,
+  gamesData: null,
   searchString: ''
 }
 
