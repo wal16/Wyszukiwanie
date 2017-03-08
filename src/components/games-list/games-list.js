@@ -42,7 +42,7 @@ export default connect(
                     </tr>
                   )
                 ) : <tr>
-                <td>Waiting for data... </td>
+                <td>Waiting for games data... </td>
               </tr>
             }
             </tbody>
