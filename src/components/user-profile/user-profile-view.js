@@ -19,7 +19,7 @@ const UserProfileView = ({ gameList, games, params: {userId}, users }) => {
         <Col xs={12} sm={4} md={4}>
           <div key={currentUser.id}>
             <img
-              alt={"Awatar użytkownika" + ' ' + currentUser.name}
+              alt={"Awatar użytkownika " + currentUser.name}
               src={process.env.PUBLIC_URL + currentUser.picture}
             />
           </div>
