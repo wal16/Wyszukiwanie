@@ -38,7 +38,11 @@ class UsersListView extends React.Component {
                       {
                         (user.gameList).map(
                           game => (
-                            <li key={game.id}>{game.name}</li>
+                            <li key={game.id}>
+                              <Link to={'/game-profile/' + game.id}>
+                              {game.name}
+                            </Link>
+                            </li>
                           )
                         )
                       }
@@ -47,7 +51,11 @@ class UsersListView extends React.Component {
                       {
                         (user.wishList).map(
                           game => (
-                            <li key={game.id}>{game.name}</li>
+                            <li key={game.id}>
+                              <Link to={'/game-profile/' + game.id}>
+                              {game.name}
+                            </Link>
+                            </li>
                           )
                         )
                       }
