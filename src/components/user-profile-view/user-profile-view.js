@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import {Grid, Row, Col} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
+import {Link} from 'react-router'
+
 import {fetchUsers} from '../../state/users'
 
 
@@ -63,7 +65,11 @@ export default connect(
                       currentUser.id ?
                         currentUser.gameList.map(
                           game => (
-                            <li key={game.id}>{game.name}</li>
+                            <li>
+                              <Link to={'/game-profile/' + game.id}>
+                                {game.name}
+                                </Link>
+                            </li>
                           )
                         )
                         : <p>Waiting for users data..</p>
@@ -77,7 +83,11 @@ export default connect(
                       currentUser.id ?
                         currentUser.wishList.map(
                           game => (
-                            <li key={game.id}>{game.name}</li>
+                            <li>
+                              <Link to={'/game-profile/' + game.id}>
+                                {game.name}
+                                </Link>
+                            </li>
                           )
                         )
                         : <p>Waiting for users data..</p>
