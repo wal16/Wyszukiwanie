@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import {Grid, Row, Col, Panel, } from 'react-bootstrap'
+import {Grid, Row, Col, Panel, PageHeader } from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import {fetchUsers} from '../../state/users'
@@ -35,15 +35,18 @@ export default connect(
 
       return (
         <Grid>
-          <h1>Profil Użytkownika</h1>
+          <PageHeader>Profil Użytkownika<br/>
+          </PageHeader>
           <Row>
             <Col xs={12} sm={4} md={4}>
+          <Panel>
               <div key={currentUser.id}>
                 <img
                   src={process.env.PUBLIC_URL + currentUser.picture}
                   alt={"Awatar użytkownika " + currentUser.name}
                 />
               </div>
+          </Panel>
             </Col>
 
             <Col xs={12} sm={8} md={8}>

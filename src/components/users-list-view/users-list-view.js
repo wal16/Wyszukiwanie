@@ -7,7 +7,7 @@ class UsersListView extends React.Component {
   render() {
     const {
       users,
-      games,
+      game,
     } = this.props
 
     return (
@@ -31,7 +31,7 @@ class UsersListView extends React.Component {
                     <td>{user.id}</td>
                     <td>
                       <Link to={'/user-profile/' + user.id}>
-                        {user.name} {user.surname}
+                        {user.name}
                       </Link>
                     </td>
                     <td>
