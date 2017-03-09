@@ -1,10 +1,8 @@
 import React from 'react'
-//import { Link } from 'react-router'
-import {connect} from 'react-redux'
-import {Grid, Row, Col, Panel} from 'react-bootstrap'
-import {Tabs, Tab} from 'react-bootstrap-tabs';
-
 import {Link} from 'react-router'
+import {connect} from 'react-redux'
+import {Grid, Row, Col, Panel, } from 'react-bootstrap'
+import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import {fetchUsers} from '../../state/users'
 
@@ -58,7 +56,7 @@ export default connect(
           <Row>
             <Col xs={12} md={12}>
               <Panel>
-                <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
+                <Tabs id="noanim-tab-example">
                   <Tab label="Posiadam">
                     <h3>Posiadam</h3>
                     <ul>
