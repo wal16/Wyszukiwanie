@@ -26,7 +26,6 @@ export default connect(
             game => (
               <tr key={game.id}>
                 <td>{game.id}</td>
-                <td>{game.image}</td>
                 <td>{game.name}</td>
                 <td>{game.players}</td>
               </tr>
@@ -38,7 +37,6 @@ export default connect(
             </tr>
           )
       )
-
       return (
         <Grid>
           <PageHeader>Lista gier<br/>
@@ -55,21 +53,19 @@ export default connect(
           </Panel>
           {
             searchResults.length !== 0 ? (
-
-                <Table striped>
-                  <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Miniatura</th>
-                    <th>Nazwa gry</th>
-                    <th>Liczba graczy</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {searchResults}
-                  </tbody>
-                </Table>
-              ) :
+              <Table striped>
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nazwa gry</th>
+                  <th>Liczba graczy</th>
+                </tr>
+                </thead>
+                <tbody>
+                {searchResults}
+                </tbody>
+              </Table>
+            ) :
               (
                 <Alert bsStyle="warning">
                   Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...

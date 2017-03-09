@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Nav, NavItem, } from 'react-bootstrap'
+import {Navbar, Nav, NavItem,} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 
@@ -20,10 +20,7 @@ const NavComponent = () => (
           <LinkContainer to="/games-list">
             <NavItem eventKey={1}>Lista gier</NavItem>
           </LinkContainer>
-          <LinkContainer to="/game-profile">
-            <NavItem eventKey={1}>Karta gry</NavItem>
-          </LinkContainer>
-                    <LinkContainer to="/users-list">
+          <LinkContainer to="/users-list">
             <NavItem eventKey={2}>Użytkownicy</NavItem>
           </LinkContainer>
           <LinkContainer to="/user-profile">
