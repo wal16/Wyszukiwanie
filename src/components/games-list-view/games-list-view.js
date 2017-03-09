@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import {Grid, PageHeader, Table, Button, Alert, Panel} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
@@ -26,7 +27,11 @@ export default connect(
             game => (
               <tr key={game.id}>
                 <td>{game.id}</td>
-                <td>{game.name}</td>
+                <td>
+                  <Link to={'game-profile/' + game.id}>
+                    {game.name}
+                  </Link>
+                </td>
                 <td>{game.players}</td>
               </tr>
             )
