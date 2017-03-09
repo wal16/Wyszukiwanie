@@ -21,19 +21,23 @@ export default connect(
         params
       } = this.props
 
-      const currentGame =
-        games.data ?
-          games.data.find(
-            game => game.id === parseInt(params.id, 10))
-          : <p>Waiting for games data...</p>
+
+      if (games.data === null) {
+      return <p>Waiting for games...</p>
+      }
+
+      const currentGame = games.data.find(
+            game => game.id === parseInt(params.gameId, 10))
 
       const prevGame = (
-        (currentGame.id > 1) ? (currentGame.id - 1) : (currentGame.id)
+        (currentGame.id > 1) ? (currentGame.id - 1) : (games.data.length)
       )
 
       const nextGame = (
-        (currentGame.id <= games.length - 1) ? (currentGame.id + 1) : (currentGame.id)
+        (currentGame.id <= games.data.length - 1) ? (currentGame.id + 1) : (1)
       )
+
+
 
       return (
         <Grid>
