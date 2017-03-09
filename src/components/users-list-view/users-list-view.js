@@ -6,7 +6,8 @@ import {Grid, Table} from 'react-bootstrap'
 class UsersListView extends React.Component {
   render() {
     const {
-      users
+      users,
+      games,
     } = this.props
 
     return (
@@ -65,7 +66,8 @@ class UsersListView extends React.Component {
 
 export default connect(
   state => ({
-    users: state.users
+    users: state.users,
+    games: state.games
   }),
   dispatch => ({})
 )(UsersListView)
