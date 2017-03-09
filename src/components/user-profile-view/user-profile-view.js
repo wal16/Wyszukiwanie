@@ -1,7 +1,7 @@
 import React from 'react'
 //import { Link } from 'react-router'
-import { connect } from 'react-redux'
-import {Grid, Row, Col} from 'react-bootstrap'
+import {connect} from 'react-redux'
+import {Grid, Row, Col, Panel} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import {Link} from 'react-router'
@@ -57,44 +57,47 @@ export default connect(
           </Row>
           <Row>
             <Col xs={12} md={12}>
-              <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
-                <Tab label="Posiadam">
-                  <h3>Posiadam</h3>
-                  <ul>
-                    {
-                      currentUser.id ?
-                        currentUser.gameList.map(
-                          game => (
-                            <li>
-                              <Link to={'/game-profile/' + game.id}>
-                                {game.name}
+              <Panel>
+                <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
+                  <Tab label="Posiadam">
+                    <h3>Posiadam</h3>
+                    <ul>
+                      {
+                        currentUser.id ?
+                          currentUser.gameList.map(
+                            game => (
+                              <li>
+                                <Link to={'/game-profile/' + game.id}>
+                                  {game.name}
                                 </Link>
-                            </li>
+                              </li>
+                            )
                           )
-                        )
-                        : <p>Waiting for users data..</p>
-                    }
-                  </ul>
-                </Tab>
-                <Tab label="Szukam">
-                  <h3>Szukam</h3>
-                  <ul>
-                    {
-                      currentUser.id ?
-                        currentUser.wishList.map(
-                          game => (
-                            <li>
-                              <Link to={'/game-profile/' + game.id}>
-                                {game.name}
+                          : <p>Waiting for users data..</p>
+                      }
+                    </ul>
+                  </Tab>
+                  <Tab label="Szukam">
+                    <h3>Szukam</h3>
+                    <ul>
+                      {
+                        currentUser.id ?
+                          currentUser.wishList.map(
+                            game => (
+                              <li>
+                                <Link to={'/game-profile/' + game.id}>
+                                  {game.name}
                                 </Link>
-                            </li>
+                              </li>
+                            )
                           )
-                        )
-                        : <p>Waiting for users data..</p>
-                    }
-                  </ul>
-                </Tab>
-              </Tabs>
+                          : <p>Waiting for users data..</p>
+                      }
+
+                    </ul>
+                  </Tab>
+                </Tabs>
+              </Panel>
             </Col>
           </Row>
         </Grid>
