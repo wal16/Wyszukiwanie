@@ -86,7 +86,7 @@ export default connect(
                           currentUser.wishList.map(
                             game => (
                               <li>
-                                <Link to={'/game-profile/' + game.id}>
+                                <Link to={'/game-profile/' + game.name}>
                                   {game.name}
                                 </Link>
                               </li>
