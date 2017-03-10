@@ -38,15 +38,13 @@ export default connect(
           <PageHeader>Profil Użytkownika<br/>
           </PageHeader>
           <Row>
-            <Col xs={12} sm={4} md={4}>
-          <Panel>
+            <Col xs={12} sm={3} md={3}>
               <div key={currentUser.id}>
                 <img
                   src={process.env.PUBLIC_URL + currentUser.picture}
                   alt={"Awatar użytkownika " + currentUser.name}
                 />
               </div>
-          </Panel>
             </Col>
 
             <Col xs={12} sm={8} md={8}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Grid, PageHeader, Table, Button, Alert, Panel} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Button, Alert, Panel } from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
 import {fetchGames} from '../../state/games'
