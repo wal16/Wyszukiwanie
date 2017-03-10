@@ -6,7 +6,8 @@ import {Grid, Table} from 'react-bootstrap'
 class UsersListView extends React.Component {
   render() {
     const {
-      users
+      users,
+      games,
     } = this.props
 
     return (
@@ -35,20 +36,42 @@ class UsersListView extends React.Component {
                     </td>
                     <td>
                       {
-                        (user.gameList).map(
-                          game => (
-                            <li key={game.id}>{game.name}</li>
-                          )
-                        )
+                        user.id ?
+                          <ul>
+                            {
+                              user.gameList.map(
+                                gameId => games.data.find(game => game.id === gameId)
+                              ).map(
+                                game => (
+                                  <li key={game.id}>
+                                    <Link to={'game-profile/' + game.id}>
+                                      {game.name}
+                                    </Link>
+                                  </li>
+                                )
+                              )
+                            }
+                          </ul> : null
                       }
                     </td>
                     <td>
                       {
-                        (user.wishList).map(
-                          game => (
-                            <li key={game.id}>{game.name}</li>
-                          )
-                        )
+                        user.id ?
+                          <ul>
+                            {
+                              user.wishList.map(
+                                game => games.data.find(g => g.id === game)
+                              ).map(
+                                game => (
+                                  <li key={game.id}>
+                                    <Link to={'game-profile/' + game.id}>
+                                      {game.name}
+                                    </Link>
+                                  </li>
+                                )
+                              )
+                            }
+                          </ul> : null
                       }
                     </td>
                   </tr>
@@ -65,7 +88,8 @@ class UsersListView extends React.Component {
 
 export default connect(
   state => ({
-    users: state.users
+    users: state.users,
+    games: state.games
   }),
   dispatch => ({})
 )(UsersListView)
