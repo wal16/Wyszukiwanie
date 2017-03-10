@@ -53,11 +53,6 @@ export default connect(
           </PageHeader>
 
           <Panel>
-            <Button>Dodaj do posiadanych gier</Button>
-            <Button>Dodaj do wyszukiwanych gier</Button>
-          </Panel>
-
-          <Panel>
             <GameSearch/>
           </Panel>
           {
