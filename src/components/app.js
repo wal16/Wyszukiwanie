@@ -1,9 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
+import {Jumbotron, Grid, Button} from 'react-bootstrap'
 
 import Nav from './nav/nav'
-import { fetchGames } from '../state/games'
-import { fetchUsers } from '../state/users'
+import {fetchGames} from '../state/games'
+import {fetchUsers} from '../state/users'
 
 class App extends React.Component {
 
@@ -11,6 +12,7 @@ class App extends React.Component {
     this.props.fetchGamesHelper()
     this.props.fetchUsersHelper()
   }
+
   render() {
     return (
       <div>
