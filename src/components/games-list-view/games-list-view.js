@@ -9,7 +9,7 @@ import {fetchGames} from '../../state/games'
 export default connect(
   state => ({
     games: state.games,
-    searchString: state.games.searchString
+    searchString: state.search.searchString
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames())
@@ -17,7 +17,10 @@ export default connect(
 )(
   class GamesListView extends React.Component {
     render() {
-      const {games, searchString} = this.props
+      const {
+        games,
+        searchString
+      } = this.props
 
       const searchResults = (
         games.data ?
@@ -42,16 +45,12 @@ export default connect(
             </tr>
           )
       )
+
       return (
         <Grid>
           <PageHeader>Lista gier<br/>
             <small>Poniżej znajdziesz listę dostępnych planszówek</small>
           </PageHeader>
-
-          <Panel>
-            <Button>Dodaj do posiadanych gier</Button>
-            <Button>Dodaj do wyszukiwanych gier</Button>
-          </Panel>
 
           <Panel>
             <GameSearch/>
