@@ -22,7 +22,7 @@ ReactDOM.render(
       <Router history={browserHistory}>
         <Route path="/" component={App}>
           <Route path="/games-list" component={GamesListView}/>
-          <Route path="/game-profile/:id" component={GameProfileView}/>
+          <Route path="/game-profile/:gameId" component={GameProfileView}/>
           <Route path="/users-list" component={UsersListView}/>
           <Route path="/user-profile/:userId" component={UserProfileView}/>
         </Route>
