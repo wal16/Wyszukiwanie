@@ -34,8 +34,7 @@ export const fetchGames = () => dispatch => {
 const initialState = {
   data: null,
   fetching: false,
-  error: null,
-  searchString: ''
+  error: null
 }
 
 export default (state = initialState, action = {}) => {
