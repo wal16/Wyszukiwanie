@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import App from './components/app'
+import MainView from './components/main-view'
 import GamesListView from './components/games-list-view/games-list-view'
 import GameProfileView from './components/game-card-view/game-card-view'
 
@@ -20,7 +21,8 @@ ReactDOM.render(
   (
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path="/" component={App}>
+        <Route path="" component={App}>
+        <Route path="/" component={MainView}/>
           <Route path="/games-list" component={GamesListView}/>
           <Route path="/game-profile/:gameId" component={GameProfileView}/>
           <Route path="/users-list" component={UsersListView}/>
