@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import {Grid, Row, Col, Panel, PageHeader } from 'react-bootstrap'
+import {Grid, Row, Col, Panel, PageHeader} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import {fetchUsers} from '../../state/users'
@@ -9,7 +9,8 @@ import {fetchUsers} from '../../state/users'
 
 export default connect(
   state => ({
-    users: state.users
+    users: state.users,
+    games: state.games
   }),
   dispatch => ({
     fetchUsersHelper: () => dispatch(fetchUsers())
@@ -19,7 +20,8 @@ export default connect(
     render() {
       const {
         params,
-        users
+        users,
+        games
       } = this.props
 
       const currentUser =
@@ -32,6 +34,7 @@ export default connect(
         return <p>Waiting for users data...</p>
       }
 
+      console.log('GAMES', games)
 
       return (
         <Grid>
@@ -65,17 +68,23 @@ export default connect(
                     <ul>
                       {
                         currentUser.id ?
-                          currentUser.gameList.map(
-                            game => (
-                              <li>
-                                <Link to={'/game-profile/' + game.id}>
-                                  {game.name}
-                                </Link>
-                              </li>
-                            )
-                          )
-                          : <p>Waiting for users data..</p>
+                          <ul>
+                            {
+                              currentUser.gameList.map(
+                                game => games.data.find(g => g.id === game)
+                              ).map(
+                                game => (
+                                  <li key={game.id}>
+                                    <Link to={'game-profile/' + game.id}>
+                                      {game.name}
+                                    </Link>
+                                  </li>
+                                )
+                              )
+                            }
+                          </ul> : null
                       }
+
                     </ul>
                   </Tab>
                   <Tab label="Szukam">
@@ -83,16 +92,21 @@ export default connect(
                     <ul>
                       {
                         currentUser.id ?
-                          currentUser.wishList.map(
-                            game => (
-                              <li>
-                                <Link to={'/game-profile/' + game.name}>
-                                  {game.name}
-                                </Link>
-                              </li>
-                            )
-                          )
-                          : <p>Waiting for users data..</p>
+                          <ul>
+                            {
+                              currentUser.wishList.map(
+                                game => games.data.find(g => g.id === game)
+                              ).map(
+                                game => (
+                                  <li key={game.id}>
+                                    <Link to={'game-profile/' + game.id}>
+                                      {game.name}
+                                    </Link>
+                                  </li>
+                                )
+                              )
+                            }
+                          </ul> : null
                       }
 
                     </ul>

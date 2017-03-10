@@ -7,7 +7,7 @@ class UsersListView extends React.Component {
   render() {
     const {
       users,
-      game,
+      games,
     } = this.props
 
     return (
@@ -31,33 +31,47 @@ class UsersListView extends React.Component {
                     <td>{user.id}</td>
                     <td>
                       <Link to={'/user-profile/' + user.id}>
-                        {user.name}
+                        {user.name} {user.surname}
                       </Link>
                     </td>
                     <td>
                       {
-                        (user.gameList).map(
-                          game => (
-                            <li key={game.id}>
-                              <Link to={'/game-profile/' + game.id}>
-                              {game.name}
-                            </Link>
-                            </li>
-                          )
-                        )
+                        user.id ?
+                          <ul>
+                            {
+                              user.gameList.map(
+                                gameId => games.data.find(game => game.id === gameId)
+                              ).map(
+                                game => (
+                                  <li key={game.id}>
+                                    <Link to={'game-profile/' + game.id}>
+                                      {game.name}
+                                    </Link>
+                                  </li>
+                                )
+                              )
+                            }
+                          </ul> : null
                       }
                     </td>
                     <td>
                       {
-                        (user.wishList).map(
-                          game => (
-                            <li key={game.id}>
-                              <Link to={'/game-profile/' + game.id}>
-                              {game.name}
-                            </Link>
-                            </li>
-                          )
-                        )
+                        user.id ?
+                          <ul>
+                            {
+                              user.wishList.map(
+                                game => games.data.find(g => g.id === game)
+                              ).map(
+                                game => (
+                                  <li key={game.id}>
+                                    <Link to={'game-profile/' + game.id}>
+                                      {game.name}
+                                    </Link>
+                                  </li>
+                                )
+                              )
+                            }
+                          </ul> : null
                       }
                     </td>
                   </tr>
