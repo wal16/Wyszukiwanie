@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import App from './components/app'
 import GamesListView from './components/games-list-view/games-list-view'
-import GameProfileView from './components/game-profile-view/game-profile-view'
+import GameProfileView from './components/game-card-view/game-card-view'
 
 import UsersListView from './components/users-list-view/users-list-view'
 import UserProfileView from './components/user-profile-view/user-profile-view'
