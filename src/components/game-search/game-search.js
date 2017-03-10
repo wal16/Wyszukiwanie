@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { search } from '../../state/games'
+import { search } from '../../state/search'
 
 const GameSearch = ({ games, searchString, search }) => (
   <div>

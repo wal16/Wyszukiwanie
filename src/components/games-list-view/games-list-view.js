@@ -17,7 +17,10 @@ export default connect(
 )(
   class GamesListView extends React.Component {
     render() {
-      const {games, searchString} = this.props
+      const {
+        games,
+        searchString
+      } = this.props
 
       const searchResults = (
         games.data ?
@@ -42,6 +45,7 @@ export default connect(
             </tr>
           )
       )
+
       return (
         <Grid>
           <PageHeader>Lista gier<br/>
