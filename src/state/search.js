@@ -6,7 +6,6 @@ export const search = (value) => ({
 })
 
 const initialState = {
-  data: null,
   searchString: ''
 }
 

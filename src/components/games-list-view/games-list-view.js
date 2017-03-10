@@ -9,7 +9,7 @@ import {fetchGames} from '../../state/games'
 export default connect(
   state => ({
     games: state.games,
-    searchString: state.games.searchString
+    searchString: state.search.searchString
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames())
