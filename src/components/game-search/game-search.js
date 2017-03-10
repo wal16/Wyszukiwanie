@@ -18,7 +18,7 @@ const GameSearch = ({ games, searchString, search }) => (
 export default connect(
   state => ({
     games: state.games,
-    searchString: state.games.searchString
+    searchString: state.search.searchString
   }),
   dispatch => ({
     search: (value) => dispatch(search(value))

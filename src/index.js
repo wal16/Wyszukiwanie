@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, browserHistory} from 'react-router'
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -21,8 +21,8 @@ ReactDOM.render(
   (
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path="" component={App}>
-        <Route path="/" component={MainView}/>
+        <Route path="/" component={App}>
+          <IndexRoute component={MainView}/>
           <Route path="/games-list" component={GamesListView}/>
           <Route path="/game-profile/:gameId" component={GameProfileView}/>
           <Route path="/users-list" component={UsersListView}/>
