@@ -52,7 +52,7 @@ export default connect(
 
             <Col xs={12} sm={8} md={8}>
               <div key={currentUser.id}>
-                <h3>{currentUser.name}</h3>
+                <h3>{currentUser.name} {currentUser.surname}</h3>
                 <p>{currentUser.about}</p>
               </div>
             </Col>
