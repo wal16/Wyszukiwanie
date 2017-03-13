@@ -42,7 +42,7 @@ export default connect(
       return (
         <Grid>
           <div>
-            <PageHeader>Profil gry
+            <PageHeader>Profil gry <br/>
               <small>Zapoznaj się ze szczegółami wybranej pozycji</small>
             </PageHeader>
             {
