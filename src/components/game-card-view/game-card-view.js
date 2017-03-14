@@ -56,23 +56,26 @@ export default connect(
                 <Col xs={12} md={8} sm={6}>
                   <h2>{currentGame.name}</h2>
 
+                  <Panel>
+                    <LinkContainer to={'/game-profile/' + prevGame}>
+                      <Button>
+                        Poprzednia
+                      </Button>
+                    </LinkContainer>
+
+                    <LinkContainer to={'/game-profile/' + nextGame}>
+                      <Button>
+                        Następna
+                      </Button>
+                    </LinkContainer>
+                  </Panel>
+
                   <Panel header="Ilość graczy">{currentGame.players}</Panel>
 
                   <Panel header="Opis">{currentGame.description}</Panel>
                 </Col>
               </Row>
             }
-            <LinkContainer to={'/game-profile/' + prevGame}>
-              <Button>
-                Poprzednia
-              </Button>
-            </LinkContainer>
-
-            <LinkContainer to={'/game-profile/' + nextGame}>
-              <Button>
-                Następna
-              </Button>
-            </LinkContainer>
           </div>
         </Grid>
       )
