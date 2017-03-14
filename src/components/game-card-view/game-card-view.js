@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {LinkContainer} from 'react-router-bootstrap'
 
-import {Grid, PageHeader, Panel, Button} from 'react-bootstrap'
+import {Grid, PageHeader, Panel, Button, Row, Col, Image} from 'react-bootstrap'
 
 import {fetchGames} from '../../state/games'
 
@@ -46,16 +46,21 @@ export default connect(
               <small>Zapoznaj się ze szczegółami wybranej pozycji</small>
             </PageHeader>
             {
-              <div key={currentGame.id}>
-                <img src={currentGame.image}
-                     alt="Zdjecie gry"/>
+              <Row key={currentGame.id}>
+                <Col xs={12} md={4} sm={6}>
+                  <Image src={currentGame.image}
+                         alt="Zdjecie gry"
+                         responsive
+                  />
+                </Col>
+                <Col xs={12} md={8} sm={6}>
+                  <h2>{currentGame.name}</h2>
 
-                <h2>{currentGame.name}</h2>
+                  <Panel header="Ilość graczy">{currentGame.players}</Panel>
 
-                <Panel header="Ilość graczy">{currentGame.players}</Panel>
-
-                <Panel header="Opis">{currentGame.description}</Panel>
-              </div>
+                  <Panel header="Opis">{currentGame.description}</Panel>
+                </Col>
+              </Row>
             }
             <LinkContainer to={'/game-profile/' + prevGame}>
               <Button>
