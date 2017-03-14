@@ -47,13 +47,13 @@ export default connect(
             </PageHeader>
             {
               <Row key={currentGame.id}>
-                <Col xs={12} md={4} sm={6}>
+                <Col xs={12} sm={6} md={4}>
                   <Image src={currentGame.image}
                          alt="Zdjecie gry"
                          responsive
                   />
                 </Col>
-                <Col xs={12} md={8} sm={6}>
+                <Col xs={12} sm={6} md={8}>
                   <h2>{currentGame.name}</h2>
 
                   <Panel>
