@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Button, Alert, Panel} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Button, Alert, Panel, Image} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
 import {fetchGames} from '../../state/games'
@@ -29,7 +29,10 @@ export default connect(
           ).map(
             game => (
               <tr key={game.id}>
-                <td>{game.id}</td>
+                <td><Image src={game.image}
+                         alt="Zdjecie gry"
+                         responsive
+                /></td>
                 <td>
                   <Link to={'game-profile/' + game.id}>
                     {game.name}
@@ -60,7 +63,7 @@ export default connect(
               <Table striped>
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>Obrazek</th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
                 </tr>
