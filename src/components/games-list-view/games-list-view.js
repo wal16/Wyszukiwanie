@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Button, Alert, Panel, Image} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Button, Alert, Panel} from 'react-bootstrap'
+
+
 import GameSearch from '../game-search/game-search'
 
 import {fetchGames} from '../../state/games'
@@ -29,9 +31,9 @@ export default connect(
           ).map(
             game => (
               <tr key={game.id}>
-                <td><Image src={game.image}
+                <td><img src={game.image}
                          alt="Zdjecie gry"
-                         responsive
+                           height="70"
                 /></td>
                 <td>
                   <Link to={'game-profile/' + game.id}>

@@ -16,7 +16,6 @@ class UsersListView extends React.Component {
         <Table striped>
           <thead>
           <tr>
-            <th>ID</th>
             <th>Imię i nazwisko</th>
             <th>Posiadane gry</th>
             <th>Lista życzeń</th>
@@ -28,7 +27,10 @@ class UsersListView extends React.Component {
               users.data.map(
                 user => (
                   <tr key={user.id}>
-                    <td>{user.id}</td>
+                    <td><img src={user.picture}
+                             alt="Zdjecie gry"
+                             height="70"
+                    /></td>
                     <td>
                       <Link to={'/user-profile/' + user.id}>
                         {user.name} {user.surname}
