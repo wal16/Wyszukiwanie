@@ -38,7 +38,7 @@ export default connect(
 
       return (
         <Grid>
-          <PageHeader>Profil Użytkownika<br/>
+          <PageHeader>Profil użytkownika<br/>
           </PageHeader>
           <Row>
             <Col xs={12} md={4} sm={6}>
