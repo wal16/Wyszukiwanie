@@ -16,6 +16,7 @@ class UsersListView extends React.Component {
         <Table striped>
           <thead>
           <tr>
+            <th></th>
             <th>Imię i nazwisko</th>
             <th>Posiadane gry</th>
             <th>Lista życzeń</th>
