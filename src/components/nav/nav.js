@@ -25,6 +25,9 @@ const NavComponent = () => (
           </LinkContainer>
         </Nav>
         <Nav pullRight>
+          <LinkContainer to="/log-in">
+            <NavItem eventKey={3}>Zaloguj się</NavItem>
+          </LinkContainer>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

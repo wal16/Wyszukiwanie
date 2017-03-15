@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import App from './components/app'
 import MainView from './components/main-view'
+import LogInView from './components/log-in'
 import GamesListView from './components/games-list-view/games-list-view'
 import GameProfileView from './components/game-card-view/game-card-view'
 
@@ -27,6 +28,7 @@ ReactDOM.render(
           <Route path="/game-profile/:gameId" component={GameProfileView}/>
           <Route path="/users-list" component={UsersListView}/>
           <Route path="/user-profile/:userId" component={UserProfileView}/>
+          <Route path="/log-in" component={LogInView}/>
         </Route>
       </Router>
     </Provider>
