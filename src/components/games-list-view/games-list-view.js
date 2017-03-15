@@ -25,7 +25,7 @@ export default connect(
         games,
         searchString,
         favGame,
-        unfavGame
+        bsStyle
       } = this.props
 
       const searchResults = (
@@ -47,7 +47,14 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
-                <td><Button onClick={() => favGame(games.id)}>Dodaj do ulubionych</Button></td>
+                <td>
+                  <Button
+                    bsStyle="default"
+                    bsSize="xsmall"
+                    onClick={() => favGame(games.id)}>
+                    Dodaj do ulubionych
+                  </Button>
+                </td>
               </tr>
             )
           ) :
