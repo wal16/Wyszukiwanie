@@ -1,9 +1,10 @@
 import React from 'react'
+import {Grid} from 'react-bootstrap'
 
 const LogInView = () => (
-  <div>
+  <Grid>
     <h1>Zaloguj się</h1>
-  </div>
+  </Grid>
 )
 
 export default LogInView
