@@ -1,34 +1,34 @@
-const FAV_GROUP = 'favs/FAV_GROUP'
-const HAVE_GROUP = 'favs/HAVE_GROUP'
+const FAV_GAME = 'favs/FAV_GAME'
+const UNFAV_GAME = 'favs/UNFAV_GAME'
 
-export const favGroup = groupId => ({
-  type: FAV_GROUP,
-  groupId
+export const favGame = gamesId => ({
+  type: FAV_GAME,
+  gamesId
 })
 
-export const unfavGroup = groupId => ({
-  type: HAVE_GROUP,
-  groupId
+export const unfavGame = gamesId => ({
+  type: UNFAV_GAME,
+  gamesId
 })
 
 const initialState = {
-  favoriteGroupIds: []
+  favoriteGameIds: []
 }
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case FAV_GROUP:
+    case FAV_GAME:
       return {
         ...state,
-        favoriteGroupIds: state.favoriteGroupIds.filter(
-          groupId => groupId !== action.groupId
-        ).concat(action.groupId)
+        favoriteGameIds: state.favoriteGameIds.filter(
+          gamesId => gamesId !== action.gamesId
+        ).concat(action.gamesId)
       }
-    case HAVE_GROUP:
+    case UNFAV_GAME:
       return {
         ...state,
-        favoriteGroupIds: state.favoriteGroupIds.filter(
-          groupId => groupId !== action.groupId
+        favoriteGameIds: state.favoriteGameIds.filter(
+          gamesId => gamesId !== action.gamesId
         )
       }
     default:
