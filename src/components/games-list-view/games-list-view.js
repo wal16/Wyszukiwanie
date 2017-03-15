@@ -29,10 +29,12 @@ export default connect(
           ).map(
             game => (
               <tr key={game.id}>
-                <td><img src={game.image}
+                <td>
+                  <img src={game.image}
                          alt="Zdjecie gry"
                            height="70"
-                /></td>
+                  />
+                </td>
                 <td>
                   <Link to={'game-profile/' + game.id}>
                     {game.name}

@@ -28,10 +28,12 @@ class UsersListView extends React.Component {
               users.data.map(
                 user => (
                   <tr key={user.id}>
-                    <td><img src={user.picture}
+                    <td>
+                      <img src={user.picture}
                              alt="Zdjecie gry"
                              height="70"
-                    /></td>
+                      />
+                    </td>
                     <td>
                       <Link to={'/user-profile/' + user.id}>
                         {user.name} {user.surname}
