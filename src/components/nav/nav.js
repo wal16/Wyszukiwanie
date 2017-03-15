@@ -25,7 +25,7 @@ const NavComponent = () => (
           </LinkContainer>
         </Nav>
         <Nav pullRight>
-          <LinkContainer to="/log-in">
+          <LinkContainer to="/login">
             <NavItem eventKey={3}>Zaloguj się</NavItem>
           </LinkContainer>
         </Nav>
