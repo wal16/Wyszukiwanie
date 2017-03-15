@@ -41,42 +41,36 @@ class UsersListView extends React.Component {
                     </td>
                     <td>
                       {
-                        user.id ?
-                          <ul>
-                            {
+                        user.id ? (
                               user.gameList.map(
                                 gameId => games.data.find(game => game.id === gameId)
                               ).map(
                                 game => (
-                                  <li key={game.id}>
+                                  <div key={game.id}>
                                     <Link to={'game-profile/' + game.id}>
                                       {game.name}
                                     </Link>
-                                  </li>
+                                  </div>
                                 )
                               )
-                            }
-                          </ul> : null
+                        ) : null
                       }
                     </td>
                     <td>
                       {
-                        user.id ?
-                          <ul>
-                            {
+                        user.id ? (
                               user.wishList.map(
                                 game => games.data.find(g => g.id === game)
                               ).map(
                                 game => (
-                                  <li key={game.id}>
+                                  <div key={game.id}>
                                     <Link to={'game-profile/' + game.id}>
                                       {game.name}
                                     </Link>
-                                  </li>
+                                  </div>
                                 )
                               )
-                            }
-                          </ul> : null
+                        ) : null
                       }
                     </td>
                   </tr>
