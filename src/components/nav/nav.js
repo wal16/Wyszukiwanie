@@ -2,10 +2,10 @@ import React from 'react'
 import {Navbar, Nav, NavItem,} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
+import './nav.css'
 
 const NavComponent = () => (
-  <div>
-    <Navbar>
+    <Navbar fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
           <Link to="/">
@@ -28,7 +28,7 @@ const NavComponent = () => (
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  </div>
+
 )
 
 export default NavComponent

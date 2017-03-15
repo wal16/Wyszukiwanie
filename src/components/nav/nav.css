@@ -1,0 +1,27 @@
+.navbar-default {
+  background: #f8f8ff;
+  border: none;
+  border-radius: 0;
+  margin: 0 auto;
+  box-shadow:0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 20px;
+}
+
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #002060;
+  text-shadow: none;
+  font-weight: bold;
+  padding: 20px 15px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  background-color: #0080e0;
+}
+
+
+
+.navbar-default .navbar-toggle .icon-bar  {
+  background-color: #002060;
+}
+
