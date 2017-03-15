@@ -9,7 +9,7 @@ const initialState = {
   gameRange: 4
 }
 
-export default (state= initialState, action = {}) => {
+export default (state = initialState, action = {}) => {
   switch (action.type) {
     case RANGE:
       return {
@@ -18,4 +18,5 @@ export default (state= initialState, action = {}) => {
       }
     default:
       return state
-}}
+  }
+}
