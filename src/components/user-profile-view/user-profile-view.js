@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import {Grid, Row, Col, Panel, PageHeader} from 'react-bootstrap'
+import {Grid, Row, Col, Panel, PageHeader, Image} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs';
 
 import {fetchUsers} from '../../state/users'
@@ -34,31 +34,28 @@ export default connect(
         return <p>Waiting for users data...</p>
       }
 
-      console.log('GAMES', games)
-
       return (
         <Grid>
-          <PageHeader>Profil Użytkownika<br/>
+          <PageHeader>Profil użytkownika<br/>
           </PageHeader>
           <Row>
-            <Col xs={12} sm={3} md={3}>
+            <Col xs={12} md={4} sm={6}>
               <div key={currentUser.id}>
-                <img
+                <Image
                   src={process.env.PUBLIC_URL + currentUser.picture}
                   alt={"Awatar użytkownika " + currentUser.name}
+                  responsive
                 />
               </div>
             </Col>
 
-            <Col xs={12} sm={8} md={8}>
+            <Col xs={12} sm={6} md={8}>
               <div key={currentUser.id}>
                 <h3>{currentUser.name} {currentUser.surname}</h3>
                 <p>{currentUser.about}</p>
               </div>
             </Col>
           </Row>
-          <Col xs={12} md={12}>
-          </Col>
           <Row>
             <Col xs={12} md={12}>
               <Panel>
