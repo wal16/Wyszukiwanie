@@ -1,5 +1,5 @@
 const FAV_GROUP = 'favs/FAV_GROUP'
-const UNFAV_GROUP = 'favs/UNFAV_GROUP'
+const HAVE_GROUP = 'favs/HAVE_GROUP'
 
 export const favGroup = groupId => ({
   type: FAV_GROUP,
@@ -7,7 +7,7 @@ export const favGroup = groupId => ({
 })
 
 export const unfavGroup = groupId => ({
-  type: UNFAV_GROUP,
+  type: HAVE_GROUP,
   groupId
 })
 
@@ -24,7 +24,7 @@ export default (state = initialState, action = {}) => {
           groupId => groupId !== action.groupId
         ).concat(action.groupId)
       }
-    case UNFAV_GROUP:
+    case HAVE_GROUP:
       return {
         ...state,
         favoriteGroupIds: state.favoriteGroupIds.filter(

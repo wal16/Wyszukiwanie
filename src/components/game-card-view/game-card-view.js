@@ -55,7 +55,8 @@ export default connect(
                   </Col>
                   <Col xs={12} sm={6} md={8}>
                     <h2>{currentGame.name}</h2>
-
+                    <Button>FAV</Button>
+                    <Button>HAVE</Button>
                     <Panel>
                       <LinkContainer to={'/game-profile/' + prevGame}>
                         <Button>

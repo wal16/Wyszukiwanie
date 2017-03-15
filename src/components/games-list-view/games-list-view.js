@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
 import {fetchGames} from '../../state/games'
+import { favGroup, haveGroup } from '../../state/favs'
 
 export default connect(
   state => ({
@@ -19,7 +20,9 @@ export default connect(
     render() {
       const {
         games,
-        searchString
+        searchString,
+        favGroup,
+        haveGroup
       } = this.props
 
       const searchResults = (
@@ -41,6 +44,8 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
+                <td><Button>FAV</Button></td>
+                <td><Button>HAVE</Button></td>
               </tr>
             )
           ) :
