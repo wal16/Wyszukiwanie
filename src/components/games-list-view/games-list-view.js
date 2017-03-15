@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {Grid, PageHeader, Table, Alert, Panel} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
+import GameRanges from '../game-ranges/game-ranges'
 
 import {fetchGames} from '../../state/games'
 
@@ -59,6 +60,7 @@ export default connect(
 
           <Panel>
             <GameSearch/>
+            <GameRanges/>
           </Panel>
           {
             searchResults.length !== 0 ? (

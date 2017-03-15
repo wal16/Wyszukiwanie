@@ -7,6 +7,7 @@ import store from './store'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import 'react-input-range/lib/css/index.css'
 
 import App from './components/app'
 import MainView from './components/main-view'
