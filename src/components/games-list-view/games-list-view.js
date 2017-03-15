@@ -29,7 +29,12 @@ export default connect(
           ).map(
             game => (
               <tr key={game.id}>
-                <td>{game.id}</td>
+                <td>
+                  <img src={game.image}
+                         alt="Zdjecie gry"
+                           height="70"
+                  />
+                </td>
                 <td>
                   <Link to={'game-profile/' + game.id}>
                     {game.name}
@@ -60,7 +65,7 @@ export default connect(
               <Table striped>
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
                 </tr>
