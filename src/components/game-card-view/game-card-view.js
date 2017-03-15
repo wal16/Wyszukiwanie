@@ -9,7 +9,8 @@ import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
   state => ({
-    games: state.games
+    games: state.games,
+    favoriteGameIds: state.favoriteGameIds
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),

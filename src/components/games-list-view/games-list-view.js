@@ -5,15 +5,18 @@ import {Grid, PageHeader, Table, Alert, Panel, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
 import {fetchGames} from '../../state/games'
-import { favGroup, haveGroup } from '../../state/favs'
+import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
   state => ({
     games: state.games,
-    searchString: state.search.searchString
+    searchString: state.search.searchString,
+    favoriteGameIds: state.favoriteGameIds
   }),
   dispatch => ({
-    fetchGamesHelper: () => dispatch(fetchGames())
+    fetchGamesHelper: () => dispatch(fetchGames()),
+    favGame: (gamesId) => dispatch(favGame(gamesId)),
+    unfavGame: (gamesId) => dispatch(unfavGame(gamesId))
   })
 )(
   class GamesListView extends React.Component {
@@ -21,8 +24,8 @@ export default connect(
       const {
         games,
         searchString,
-        favGroup,
-        haveGroup
+        favGame,
+        unfavGame
       } = this.props
 
       const searchResults = (
@@ -44,8 +47,7 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
-                <td><Button>FAV</Button></td>
-                <td><Button>HAVE</Button></td>
+                <td><Button onClick={() => favGame(games.id)}>Dodaj do ulubionych</Button></td>
               </tr>
             )
           ) :
