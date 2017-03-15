@@ -10,7 +10,8 @@
 }
 
 .navbar-brand{
-  padding: 40px;
+  margin: 25px 20px ;
+
 
 }
 
@@ -35,4 +36,31 @@
 
 }
 
+.navbar-default .navbar-toggle{
+
+  border: 0;
+  margin-top: 35px;
+
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+  background-color: #002060;
+  width: 33px;
+  height: 4px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+
+
+}
+
+
+.navbar-default .navbar-toggle .icon-bar:hover{
+  background-color: #002060;
+  width: 33px;
+  height: 4px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+
+
+}
 
