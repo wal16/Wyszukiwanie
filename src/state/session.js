@@ -6,8 +6,9 @@ export const login = (value) => ({
   value
 })
 
+//TODO: iniitial state for session needs to be changed to null after finishing the login component
 const initialState = {
-  session: null,
+  session: 'logged in',
 }
 
 export default (state = initialState, action = {}) => {

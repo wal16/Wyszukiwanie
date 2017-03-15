@@ -16,7 +16,6 @@ class MainView extends React.Component {
           </p>
         </Jumbotron>
       </Grid>
-
     )
   }
 }

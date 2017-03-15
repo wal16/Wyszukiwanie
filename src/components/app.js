@@ -14,17 +14,23 @@ class App extends React.Component {
   }
 
   render() {
-    return /*session.id ?*/ (
+    const {
+      session
+    } = this.props
+
+    return session.session ? (
       <div>
         <Nav/>
         {this.props.children}
       </div>
-    ) /*: <LoginView /> TODO: ternary that detects if user is logged in ready to enable*/
+    ) : <LoginView />
   }
 }
 
 export default connect(
-  state => ({}),
+  state => ({
+    session: state.session
+  }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
     fetchUsersHelper: () => dispatch(fetchUsers())
