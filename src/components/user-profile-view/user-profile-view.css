@@ -1,0 +1,7 @@
+.tabs.pointer {
+  cursor: pointer;
+}
+
+.active {
+  background-color: #eee;
+}
