@@ -60,7 +60,7 @@ export default connect(
             <Col xs={12} md={12}>
               <Panel>
                 <Tabs id="noanim-tab-example">
-                  <Tab label="Posiadam">
+                  <Tab headerClass='pointer' label="Posiadam">
                     <h3>Posiadam</h3>
                     <ul>
                       {
@@ -84,7 +84,7 @@ export default connect(
 
                     </ul>
                   </Tab>
-                  <Tab label="Szukam">
+                  <Tab headerClass='pointer' label="Szukam">
                     <h3>Szukam</h3>
                     <ul>
                       {
