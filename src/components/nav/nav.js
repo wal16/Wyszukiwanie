@@ -16,15 +16,13 @@ const NavComponent = () => (
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Nav>
+        <Nav pullRight>
           <LinkContainer to="/games-list">
             <NavItem eventKey={1}>Lista gier</NavItem>
           </LinkContainer>
           <LinkContainer to="/users-list">
             <NavItem eventKey={2}>Użytkownicy</NavItem>
           </LinkContainer>
-        </Nav>
-        <Nav pullRight>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
