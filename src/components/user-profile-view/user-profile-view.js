@@ -34,8 +34,6 @@ export default connect(
         return <p>Waiting for users data...</p>
       }
 
-      console.log('GAMES', games)
-
       return (
         <Grid>
           <PageHeader>Profil użytkownika<br/>
