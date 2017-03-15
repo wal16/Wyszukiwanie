@@ -11,6 +11,7 @@ export default connect(
   state => ({
     games: state.games,
     searchString: state.search.searchString,
+    gameRange: state.gameRange
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
@@ -21,6 +22,7 @@ export default connect(
       const {
         games,
         searchString,
+        gameRange
       } = this.props
 
       const searchResults = (

@@ -1,6 +1,6 @@
 const RANGE = 'game-list/RANGE'
 
-export const range = (value) => ({
+export const slider = (value) => ({
   type: RANGE,
   value
 })
