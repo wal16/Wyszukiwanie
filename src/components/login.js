@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {login} from '../state/session'
 import {
   Col,
   Row,
@@ -56,5 +57,7 @@ export default connect(
   state => ({
     session: state.session
   }),
-  dispatch => ({})
+  dispatch => ({
+    login: (value) => dispatch(login(value))
+  })
 )(LoginView)
