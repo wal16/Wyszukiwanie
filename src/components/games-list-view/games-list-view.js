@@ -10,17 +10,17 @@ import {fetchGames} from '../../state/games'
 export default connect(
   state => ({
     games: state.games,
-    searchString: state.search.searchString
+    searchString: state.search.searchString,
   }),
   dispatch => ({
-    fetchGamesHelper: () => dispatch(fetchGames())
+    fetchGamesHelper: () => dispatch(fetchGames()),
   })
 )(
   class GamesListView extends React.Component {
     render() {
       const {
         games,
-        searchString
+        searchString,
       } = this.props
 
       const searchResults = (
