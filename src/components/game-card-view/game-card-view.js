@@ -4,7 +4,7 @@ import {LinkContainer} from 'react-router-bootstrap'
 
 import {Grid, PageHeader, Panel, Button, Row, Col, Image} from 'react-bootstrap'
 
-import {fetchGames} from '../../state/games'
+import { fetchGames } from '../../state/games'
 import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
@@ -65,13 +65,13 @@ export default connect(
                       {
                         favoriteGameIds.includes(currentGame.id) ?
                           <Button
+
                             bsStyle="success"
-                            bsSize="xsmall" onClick={() => unfavGame(currentGame.id)}>
+                            onClick={() => unfavGame(currentGame.id)}>
                             Fav
                           </Button> :
                           <Button
                             bsStyle="default"
-                            bsSize="xsmall"
                             onClick={() => favGame(currentGame.id)}>
                             Fav
                           </Button>

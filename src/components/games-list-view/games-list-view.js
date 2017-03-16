@@ -23,11 +23,15 @@ export default connect(
     render() {
       const {
         games,
+        params,
         searchString,
         favGame,
         unfavGame,
-
+        favoriteGameIds
       } = this.props
+
+      const currentGame = games.data.find(
+        game => game.id === parseInt(params.gameId, 10))
 
       const searchResults = (
         games.data ?
@@ -58,6 +62,7 @@ export default connect(
           )
       )
 
+
       return (
         <Grid>
           <PageHeader>Lista gier<br/>
@@ -75,7 +80,22 @@ export default connect(
                   <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
+                  <th>
+                    {
+                      favoriteGameIds.includes(currentGame.id) ?
+                        <Button
 
+                          bsStyle="success"
+                          onClick={() => unfavGame(currentGame.id)}>
+                          Fav
+                        </Button> :
+                        <Button
+                          bsStyle="default"
+                          onClick={() => favGame(currentGame.id)}>
+                          Fav
+                        </Button>
+                    }
+                  </th>
                 </tr>
                 </thead>
                 <tbody>
