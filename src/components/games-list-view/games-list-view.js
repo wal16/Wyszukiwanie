@@ -19,7 +19,9 @@ export default connect(
     render() {
       const {
         games,
-        searchString
+        searchString,
+        user,
+        users
       } = this.props
 
       const searchResults = (
@@ -31,8 +33,8 @@ export default connect(
               <tr key={game.id}>
                 <td>
                   <img src={game.image}
-                         alt="Zdjęcie gry"
-                           height="70"
+                       alt="Zdjęcie gry"
+                       height="70"
                   />
                 </td>
                 <td>
@@ -41,6 +43,29 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
+                <td>
+                  {
+                    game.id ? (
+                        users.data.map(
+                          user => (
+                            user.id ? (
+                                user.gameList.any(
+                                  gameId => gameId === game.id)
+                              ).map(
+                                user => (
+                                  <div key={user.id}>
+                                    <Link to={'game-profile/' + user.id}>
+                                      {user.name}
+                                    </Link>
+                                  </div>
+                                )
+                              ): null
+                          )
+                        )
+
+                    ) : null
+                  }
+                </td>
               </tr>
             )
           ) :
@@ -62,21 +87,21 @@ export default connect(
           </Panel>
           {
             searchResults.length !== 0 ? (
-              <Table striped>
-                <thead>
-                <tr>
-                  <th></th>
-                  <th>Nazwa gry</th>
-                  <th>Liczba graczy</th>
-                  <th></th>
-                  <th>Posiadacze gry</th>
-                </tr>
-                </thead>
-                <tbody>
-                {searchResults}
-                </tbody>
-              </Table>
-            ) :
+                <Table striped>
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th>Nazwa gry</th>
+                    <th>Liczba graczy</th>
+                    <th></th>
+                    <th>Posiadacze gry</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {searchResults}
+                  </tbody>
+                </Table>
+              ) :
               (
                 <Alert bsStyle="warning">
                   Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
