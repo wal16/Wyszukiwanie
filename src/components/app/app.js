@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Jumbotron, Grid, Button} from 'react-bootstrap'
 
 import Nav from '../nav/nav'
 import {fetchGames} from '../../state/games'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import {LinkContainer} from 'react-router-bootstrap'
 
 import {Grid, PageHeader, Panel, Button, Row, Col, Image} from 'react-bootstrap'
@@ -23,11 +23,11 @@ export default connect(
 
 
       if (games.data === null) {
-      return <p>Waiting for games...</p>
+        return <p>Waiting for games...</p>
       }
 
       const currentGame = games.data.find(
-            game => game.id === parseInt(params.gameId, 10))
+        game => game.id === parseInt(params.gameId, 10))
 
       const prevGame = (
         (currentGame.id > 1) ? (currentGame.id - 1) : (games.data.length)
@@ -38,7 +38,6 @@ export default connect(
       )
 
 
-
       return (
         <Grid>
           <div>
@@ -46,35 +45,41 @@ export default connect(
               <small>Zapoznaj się ze szczegółami wybranej pozycji</small>
             </PageHeader>
             {
-              <Row key={currentGame.id}>
-                <Col xs={12} sm={6} md={4}>
-                  <Image src={currentGame.image}
-                         alt="Zdjecie gry"
-                         responsive
-                  />
-                </Col>
-                <Col xs={12} sm={6} md={8}>
-                  <h2>{currentGame.name}</h2>
+              <div>
+                <Row key={currentGame.id}>
+                  <Col xs={12} sm={6} md={4}>
+                    <Image src={currentGame.image}
+                           alt="Zdjęcie gry"
+                           responsive
+                    />
+                  </Col>
+                  <Col xs={12} sm={6} md={8}>
+                    <h2>{currentGame.name}</h2>
 
-                  <Panel>
-                    <LinkContainer to={'/game-profile/' + prevGame}>
-                      <Button>
-                        Poprzednia
-                      </Button>
-                    </LinkContainer>
+                    <Panel>
+                      <LinkContainer to={'/game-profile/' + prevGame}>
+                        <Button>
+                          Poprzednia
+                        </Button>
+                      </LinkContainer>
 
-                    <LinkContainer to={'/game-profile/' + nextGame}>
-                      <Button>
-                        Następna
-                      </Button>
-                    </LinkContainer>
-                  </Panel>
+                      <LinkContainer to={'/game-profile/' + nextGame}>
+                        <Button>
+                          Następna
+                        </Button>
+                      </LinkContainer>
+                    </Panel>
 
-                  <Panel header="Ilość graczy">{currentGame.players}</Panel>
+                    <Panel header="Liczba graczy">{currentGame.players}</Panel>
+                  </Col>
+                </Row>
 
-                  <Panel header="Opis">{currentGame.description}</Panel>
-                </Col>
-              </Row>
+                <Row>
+                  <Col xs={12} sm={12}>
+                    <Panel header="Opis">{currentGame.description}</Panel>
+                  </Col>
+                </Row>
+              </div>
             }
           </div>
         </Grid>
