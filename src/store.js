@@ -4,11 +4,13 @@ import thunk from 'redux-thunk'
 import gamesReducer from './state/games'
 import usersReducer from './state/users'
 import searchReducer from './state/search'
+import rangeReducer from './state/range'
 
 const reducer = combineReducers({
   games: gamesReducer,
   users: usersReducer,
-  search: searchReducer
+  search: searchReducer,
+  range: rangeReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -61,10 +61,10 @@ export default connect(
 
           <Panel>
             <Row>
-              <Col xs="5">
+              <Col xs={5}>
                 <GameSearch/>
               </Col>
-              <Col xs="5">
+              <Col xs={5}>
                 <GameRanges/>
               </Col>
             </Row>
