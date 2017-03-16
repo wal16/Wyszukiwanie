@@ -15,8 +15,8 @@ export default connect(
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gamesId) => dispatch(favGame(gamesId)),
-    unfavGame: (gamesId) => dispatch(unfavGame(gamesId))
+    favGame: (gameId) => dispatch(favGame(gameId)),
+    unfavGame: (gameId) => dispatch(unfavGame(gameId))
   })
 )(
   class GamesListView extends React.Component {
@@ -26,7 +26,7 @@ export default connect(
         searchString,
         favGame,
         unfavGame,
-        favoriteGameIds
+
       } = this.props
 
       const searchResults = (
@@ -48,7 +48,6 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
-
               </tr>
             )
           ) :

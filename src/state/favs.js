@@ -1,14 +1,14 @@
 const FAV_GAME = 'favs/FAV_GAME'
 const UNFAV_GAME = 'favs/UNFAV_GAME'
 
-export const favGame = gamesId => ({
+export const favGame = gameId => ({
   type: FAV_GAME,
-  gamesId
+  gameId
 })
 
-export const unfavGame = gamesId => ({
+export const unfavGame = gameId => ({
   type: UNFAV_GAME,
-  gamesId
+  gameId
 })
 
 const initialState = {
@@ -21,14 +21,14 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         favoriteGameIds: state.favoriteGameIds.filter(
-          gamesId => gamesId !== action.gamesId
-        ).concat(action.gamesId)
+          gameId => gameId !== action.gameId
+        ).concat(action.gameId)
       }
     case UNFAV_GAME:
       return {
         ...state,
         favoriteGameIds: state.favoriteGameIds.filter(
-          gamesId => gamesId !== action.gamesId
+          gameId => gameId !== action.gameId
         )
       }
     default:

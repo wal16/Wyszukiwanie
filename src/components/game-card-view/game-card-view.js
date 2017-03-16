@@ -44,7 +44,6 @@ export default connect(
         (currentGame.id <= games.data.length - 1) ? (currentGame.id + 1) : (1)
       )
 
-
       return (
         <Grid>
           <div>
@@ -62,6 +61,22 @@ export default connect(
                   </Col>
                   <Col xs={12} sm={6} md={8}>
                     <h2>{currentGame.name}</h2>
+                    <div>
+                      {
+                        favoriteGameIds.includes(currentGame.id) ?
+                          <Button
+                            bsStyle="success"
+                            bsSize="xsmall" onClick={() => unfavGame(currentGame.id)}>
+                            Fav
+                          </Button> :
+                          <Button
+                            bsStyle="default"
+                            bsSize="xsmall"
+                            onClick={() => favGame(currentGame.id)}>
+                            Fav
+                          </Button>
+                      }
+                    </div>
                     <Panel>
                       <LinkContainer to={'/game-profile/' + prevGame}>
                         <Button>
@@ -83,23 +98,7 @@ export default connect(
                 <Row>
                   <Col xs={12} sm={12}>
                     <Panel header="Opis">{currentGame.description}</Panel>
-                    <div>
-                      {
-                        favoriteGameIds.includes(games.id) ?
-                          <Button
-                            bsStyle="success"
-                            bsSize="xsmall" onClick={() => unfavGame(games.id)}>
-                            Fav
-                          </Button> :
-                          <Button
-                            bsStyle="default"
-                            bsSize="xsmall"
-                            onClick={() => favGame(games.id)}>
-                            Fav
-                          </Button>
-                      }
 
-                    </div>
                   </Col>
                 </Row>
               </div>
