@@ -26,14 +26,14 @@ const LoginView = () => (
             controlId="loginForm"
           >
             <ControlLabel>
-              <label htmlFor="login">Nazwa użytkownika / adres e-mail</label>
+              <label htmlFor="username">Nazwa użytkownika</label>
             </ControlLabel>
 
             <FormControl
-              id="login"
+              id="username"
               type="text"
               defaultValue=""
-              placeholder="Nazwa użytkownika / adres e-mail"
+              placeholder="Nazwa użytkownika"
               onChange={(event) => {
                 login(event.target.value)
               }}
@@ -45,7 +45,7 @@ const LoginView = () => (
 
             <FormControl
               id="password"
-              type="text"
+              type="password"
               defaultValue=""
               placeholder="Hasło"
               onChange={(event) => {
@@ -59,7 +59,6 @@ const LoginView = () => (
             type="submit"
             onClick={(event) => {
               event.preventDefault()
-
             }}
           >
             Submit
