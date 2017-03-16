@@ -16,30 +16,32 @@ import {
 } from 'react-bootstrap'
 import {Link} from 'react-router'
 
-// TODO: zrobić klasę - żeby mieć stan
-// TODO: onSubmit na formularzu
-
-
 export default connect(
-  state => ({
-    session: state.session
-  }),
+  null,
   dispatch => ({
-    login: (value) => dispatch(login(value))
+    login: (username, password) => dispatch(login(username, password))
   })
 )(
   class LoginView extends React.Component {
-    render() {
-      const {
-        login
-      } = this.props
+    constructor(props){
+      super(props)
 
+      this.state = {
+        username: '',
+        password: ''
+      }
+    }
+
+    render() {
       return (
         <Grid>
           <h1>Zaloguj się</h1>
           <Row>
             <Col xs={12} sm={6} md={6}>
-              <form>
+              <form onSubmit={() => {
+                event.preventDefault()
+                this.props.login(this.state.username, this.state.password)
+              }}>
                 <FormGroup
                   controlId="loginForm"
                 >
@@ -50,10 +52,10 @@ export default connect(
                   <FormControl
                     id="username"
                     type="email"
-                    defaultValue=""
+                    value={this.state.username}
                     placeholder="Adres e-mail"
                     onChange={(event) => {
-                      login(event.target.value)
+                      this.setState({username: event.target.value})
                     }}
                   />
 
@@ -64,10 +66,10 @@ export default connect(
                   <FormControl
                     id="password"
                     type="text" /*TODO: change to password after deploying working login mechanism*/
-                    defaultValue=""
+                    value={this.state.password}
                     placeholder="Hasło"
                     onChange={(event) => {
-                      login(event.target.value)
+                      this.setState({password: event.target.value})
                     }}
                   />
                   <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
@@ -76,10 +78,6 @@ export default connect(
                 <Button
                   type="submit"
                   bsStyle="primary"
-                  onClick={(event) => {
-                    event.preventDefault()
-
-                  }}
                 >
                   Submit
                 </Button>

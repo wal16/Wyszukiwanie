@@ -4,14 +4,15 @@ const LOGOUT = 'login/LOGOUT'
 
 //TODO: thunk z loginem i hasłem
 
-export const login = (value) => ({
+export const login = (username, password) => ({
   type: LOGIN,
-  value
+  username, password
 })
 
 //TODO: iniitial state for session needs to be changed to null after finishing the login component
 const initialState = {
-  session: 'logged in',
+  username: null,
+  password: null
 }
 
 export default (state = initialState, action = {}) => {
@@ -19,7 +20,8 @@ export default (state = initialState, action = {}) => {
     case LOGIN:
       return {
         ...state,
-        session: action.value
+        username: action.value,
+        password: action.value
       }
     default:
       return state
