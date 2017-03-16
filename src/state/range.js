@@ -6,7 +6,7 @@ export const range = (value) => ({
 })
 
 const initialState = {
-
+  changeRange: {min: 2, max: 20}
 }
 
 
@@ -15,6 +15,7 @@ export default (state = initialState, action = {}) => {
     case RANGE:
       return {
         ...state,
+        changeRange: action.value
       }
     default:
       return state
