@@ -2,10 +2,10 @@ import React from 'react'
 import {Navbar, Nav, NavItem,} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
+import './nav.css'
 
 const NavComponent = () => (
-  <div>
-    <Navbar>
+    <Navbar fixedTop>
       <Navbar.Header>
         <Navbar.Brand>
           <Link to="/">
@@ -16,7 +16,7 @@ const NavComponent = () => (
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Nav>
+        <Nav pullRight>
           <LinkContainer to="/games-list">
             <NavItem eventKey={1}>Lista gier</NavItem>
           </LinkContainer>
@@ -24,11 +24,9 @@ const NavComponent = () => (
             <NavItem eventKey={2}>Użytkownicy</NavItem>
           </LinkContainer>
         </Nav>
-        <Nav pullRight>
-        </Nav>
       </Navbar.Collapse>
     </Navbar>
-  </div>
+
 )
 
 export default NavComponent
