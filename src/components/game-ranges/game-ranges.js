@@ -2,28 +2,20 @@ import React from 'react'
 import {connect} from 'react-redux'
 import InputRange from 'react-input-range'
 
-import { sliderMin } from '../../state/range'
-import { sliderMax } from '../../state/range'
 
 
 export default connect(
   state => ({
-    games: state.games,
-    minValue: state.sliderMin.minValue,
-    maxValue: state.sliderMax.maxValue
   }),
   dispatch => ({
-    sliderMin: (value) => dispatch(sliderMin(value)),
-    sliderMax: (value) => dispatch(sliderMax(value))
-  })
+      })
 )(
   class GameRanges extends React.Component {
     constructor(props) {
       super(props);
 
       this.state = {
-        minValue,
-        maxValue
+        value: {min: 2, max: 20}
       }
 
     }
@@ -31,8 +23,8 @@ export default connect(
     render() {
       return (
         <InputRange
-          maxValue={maxValue}
-          minValue={minValue}
+          maxValue={20}
+          minValue={2}
           value={this.state.value}
           onChange={value => this.setState({ value })} />
       );

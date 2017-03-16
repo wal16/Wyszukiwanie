@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Row, Col} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 
@@ -20,43 +20,13 @@ export default connect(
     render() {
       const {
         games,
-        searchString,
-        gameRange
+        searchString
       } = this.props
 
       const searchResults = (
         games.data ?
           games.data.filter(
             game => (game.name.toLowerCase()).includes(searchString.toLowerCase())
-          ).map(
-            game => (
-              <tr key={game.id}>
-                <td>
-                  <img src={game.image}
-                       alt="Zdjęcie gry"
-                       height="70"
-                  />
-                </td>
-                <td>
-                  <Link to={'game-profile/' + game.id}>
-                    {game.name}
-                  </Link>
-                </td>
-                <td>{game.players}</td>
-              </tr>
-            )
-          ) :
-          (
-            <tr>
-              <td colSpan="4">Oczekiwanie na dane gier...</td>
-            </tr>
-          )
-      )
-
-      const rangeResults = (
-        games.data ?
-          games.data.filter(
-            game => (game.players.includes(gameRange))
           ).map(
             game => (
               <tr key={game.id}>
@@ -90,8 +60,14 @@ export default connect(
           </PageHeader>
 
           <Panel>
-            <GameSearch/>
-            <GameRanges/>
+            <Row>
+              <Col xs="5">
+                <GameSearch/>
+              </Col>
+              <Col xs="5">
+                <GameRanges/>
+              </Col>
+            </Row>
           </Panel>
           {
             searchResults.length !== 0 ? (
@@ -105,10 +81,6 @@ export default connect(
                 </thead>
                 <tbody>
                 {searchResults}
-                </tbody>
-
-                <tbody>
-                {rangeResults}
                 </tbody>
               </Table>
             ) :
