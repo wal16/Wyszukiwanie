@@ -68,6 +68,8 @@ export default connect(
                   <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
+                  <th></th>
+                  <th>Posiadacze gry</th>
                 </tr>
                 </thead>
                 <tbody>
