@@ -1,9 +1,17 @@
+const LOGIN = 'login/LOGIN'
+const LOGOUT = 'login/LOGOUT'
 const GET_SESSION = 'session/GET_SESSION'
+
 //TODO: add logout action
 
 //TODO: thunk z loginem i hasłem
+export const login = (username, password) => ({
+  type: LOGIN,
+  username, password
+})
 
-export const login = (value) => ({
+
+export const getSession = (value) => ({
   type: GET_SESSION,
   value
 })
@@ -20,6 +28,10 @@ export default (state = initialState, action = {}) => {
         ...state,
         session: action.value
       }
+    // case LOGIN:
+    //   return {
+    //     ...state,
+    //   }
     default:
       return state
   }
