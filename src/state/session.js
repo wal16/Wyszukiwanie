@@ -1,6 +1,8 @@
 const LOGIN = 'session/LOGIN'
 //TODO: add logout action
 
+//TODO: thunk z loginem i hasłem
+
 export const login = (value) => ({
   type: LOGIN,
   value

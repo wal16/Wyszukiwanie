@@ -16,6 +16,9 @@ import {
 } from 'react-bootstrap'
 import {Link} from 'react-router'
 
+// TODO: zrobić klasę - żeby mieć stan
+// TODO: onSubmit na formularzu
+
 const LoginView = () => (
   <Grid>
     <h1>Zaloguj się</h1>
@@ -31,9 +34,9 @@ const LoginView = () => (
 
             <FormControl
               id="username"
-              type="text"
+              type="email"
               defaultValue=""
-              placeholder="Nazwa użytkownika"
+              placeholder="Adres e-mail"
               onChange={(event) => {
                 login(event.target.value)
               }}
@@ -59,6 +62,7 @@ const LoginView = () => (
             type="submit"
             onClick={(event) => {
               event.preventDefault()
+
             }}
           >
             Submit
