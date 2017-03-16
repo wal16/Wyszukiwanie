@@ -7,8 +7,8 @@ export const range = (value) => ({
 
 const initialState = {
   changeRange: {min: 2, max: 20},
-  minLimit: 2,
-  maxLimit: 20
+  minLabel: 2,
+  maxLabel: 20
 }
 
 

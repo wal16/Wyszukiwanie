@@ -8,8 +8,8 @@ export default connect(
   state => ({
     games: state.games,
     changeRange: state.range.changeRange,
-    minLimit: state.range.minLimit,
-    maxLimit: state.range.maxLimit
+    minLabel: state.range.minLabel,
+    maxLabel: state.range.maxLabel
   }),
   dispatch => ({
     range: (value) => dispatch(range(value))
@@ -19,15 +19,15 @@ export default connect(
     render() {
       const {
         changeRange,
-        minLimit,
-        maxLimit,
+        minLabel,
+        maxLabel,
         range
       } = this.props
 
       return (
         <InputRange
-          maxValue={maxLimit}
-          minValue={minLimit}
+          maxValue={maxLabel}
+          minValue={minLabel}
           value={changeRange}
           onChange={ value => range(value) } />
       );
