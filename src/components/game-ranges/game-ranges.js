@@ -16,15 +16,20 @@ export default connect(
   })
 )(
   class GameRanges extends React.Component {
-
     render() {
+      const {
+        changeRange,
+        minLimit,
+        maxLimit,
+        range
+      } = this.props
+
       return (
         <InputRange
-          maxValue={this.props.maxLimit}
-          minValue={this.props.minLimit}
-          value={this.props.changeRange}
-          onChange={ value => this.props.range(value)
-          } />
+          maxValue={maxLimit}
+          minValue={minLimit}
+          value={changeRange}
+          onChange={ value => range(value) } />
       );
     }
   }
