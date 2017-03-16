@@ -32,9 +32,10 @@ const LoginView = () => (
             <FormControl
               id="login"
               type="text"
-              value=""
+              defaultValue=""
               placeholder="Nazwa użytkownika / adres e-mail"
-              onChange={() => {
+              onChange={(event) => {
+                login(event.target.value)
               }}
             />
 
@@ -45,15 +46,22 @@ const LoginView = () => (
             <FormControl
               id="password"
               type="text"
-              value=""
+              defaultValue=""
               placeholder="Hasło"
-              onChange={() => {
+              onChange={(event) => {
+                login(event.target.value)
               }}
             />
             <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
           </FormGroup>
 
-          <Button type="submit">
+          <Button
+            type="submit"
+            onClick={(event) => {
+              event.preventDefault()
+
+            }}
+          >
             Submit
           </Button>
         </form>
