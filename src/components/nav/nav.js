@@ -5,27 +5,27 @@ import {Link} from 'react-router'
 import './nav.css'
 
 const NavComponent = () => (
-    <Navbar fixedTop>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <Link to="/">
-            <img src={process.env.PUBLIC_URL + '/img/pozyczme-logo-blue2.svg'}
-                 alt="Logo PożyczME"/>
-          </Link>
-        </Navbar.Brand>
-        <Navbar.Toggle />
-      </Navbar.Header>
-      <Navbar.Collapse>
-        <Nav pullRight>
-          <LinkContainer to="/games-list">
-            <NavItem eventKey={1}>Lista gier</NavItem>
-          </LinkContainer>
-          <LinkContainer to="/users-list">
-            <NavItem eventKey={2}>Użytkownicy</NavItem>
-          </LinkContainer>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+  <Navbar fixedTop>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <Link to="/">
+          <img src={process.env.PUBLIC_URL + '/img/pozyczme-logo-blue2.svg'}
+               alt="Logo PożyczME"/>
+        </Link>
+      </Navbar.Brand>
+      <Navbar.Toggle  />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav pullRight>
+        <LinkContainer to="/games-list">
+          <NavItem eventKey={1}>Lista gier</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/users-list">
+          <NavItem eventKey={2}>Użytkownicy</NavItem>
+        </LinkContainer>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 
 )
 
