@@ -19,10 +19,10 @@ class App extends React.Component {
   render() {
     return (
 
-      <div>
-      <Nav/>
-        <div className="props-children">
-        {this.props.children}
+      <div className="props-children">
+        <Nav/>
+        <div>
+          {this.props.children}
         </div>
       </div>
     )
