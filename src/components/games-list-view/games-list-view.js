@@ -23,7 +23,6 @@ export default connect(
     render() {
       const {
         games,
-        params,
         searchString,
         favGame,
         unfavGame,
@@ -53,7 +52,6 @@ export default connect(
                   {
                     favoriteGameIds.includes(game.id) ?
                       <Button
-
                         bsStyle="success"
                         onClick={() => unfavGame(game.id)}>
                         Fav

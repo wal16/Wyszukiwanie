@@ -28,7 +28,6 @@ export default connect(
         favoriteGameIds
       } = this.props
 
-
       if (games.data === null) {
         return <p>Waiting for games...</p>
       }
@@ -65,7 +64,6 @@ export default connect(
                       {
                         favoriteGameIds.includes(currentGame.id) ?
                           <Button
-
                             bsStyle="success"
                             onClick={() => unfavGame(currentGame.id)}>
                             Fav
@@ -98,7 +96,6 @@ export default connect(
                 <Row>
                   <Col xs={12} sm={12}>
                     <Panel header="Opis">{currentGame.description}</Panel>
-
                   </Col>
                 </Row>
               </div>
