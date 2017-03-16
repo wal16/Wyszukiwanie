@@ -25,19 +25,28 @@ const LoginView = () => (
           <FormGroup
             controlId="loginForm"
           >
-            <ControlLabel>Nazwa użytkownika / adres e-mail</ControlLabel>
+            <ControlLabel>
+              <label htmlFor="login">Nazwa użytkownika / adres e-mail</label>
+            </ControlLabel>
+
             <FormControl
+              id="login"
               type="text"
               value=""
-              placeholder="Enter text"
+              placeholder="Nazwa użytkownika / adres e-mail"
               onChange={() => {
               }}
             />
-            <ControlLabel>Hasło</ControlLabel>
+
+            <ControlLabel>
+              <label htmlFor="password">Hasło</label>
+            </ControlLabel>
+
             <FormControl
+              id="password"
               type="text"
               value=""
-              placeholder="Enter text"
+              placeholder="Hasło"
               onChange={() => {
               }}
             />
