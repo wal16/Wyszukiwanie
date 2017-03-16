@@ -4,14 +4,14 @@ import {Link} from 'react-router'
 import {Grid, PageHeader, Table, Alert, Panel, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
-import {fetchGames} from '../../state/games'
+import { fetchGames } from '../../state/games'
 import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
   state => ({
     games: state.games,
     searchString: state.search.searchString,
-    favoriteGameIds: state.favoriteGameIds
+    favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
@@ -25,7 +25,8 @@ export default connect(
         games,
         searchString,
         favGame,
-        bsStyle
+        unfavGame,
+        favoriteGameIds
       } = this.props
 
       const searchResults = (
@@ -37,8 +38,8 @@ export default connect(
               <tr key={game.id}>
                 <td>
                   <img src={game.image}
-                         alt="Zdjęcie gry"
-                           height="70"
+                       alt="Zdjęcie gry"
+                       height="70"
                   />
                 </td>
                 <td>
@@ -47,14 +48,7 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
-                <td>
-                  <Button
-                    bsStyle="default"
-                    bsSize="xsmall"
-                    onClick={() => favGame(games.id)}>
-                    Dodaj do ulubionych
-                  </Button>
-                </td>
+
               </tr>
             )
           ) :
@@ -82,6 +76,7 @@ export default connect(
                   <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
+
                 </tr>
                 </thead>
                 <tbody>

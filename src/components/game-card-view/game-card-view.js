@@ -10,7 +10,7 @@ import { favGame, unfavGame } from '../../state/favs'
 export default connect(
   state => ({
     games: state.games,
-    favoriteGameIds: state.favoriteGameIds
+    favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
@@ -24,7 +24,8 @@ export default connect(
         games,
         params,
         favGame,
-        unfavGame
+        unfavGame,
+        favoriteGameIds
       } = this.props
 
 
@@ -61,11 +62,6 @@ export default connect(
                   </Col>
                   <Col xs={12} sm={6} md={8}>
                     <h2>{currentGame.name}</h2>
-                    <Button
-                      bsStyle="default"
-                      bsSize="xsmall"
-                      onClick={() => favGame(games.id)}>
-                      Dodaj do ulubionych</Button>
                     <Panel>
                       <LinkContainer to={'/game-profile/' + prevGame}>
                         <Button>
@@ -87,6 +83,23 @@ export default connect(
                 <Row>
                   <Col xs={12} sm={12}>
                     <Panel header="Opis">{currentGame.description}</Panel>
+                    <div>
+                      {
+                        favoriteGameIds.includes(games.id) ?
+                          <Button
+                            bsStyle="success"
+                            bsSize="xsmall" onClick={() => unfavGame(games.id)}>
+                            Fav
+                          </Button> :
+                          <Button
+                            bsStyle="default"
+                            bsSize="xsmall"
+                            onClick={() => favGame(games.id)}>
+                            Fav
+                          </Button>
+                      }
+
+                    </div>
                   </Col>
                 </Row>
               </div>
