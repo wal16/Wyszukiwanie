@@ -30,9 +30,6 @@ export default connect(
         favoriteGameIds
       } = this.props
 
-      const currentGame = games.data.find(
-        game => game.id === parseInt(params.gameId, 10))
-
       const searchResults = (
         games.data ?
           games.data.filter(
@@ -52,6 +49,22 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
+                <td>
+                  {
+                    favoriteGameIds.includes(game.id) ?
+                      <Button
+
+                        bsStyle="success"
+                        onClick={() => unfavGame(game.id)}>
+                        Fav
+                      </Button> :
+                      <Button
+                        bsStyle="default"
+                        onClick={() => favGame(game.id)}>
+                        Fav
+                      </Button>
+                  }
+                </td>
               </tr>
             )
           ) :
@@ -61,7 +74,6 @@ export default connect(
             </tr>
           )
       )
-
 
       return (
         <Grid>
@@ -80,22 +92,6 @@ export default connect(
                   <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
-                  <th>
-                    {
-                      favoriteGameIds.includes(currentGame.id) ?
-                        <Button
-
-                          bsStyle="success"
-                          onClick={() => unfavGame(currentGame.id)}>
-                          Fav
-                        </Button> :
-                        <Button
-                          bsStyle="default"
-                          onClick={() => favGame(currentGame.id)}>
-                          Fav
-                        </Button>
-                    }
-                  </th>
                 </tr>
                 </thead>
                 <tbody>
