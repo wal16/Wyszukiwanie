@@ -11,6 +11,7 @@ export default connect(
   state => ({
     games: state.games,
     searchString: state.search.searchString,
+    changeRange: state.range.changeRange
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
@@ -20,7 +21,8 @@ export default connect(
     render() {
       const {
         games,
-        searchString
+        searchString,
+        changeRange
       } = this.props
 
       const searchResults = (
@@ -51,6 +53,7 @@ export default connect(
             </tr>
           )
       )
+
 
 
       return (

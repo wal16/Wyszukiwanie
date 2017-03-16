@@ -4,11 +4,12 @@ import InputRange from 'react-input-range'
 
 import { range } from '../../state/range'
 
-
 export default connect(
   state => ({
     games: state.games,
-    changeRange: state.range.changeRange
+    changeRange: state.range.changeRange,
+    minLimit: state.range.minLimit,
+    maxLimit: state.range.maxLimit
   }),
   dispatch => ({
     range: (value) => dispatch(range(value))
@@ -19,8 +20,8 @@ export default connect(
     render() {
       return (
         <InputRange
-          maxValue={20}
-          minValue={2}
+          maxValue={this.props.maxLimit}
+          minValue={this.props.minLimit}
           value={this.props.changeRange}
           onChange={ value => this.props.range(value)
           } />
