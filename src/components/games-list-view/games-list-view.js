@@ -21,8 +21,8 @@ export default connect(
     render() {
       const {
         games,
-        searchString,
-        changeRange
+        searchString
+
       } = this.props
 
       const searchResults = (
@@ -54,7 +54,32 @@ export default connect(
           )
       )
 
-
+      const rangeResults = (
+        games.data ?
+          games.data.map(
+            game => (
+              <tr key={game.id}>
+                <td>
+                  <img src={game.image}
+                       alt="Zdjęcie gry"
+                       height="70"
+                  />
+                </td>
+                <td>
+                  <Link to={'game-profile/' + game.id}>
+                    {game.name}
+                  </Link>
+                </td>
+                <td>{game.players}</td>
+              </tr>
+            )
+          ):
+          (
+            <tr>
+              <td colSpan="4">Oczekiwanie na dane gier...</td>
+            </tr>
+          )
+      )
 
       return (
         <Grid>
