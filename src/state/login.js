@@ -1,10 +1,11 @@
-const GET_SESSION = 'session/GET_SESSION'
+const LOGIN = 'login/LOGIN'
+const LOGOUT = 'login/LOGOUT'
 //TODO: add logout action
 
 //TODO: thunk z loginem i hasłem
 
 export const login = (value) => ({
-  type: GET_SESSION,
+  type: LOGIN,
   value
 })
 
@@ -15,7 +16,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case GET_SESSION:
+    case LOGIN:
       return {
         ...state,
         session: action.value

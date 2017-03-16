@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Nav from './nav/nav'
-import LoginView from './login'
+import LoginView from './login-view'
 import {fetchGames} from '../state/games'
 import {fetchUsers} from '../state/users'
 

@@ -4,12 +4,14 @@ import thunk from 'redux-thunk'
 import gamesReducer from './state/games'
 import usersReducer from './state/users'
 import searchReducer from './state/search'
+import loginReducer from './state/login'
 import sessionReducer from './state/session'
 
 const reducer = combineReducers({
   games: gamesReducer,
   users: usersReducer,
   search: searchReducer,
+  login: loginReducer,
   session: sessionReducer
 })
 
