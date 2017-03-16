@@ -21,8 +21,8 @@ export default connect(
     render() {
       const {
         games,
-        searchString
-
+        searchString,
+        changeRange
       } = this.props
 
       const searchResults = (
@@ -43,7 +43,7 @@ export default connect(
                     {game.name}
                   </Link>
                 </td>
-                <td>{game.players}</td>
+                <td>{game.playersMin} - {game.playersMax}</td>
               </tr>
             )
           ) :
@@ -56,7 +56,9 @@ export default connect(
 
       const rangeResults = (
         games.data ?
-          games.data.map(
+          games.data.filter(
+            game => (changeRange.min < game.playersMin )
+          ).map(
             game => (
               <tr key={game.id}>
                 <td>
@@ -70,7 +72,7 @@ export default connect(
                     {game.name}
                   </Link>
                 </td>
-                <td>{game.players}</td>
+                <td>{game.playersMin} - {game.playersMax}</td>
               </tr>
             )
           ):
@@ -108,7 +110,7 @@ export default connect(
                 </tr>
                 </thead>
                 <tbody>
-                {searchResults}
+                {rangeResults}
                 </tbody>
               </Table>
             ) :
