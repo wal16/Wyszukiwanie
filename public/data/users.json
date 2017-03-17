@@ -4,7 +4,7 @@
     "name": "Rafał",
     "surname": "Nowak",
     "about": "Jestem Rafał, pochodzę z Gdańska. Na codzień interesuję się grami planszowymi w szczególności chińczyk, warcaby. Uwielbiam gotować. ",
-    "picture": "/img/board-games-with-roles-blue.png",
+    "picture": "/img/Rafal.jpg",
     "gameList": [1, 3],
     "wishList": [5]
   },
@@ -13,7 +13,7 @@
     "name": "Natalia",
     "surname": "React",
     "about": "Jestem Natalia, pochodzę z Gdańska. Na codzień interesuję się grami planszowymi w szczególności Scrabble, Osadnicy z Katanu. Lubię koty :) ",
-    "picture": "/img/board-games-with-roles-blue.png",
+    "picture": "/img/Natalia.jpg",
     "gameList": [3, 4, 5],
     "wishList": [1, 2]
   },
@@ -22,7 +22,7 @@
     "name": "Marta",
     "surname": "Zupa",
     "about": "Jestem Marta, pochodzę z Gdańska. Na codzień interesuję się grami planszowymi w szczególności Jungle Speed, Osadnicy z Katanu. Uwielbiam psy.",
-    "picture": "/img/board-games-with-roles-blue.png",
+    "picture": "/img/Marta.jpg",
     "gameList": [2],
     "wishList": [3, 5]
   },
@@ -31,7 +31,7 @@
     "name": "Karol",
     "surname": "Wielki",
     "about": "Jestem Karol, pochodzę z Gdyni. Na codzień interesuję się grami planszowymi w szczególności Jungle Speed, Dixit. Zawszę chętnię coś zjem na ciepło.",
-    "picture": "/img/board-games-with-roles-blue.png",
+    "picture": "/img/Karol.jpg",
     "gameList": [4, 1],
     "wishList": [2, 3]
   },
@@ -40,7 +40,7 @@
     "name": "Bartosz",
     "surname": "Wszystkowiedzacy",
     "about": "Jestem Bartosz, pochodzę z Gdańska. Na codzień interesuję się programowaniem, prowadzeniem zajęć z zakresu JavaScript. Wyzwania to moja pasja :). Nie szukam gier - programuję je sam.",
-    "picture": "/img/board-games-with-roles-blue.png",
+    "picture": "/img/Bartosz.jpg",
     "gameList": [1, 5],
     "wishList": [2, 4]
   }
