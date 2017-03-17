@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Button} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Row, Col, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
+import GameRanges from '../game-ranges/game-ranges'
 
 import { fetchGames } from '../../state/games'
 import { favGame, unfavGame } from '../../state/favs'
@@ -11,6 +12,7 @@ export default connect(
   state => ({
     games: state.games,
     searchString: state.search.searchString,
+    changeRange: state.range.changeRange,
     favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
@@ -24,6 +26,7 @@ export default connect(
       const {
         games,
         searchString,
+        changeRange,
         favGame,
         unfavGame,
         favoriteGameIds
@@ -32,7 +35,8 @@ export default connect(
       const searchResults = (
         games.data ?
           games.data.filter(
-            game => (game.name.toLowerCase()).includes(searchString.toLowerCase())
+            game => (game.name.toLowerCase()).includes(searchString.toLowerCase()) &&
+            ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
             game => (
               <tr key={game.id}>
@@ -47,7 +51,7 @@ export default connect(
                     {game.name}
                   </Link>
                 </td>
-                <td>{game.players}</td>
+                <td>{game.playersMin} - {game.playersMax}</td>
                 <td>
                   {
                     favoriteGameIds.includes(game.id) ?
@@ -78,9 +82,16 @@ export default connect(
           <PageHeader>Lista gier<br/>
             <small>Poniżej znajdziesz listę dostępnych planszówek</small>
           </PageHeader>
-
           <Panel>
-            <GameSearch/>
+            <h4>Wyszukiwarka gier</h4>
+            <Row>
+              <Col xs={5}>
+                <GameSearch/>
+              </Col>
+              <Col xs={5}>
+                <GameRanges/>
+              </Col>
+            </Row>
           </Panel>
           {
             searchResults.length !== 0 ? (

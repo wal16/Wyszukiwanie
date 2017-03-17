@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { search } from '../../state/search'
 
 const GameSearch = ({ games, searchString, search }) => (
-  <div>
-    <label htmlFor="search">Wyszukiwarka gier</label>{' '}
     <input
       id="search"
       type="text"
@@ -12,7 +10,6 @@ const GameSearch = ({ games, searchString, search }) => (
       value={searchString}
       onChange={ (event) => search(event.target.value) }
     />
-  </div>
 )
 
 export default connect(
