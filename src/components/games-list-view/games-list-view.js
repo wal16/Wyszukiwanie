@@ -1,18 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
-import {fetchGames} from '../../state/games'
+import { fetchGames } from '../../state/games'
+import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
   state => ({
     games: state.games,
-    searchString: state.search.searchString
+    searchString: state.search.searchString,
+    favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
-    fetchGamesHelper: () => dispatch(fetchGames())
+    fetchGamesHelper: () => dispatch(fetchGames()),
+    favGame: (gameId) => dispatch(favGame(gameId)),
+    unfavGame: (gameId) => dispatch(unfavGame(gameId))
   })
 )(
   class GamesListView extends React.Component {
@@ -20,8 +24,9 @@ export default connect(
       const {
         games,
         searchString,
-        user,
-        users
+        favGame,
+        unfavGame,
+        favoriteGameIds
       } = this.props
 
       const searchResults = (
@@ -45,25 +50,17 @@ export default connect(
                 <td>{game.players}</td>
                 <td>
                   {
-                    game.id ? (
-                        users.data.map(
-                          user => (
-                            user.id ? (
-                                user.gameList.any(
-                                  gameId => gameId === game.id)
-                              ).map(
-                                user => (
-                                  <div key={user.id}>
-                                    <Link to={'game-profile/' + user.id}>
-                                      {user.name}
-                                    </Link>
-                                  </div>
-                                )
-                              ): null
-                          )
-                        )
-
-                    ) : null
+                    favoriteGameIds.includes(game.id) ?
+                      <Button
+                        bsStyle="success"
+                        onClick={() => unfavGame(game.id)}>
+                        Fav
+                      </Button> :
+                      <Button
+                        bsStyle="default"
+                        onClick={() => favGame(game.id)}>
+                        Fav
+                      </Button>
                   }
                 </td>
               </tr>
@@ -87,21 +84,19 @@ export default connect(
           </Panel>
           {
             searchResults.length !== 0 ? (
-                <Table striped>
-                  <thead>
-                  <tr>
-                    <th></th>
-                    <th>Nazwa gry</th>
-                    <th>Liczba graczy</th>
-                    <th></th>
-                    <th>Posiadacze gry</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {searchResults}
-                  </tbody>
-                </Table>
-              ) :
+              <Table striped>
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Nazwa gry</th>
+                  <th>Liczba graczy</th>
+                </tr>
+                </thead>
+                <tbody>
+                {searchResults}
+                </tbody>
+              </Table>
+            ) :
               (
                 <Alert bsStyle="warning">
                   Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
