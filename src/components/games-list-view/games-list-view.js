@@ -1,12 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Row, Col, Button} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Row, Col} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
+import './games-list-view.css'
 
-import { fetchGames } from '../../state/games'
-import { favGame, unfavGame } from '../../state/favs'
+import {fetchGames} from '../../state/games'
+import {favGame, unfavGame} from '../../state/favs'
 
 export default connect(
   state => ({
@@ -41,9 +42,9 @@ export default connect(
             game => (
               <tr key={game.id}>
                 <td>
-                  <img src={game.image}
+                  <img className="thumb" src={game.image}
                        alt="Zdjęcie gry"
-                       height="70"
+
                   />
                 </td>
                 <td>
@@ -55,16 +56,20 @@ export default connect(
                 <td>
                   {
                     favoriteGameIds.includes(game.id) ?
-                      <Button
-                        bsStyle="success"
-                        onClick={() => unfavGame(game.id)}>
-                        Fav
-                      </Button> :
-                      <Button
-                        bsStyle="default"
-                        onClick={() => favGame(game.id)}>
-                        Fav
-                      </Button>
+                      (
+                        <img
+                          className="fav"
+                          src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
+                          onClick={() => unfavGame(game.id)}
+                        />
+                      ) :
+                      (
+                        <img
+                          className="fav"
+                          src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
+                          onClick={() => favGame(game.id)}
+                        />
+                      )
                   }
                 </td>
               </tr>
