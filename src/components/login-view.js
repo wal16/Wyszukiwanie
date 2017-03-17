@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {login} from '../state/login'
+import {login} from '../state/session'
 import {
   Col,
   Row,
@@ -38,7 +38,7 @@ export default connect(
           <h1>Zaloguj się</h1>
           <Row>
             <Col xs={12} sm={6} md={6}>
-              <form onSubmit={() => {
+              <form onSubmit={(event) => {
                 event.preventDefault()
                 this.props.login(this.state.username, this.state.password)
               }}>
@@ -51,7 +51,7 @@ export default connect(
 
                   <FormControl
                     id="username"
-                    type="email"
+                    type="text" /* TODO: changed type to proper when established what type should be the login value be*/
                     value={this.state.username}
                     placeholder="Adres e-mail"
                     onChange={(event) => {
@@ -79,7 +79,7 @@ export default connect(
                   type="submit"
                   bsStyle="primary"
                 >
-                  Submit
+                  Zaloguj
                 </Button>
               </form>
             </Col>
