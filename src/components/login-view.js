@@ -5,16 +5,12 @@ import {
   Col,
   Row,
   Grid,
-  FieldGroup,
   FormGroup,
-  Radio,
   FormControl,
-  Checkbox,
   ControlLabel,
   Button,
   HelpBlock
 } from 'react-bootstrap'
-import {Link} from 'react-router'
 
 export default connect(
   null,
@@ -53,7 +49,7 @@ export default connect(
                     id="username"
                     type="text" /* TODO: changed type to proper when established what type should be the login value be*/
                     value={this.state.username}
-                    placeholder="Adres e-mail"
+                    placeholder="Nazwa użytkownika"
                     onChange={(event) => {
                       this.setState({username: event.target.value})
                     }}
@@ -65,7 +61,7 @@ export default connect(
 
                   <FormControl
                     id="password"
-                    type="text" /*TODO: change to password after deploying working login mechanism*/
+                    type="password"
                     value={this.state.password}
                     placeholder="Hasło"
                     onChange={(event) => {
