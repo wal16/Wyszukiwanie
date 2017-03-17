@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {logIn} from '../state/session'
+import {logIn, logOut} from '../state/session'
 import {
   Col,
   Row,
@@ -15,7 +15,8 @@ import {
 export default connect(
   null,
   dispatch => ({
-    logIn: (username, password) => dispatch(logIn(username, password))
+    logIn: (username, password) => dispatch(logIn(username, password)),
+    logOut: () => dispatch(logOut())
   })
 )(
   class LoginView extends React.Component {
@@ -29,6 +30,10 @@ export default connect(
     }
 
     render() {
+      const {
+        logOut
+      } = this.props
+
       return (
         <Grid>
           <h1>Zaloguj się</h1>
@@ -76,6 +81,13 @@ export default connect(
                   Zaloguj
                 </Button>
               </form>
+            </Col>
+            <Col>
+              <Button
+                bsStyle="default"
+                onClick={() => logOut()}>
+                Wyloguj
+              </Button>
             </Col>
           </Row>
         </Grid>
