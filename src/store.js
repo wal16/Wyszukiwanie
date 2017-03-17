@@ -13,8 +13,7 @@ const reducer = combineReducers({
   games: gamesReducer,
   users: usersReducer,
   search: searchReducer,
-  favs: favsReducer
-  search: searchReducer,
+  favs: favsReducer,
   login: loginReducer,
   session: sessionReducer
 })
