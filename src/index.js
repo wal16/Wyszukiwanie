@@ -8,7 +8,7 @@ import store from './store'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
-import App from './components/app'
+import App from './components/app/app'
 import MainView from './components/main-view'
 import LoginView from './components/login-view'
 import GamesListView from './components/games-list-view/games-list-view'
