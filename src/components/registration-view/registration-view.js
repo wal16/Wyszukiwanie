@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import { fetchRegistration } from '../../state/registration'
+
 import {
   Col,
   Row,
@@ -14,16 +16,18 @@ import {
 
 export default connect(
   null,
-  dispatch => ({ })
+  dispatch => ({
+    register: ({username, password, email}) => dispatch(fetchRegistration(username, password, email))
+  })
 )(
-  class registrationView extends React.Component {
+  class RegistrationView extends React.Component {
     constructor(props){
       super(props)
 
       this.state = {
         username: '',
         password: '',
-        email: '',
+        email: ''
 
       }
     }
@@ -32,11 +36,11 @@ export default connect(
       return (
         <Grid>
           <h1>Rejestracja</h1>
-          <Row>
+          <Row text-center>
             <Col xs={12} sm={6} md={6}>
               <form onSubmit={(event) => {
                 event.preventDefault()
-                this.props.login(this.state.username, this.state.password)
+                this.props.register(this.state)
               }}>
                 <FormGroup>
                   <ControlLabel>
@@ -46,10 +50,10 @@ export default connect(
                   <FormControl
                     id="username"
                     type="text" /* TODO: changed type to proper when established what type should be the login value be*/
-                    value={this.state.username}
+                    value=""
                     placeholder="Nazwa użytkownika"
                     onChange={(event) => {
-                      this.setState({username: event.target.value})
+                      this.setState({ username: event.target.value})
                     }}
                   />
 
@@ -60,12 +64,29 @@ export default connect(
                   <FormControl
                     id="password"
                     type="password"
-                    value={this.state.password}
+                    value=""
                     placeholder="Hasło"
                     onChange={(event) => {
-                      this.setState({password: event.target.value})
+                      this.setState({ password: event.target.value})
                     }}
                   />
+
+                  <ControlLabel>
+                    <label htmlFor="email">Podaj adres e-mail</label>
+                  </ControlLabel>
+
+                  <FormControl
+                    id="email"
+                    type="email"
+                    placeholder="Podaj adres e-mail"
+                    onChange={(event) => {
+                      this.setState({email: event.target.value})
+                    }}
+                      />
+
+
+
+
                   <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
                 </FormGroup>
 
@@ -73,7 +94,7 @@ export default connect(
                   type="submit"
                   bsStyle="primary"
                 >
-                  Zaloguj
+                  Zarejstruj
                 </Button>
               </form>
             </Col>
