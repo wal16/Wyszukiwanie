@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { fetchRegistration } from '../../state/registration'
+import {fetchRegistration} from '../../state/registration'
 
 import {
   Col,
@@ -20,7 +20,7 @@ export default connect(
   })
 )(
   class RegistrationView extends React.Component {
-    constructor(props){
+    constructor(props) {
       super(props)
 
       this.state = {
@@ -52,7 +52,7 @@ export default connect(
                     value={this.state.username}
                     placeholder="Nazwa użytkownika"
                     onChange={(event) => {
-                      this.setState({ username: event.target.value})
+                      this.setState({username: event.target.value})
                     }}
                   />
 
@@ -66,7 +66,7 @@ export default connect(
                     value={this.state.password}
                     placeholder="Hasło"
                     onChange={(event) => {
-                      this.setState({ password: event.target.value})
+                      this.setState({password: event.target.value})
                     }}
                   />
 
@@ -82,10 +82,7 @@ export default connect(
                     onChange={(event) => {
                       this.setState({email: event.target.value})
                     }}
-                      />
-
-
-
+                  />
 
                   <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
                 </FormGroup>
@@ -94,7 +91,7 @@ export default connect(
                   type="submit"
                   bsStyle="danger"
                 >
-                  Zarejstruj
+                  Zarejstruj się
                 </Button>
               </form>
             </Col>

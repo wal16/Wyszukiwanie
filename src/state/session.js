@@ -5,7 +5,7 @@ const LOGIN__FAIL = 'session/LOGIN__FAILED'
 //TODO: add logout action
 
 export const login = (username, password) => dispatch => {
-  dispatch({ type: LOGIN__BEGIN })
+  dispatch({type: LOGIN__BEGIN})
   return fetch(
     'https://tranquil-ocean-17204.herokuapp.com/api/users/login', {
       method: 'POST',
@@ -71,10 +71,10 @@ export default (state = initialState, action = {}) => {
         fetching: false,
         error: action.error
       }
-  // case LOGIN:
-  //   return {
-  //     ...state,
-  //   }
+    // case LOGIN:
+    //   return {
+    //     ...state,
+    //   }
     default:
       return state
   }

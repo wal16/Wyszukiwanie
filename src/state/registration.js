@@ -3,7 +3,7 @@ const FETCH__SUCCESS = 'registration/FETCH__SUCCESS'
 const FETCH__FAIL = 'registration/FETCH__FAILED'
 
 export const fetchRegistration = (username, password, email) => dispatch => {
-  dispatch({ type: FETCH__BEGIN })
+  dispatch({type: FETCH__BEGIN})
   return fetch(
     'https://tranquil-ocean-17204.herokuapp.com/api/users', {
       method: 'POST',

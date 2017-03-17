@@ -32,19 +32,17 @@ class App extends React.Component {
         </div>
       </div>
     ) :
-    (
-      <Grid>
-        <Col xs={12} sm={6} md={6}>
+      (
+        <Grid>
+          <Col lg={6}>
+            <RegistrationView/>
+          </Col>
 
-          <RegistrationView/>
-          <LoginView />
-
-        </Col>
-      </Grid>
-
-
-    )
-
+          <Col lg={6}>
+            <LoginView />
+          </Col>
+        </Grid>
+      )
   }
 }
 
