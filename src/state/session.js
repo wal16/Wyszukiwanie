@@ -45,9 +45,7 @@ export const login = (username, password) => dispatch => {
   )
 }
 
-//TODO: iniitial state for session needs to be changed to null after finishing the login component
 const initialState = {
-  session: 'logged in',
   data: null,
   fetching: false,
   error: null

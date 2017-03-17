@@ -21,7 +21,7 @@ class App extends React.Component {
       session
     } = this.props
 
-    return session.session ? (
+    return session.data !== null ? (
       <div className="props-children">
         <Nav/>
         <div>
