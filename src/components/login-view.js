@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {login} from '../state/session'
+import {Link} from 'react-router'
 import {
   Col,
   Row,

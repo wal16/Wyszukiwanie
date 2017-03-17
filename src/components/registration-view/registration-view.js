@@ -92,7 +92,7 @@ export default connect(
 
                 <Button
                   type="submit"
-                  bsStyle="primary"
+                  bsStyle="danger"
                 >
                   Zarejstruj
                 </Button>

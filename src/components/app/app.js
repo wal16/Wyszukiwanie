@@ -1,8 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {Grid, Col} from 'react-bootstrap'
+
 import Nav from '../nav/nav'
 import LoginView from '../login-view'
+import RegistrationView from '../registration-view/registration-view'
 import {fetchGames} from '../../state/games'
 import {fetchUsers} from '../../state/users'
 
@@ -28,7 +31,20 @@ class App extends React.Component {
           {this.props.children}
         </div>
       </div>
-    ) : <LoginView />
+    ) :
+    (
+      <Grid>
+        <Col xs={12} sm={6} md={6}>
+
+          <RegistrationView/>
+          <LoginView />
+
+        </Col>
+      </Grid>
+
+
+    )
+
   }
 }
 
