@@ -5,12 +5,14 @@ import gamesReducer from './state/games'
 import usersReducer from './state/users'
 import searchReducer from './state/search'
 import rangeReducer from './state/range'
+import favsReducer from './state/favs'
 
 const reducer = combineReducers({
   games: gamesReducer,
   users: usersReducer,
   search: searchReducer,
-  range: rangeReducer
+  range: rangeReducer,
+  favs: favsReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

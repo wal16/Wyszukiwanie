@@ -4,23 +4,29 @@ import {LinkContainer} from 'react-router-bootstrap'
 
 import {Grid, PageHeader, Panel, Button, Row, Col, Image} from 'react-bootstrap'
 
-import {fetchGames} from '../../state/games'
+import { fetchGames } from '../../state/games'
+import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
   state => ({
-    games: state.games
+    games: state.games,
+    favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
-    fetchGamesHelper: () => dispatch(fetchGames())
+    fetchGamesHelper: () => dispatch(fetchGames()),
+    favGame: (gamesId) => dispatch(favGame(gamesId)),
+    unfavGame: (gamesId) => dispatch(unfavGame(gamesId))
   })
 )(
   class GameProfileView extends React.Component {
     render() {
       const {
         games,
-        params
+        params,
+        favGame,
+        unfavGame,
+        favoriteGameIds
       } = this.props
-
 
       if (games.data === null) {
         return <p>Waiting for games...</p>
@@ -36,7 +42,6 @@ export default connect(
       const nextGame = (
         (currentGame.id <= games.data.length - 1) ? (currentGame.id + 1) : (1)
       )
-
 
       return (
         <Grid>
@@ -55,7 +60,21 @@ export default connect(
                   </Col>
                   <Col xs={12} sm={6} md={8}>
                     <h2>{currentGame.name}</h2>
-
+                    <div>
+                      {
+                        favoriteGameIds.includes(currentGame.id) ?
+                          <Button
+                            bsStyle="success"
+                            onClick={() => unfavGame(currentGame.id)}>
+                            Fav
+                          </Button> :
+                          <Button
+                            bsStyle="default"
+                            onClick={() => favGame(currentGame.id)}>
+                            Fav
+                          </Button>
+                      }
+                    </div>
                     <Panel>
                       <LinkContainer to={'/game-profile/' + prevGame}>
                         <Button>

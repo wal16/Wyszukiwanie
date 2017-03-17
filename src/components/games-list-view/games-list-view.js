@@ -1,20 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Row, Col} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Row, Col, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 
-import {fetchGames} from '../../state/games'
+import { fetchGames } from '../../state/games'
+import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
   state => ({
     games: state.games,
     searchString: state.search.searchString,
-    changeRange: state.range.changeRange
+    changeRange: state.range.changeRange,
+    favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
+    favGame: (gameId) => dispatch(favGame(gameId)),
+    unfavGame: (gameId) => dispatch(unfavGame(gameId))
   })
 )(
   class GamesListView extends React.Component {
@@ -22,7 +26,10 @@ export default connect(
       const {
         games,
         searchString,
-        changeRange
+        changeRange,
+        favGame,
+        unfavGame,
+        favoriteGameIds
       } = this.props
 
       const searchResults = (
@@ -45,6 +52,21 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.playersMin} - {game.playersMax}</td>
+                <td>
+                  {
+                    favoriteGameIds.includes(game.id) ?
+                      <Button
+                        bsStyle="success"
+                        onClick={() => unfavGame(game.id)}>
+                        Fav
+                      </Button> :
+                      <Button
+                        bsStyle="default"
+                        onClick={() => favGame(game.id)}>
+                        Fav
+                      </Button>
+                  }
+                </td>
               </tr>
             )
           ) :

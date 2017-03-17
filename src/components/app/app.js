@@ -1,9 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import Nav from './nav/nav'
-import {fetchGames} from '../state/games'
-import {fetchUsers} from '../state/users'
+import Nav from '../nav/nav'
+import {fetchGames} from '../../state/games'
+import {fetchUsers} from '../../state/users'
+
+import './app.css'
+
 
 class App extends React.Component {
 
@@ -14,9 +17,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+
+      <div className="props-children">
         <Nav/>
-        {this.props.children}
+        <div>
+          {this.props.children}
+        </div>
       </div>
     )
   }
