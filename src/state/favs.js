@@ -1,10 +1,45 @@
 const FAV_GAME = 'favs/FAV_GAME'
 const UNFAV_GAME = 'favs/UNFAV_GAME'
 
-export const favGame = gameId => ({
-  type: FAV_GAME,
-  gameId
-})
+export const favGame = gameId => dispatch => {
+  dispatch({ type: FETCH__BEGIN })
+  return fetch(
+    'https://tranquil-ocean-17204.herokuapp.com/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        itemId: gameId,
+        itemType: 'game'
+      })
+    }
+  ).then(
+    response => {
+      if (response.ok) {
+        return response.json().then(
+          data => {
+            dispatch({
+              type: FAV_GAME,
+              gameId
+            })
+          }
+        ).catch(
+          error => dispatch({
+            type: FETCH__FAIL,
+            error: 'Zniekształcony JSON w odpowiedzi z serwera'
+          })
+        )
+      }
+      throw new Error('Błąd połączenia z serwerem.')
+    }
+  ).catch(
+    error => dispatch({
+      type: FETCH__FAIL,
+      error: error.message
+    })
+  )
+}
 
 export const unfavGame = gameId => ({
   type: UNFAV_GAME,
