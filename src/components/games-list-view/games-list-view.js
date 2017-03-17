@@ -118,6 +118,7 @@ export default connect(
                   Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
                 </Alert>
               )
+
           }
         </Grid>
       )
