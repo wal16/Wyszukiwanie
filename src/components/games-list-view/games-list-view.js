@@ -6,8 +6,8 @@ import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
 
-import { fetchGames } from '../../state/games'
-import { favGame, unfavGame } from '../../state/favs'
+import {fetchGames} from '../../state/games'
+import {favGame, unfavGame} from '../../state/favs'
 
 export default connect(
   state => ({
@@ -42,7 +42,7 @@ export default connect(
             game => (
               <tr key={game.id}>
                 <td>
-                  <img  className="thumb" src={game.image}
+                  <img className="thumb" src={game.image}
                        alt="Zdjęcie gry"
 
                   />
@@ -56,12 +56,20 @@ export default connect(
                 <td>
                   {
                     favoriteGameIds.includes(game.id) ?
-
-                      <img className="fav" src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                           onClick={() => unfavGame(game.id)}/>
-
-                      :<img className="fav" src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                    onClick={() => favGame(game.id)}/>
+                      (
+                        <img
+                          className="fav"
+                          src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
+                          onClick={() => unfavGame(game.id)}
+                        />
+                      ) :
+                      (
+                        <img
+                          className="fav"
+                          src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
+                          onClick={() => favGame(game.id)}
+                        />
+                      )
                   }
                 </td>
               </tr>
