@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Nav from '../nav/nav'
+import LoginView from '../login-view'
 import {fetchGames} from '../../state/games'
 import {fetchUsers} from '../../state/users'
 
@@ -16,20 +17,25 @@ class App extends React.Component {
   }
 
   render() {
-    return (
+    const {
+      session
+    } = this.props
 
+    return session.data !== null ? (
       <div className="props-children">
         <Nav/>
         <div>
           {this.props.children}
         </div>
       </div>
-    )
+    ) : <LoginView />
   }
 }
 
 export default connect(
-  state => ({}),
+  state => ({
+    session: state.session
+  }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
     fetchUsersHelper: () => dispatch(fetchUsers())
