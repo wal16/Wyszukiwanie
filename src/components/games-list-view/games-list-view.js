@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Row, Col, Button} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Row, Col} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
@@ -42,9 +42,9 @@ export default connect(
             game => (
               <tr key={game.id}>
                 <td>
-                  <img src={game.image}
+                  <img  className="thumb" src={game.image}
                        alt="Zdjęcie gry"
-                       height="70"
+
                   />
                 </td>
                 <td>
