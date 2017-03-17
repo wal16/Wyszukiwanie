@@ -12,6 +12,7 @@ import 'react-input-range/lib/css/index.css'
 import App from './components/app/app'
 import MainView from './components/main-view'
 import LoginView from './components/login-view'
+import RegistrationView from './components/registration-view/registration-view'
 import GamesListView from './components/games-list-view/games-list-view'
 import GameProfileView from './components/game-card-view/game-card-view'
 
@@ -30,6 +31,7 @@ ReactDOM.render(
           <Route path="/users-list" component={UsersListView}/>
           <Route path="/user-profile/:userId" component={UserProfileView}/>
           <Route path="/login" component={LoginView}/>
+          <Route path="/registration" component={RegistrationView}/>
         </Route>
       </Router>
     </Provider>
