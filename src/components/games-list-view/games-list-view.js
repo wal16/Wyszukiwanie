@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {Grid, PageHeader, Table, Alert, Panel, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
+import './games-list-view.css'
 
 import { fetchGames } from '../../state/games'
 import { favGame, unfavGame } from '../../state/favs'
@@ -52,17 +53,11 @@ export default connect(
                   {
                     favoriteGameIds.includes(game.id) ?
 
-                      <img src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
+                      <img className="fav" src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
                            onClick={() => unfavGame(game.id)}/>
 
-                      :<img src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
+                      :<img className="fav" src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
                     onClick={() => favGame(game.id)}/>
-
-
-
-
-
-
                   }
                 </td>
               </tr>
