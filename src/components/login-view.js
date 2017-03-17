@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {login} from '../state/session'
+import {logIn} from '../state/session'
 import {
   Col,
   Row,
@@ -15,7 +15,7 @@ import {
 export default connect(
   null,
   dispatch => ({
-    login: (username, password) => dispatch(login(username, password))
+    logIn: (username, password) => dispatch(logIn(username, password))
   })
 )(
   class LoginView extends React.Component {
@@ -36,7 +36,7 @@ export default connect(
             <Col xs={12} sm={6} md={6}>
               <form onSubmit={(event) => {
                 event.preventDefault()
-                this.props.login(this.state.username, this.state.password)
+                this.props.logIn(this.state.username, this.state.password)
               }}>
                 <FormGroup>
                   <ControlLabel>
