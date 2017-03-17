@@ -7,6 +7,7 @@ import searchReducer from './state/search'
 import rangeReducer from './state/range'
 import favsReducer from './state/favs'
 import sessionReducer from './state/session'
+import userReducer from './state/user'
 
 
 const reducer = combineReducers({
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   search: searchReducer,
   range: rangeReducer,
   favs: favsReducer,
-  session: sessionReducer
+  session: sessionReducer,
+  user: userReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
