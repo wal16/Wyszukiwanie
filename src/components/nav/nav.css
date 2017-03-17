@@ -64,6 +64,8 @@
 
 }
 
+
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav > li > a {
     padding: 20px;
@@ -77,6 +79,11 @@
 
     padding: 20px;
 
+  }
+
+  .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a{
+    background-color: #f8f8ff;
+    color: #002060;
   }
 
 }

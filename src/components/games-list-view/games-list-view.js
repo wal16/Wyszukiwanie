@@ -1,25 +1,32 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Button} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 
-import {fetchGames} from '../../state/games'
+import { fetchGames } from '../../state/games'
+import { favGame, unfavGame } from '../../state/favs'
 
 export default connect(
   state => ({
     games: state.games,
-    searchString: state.search.searchString
+    searchString: state.search.searchString,
+    favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
-    fetchGamesHelper: () => dispatch(fetchGames())
+    fetchGamesHelper: () => dispatch(fetchGames()),
+    favGame: (gameId) => dispatch(favGame(gameId)),
+    unfavGame: (gameId) => dispatch(unfavGame(gameId))
   })
 )(
   class GamesListView extends React.Component {
     render() {
       const {
         games,
-        searchString
+        searchString,
+        favGame,
+        unfavGame,
+        favoriteGameIds
       } = this.props
 
       const searchResults = (
@@ -31,8 +38,8 @@ export default connect(
               <tr key={game.id}>
                 <td>
                   <img src={game.image}
-                         alt="Zdjęcie gry"
-                           height="70"
+                       alt="Zdjęcie gry"
+                       height="70"
                   />
                 </td>
                 <td>
@@ -41,6 +48,21 @@ export default connect(
                   </Link>
                 </td>
                 <td>{game.players}</td>
+                <td>
+                  {
+                    favoriteGameIds.includes(game.id) ?
+                      <Button
+                        bsStyle="success"
+                        onClick={() => unfavGame(game.id)}>
+                        Fav
+                      </Button> :
+                      <Button
+                        bsStyle="default"
+                        onClick={() => favGame(game.id)}>
+                        Fav
+                      </Button>
+                  }
+                </td>
               </tr>
             )
           ) :
