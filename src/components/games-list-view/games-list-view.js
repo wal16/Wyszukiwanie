@@ -51,16 +51,18 @@ export default connect(
                 <td>
                   {
                     favoriteGameIds.includes(game.id) ?
-                      <Button
-                        bsStyle="success"
-                        onClick={() => unfavGame(game.id)}>
-                        Fav
-                      </Button> :
-                      <Button
-                        bsStyle="default"
-                        onClick={() => favGame(game.id)}>
-                        Fav
-                      </Button>
+
+                      <img src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
+                           onClick={() => unfavGame(game.id)}/>
+
+                      :<img src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
+                    onClick={() => favGame(game.id)}/>
+
+
+
+
+
+
                   }
                 </td>
               </tr>
