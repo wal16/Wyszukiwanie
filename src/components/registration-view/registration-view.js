@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
 import { fetchRegistration } from '../../state/registration'
 
 import {
@@ -36,7 +35,7 @@ export default connect(
       return (
         <Grid>
           <h1>Rejestracja</h1>
-          <Row text-center>
+          <Row>
             <Col xs={12} sm={6} md={6}>
               <form onSubmit={(event) => {
                 event.preventDefault()
@@ -49,8 +48,8 @@ export default connect(
 
                   <FormControl
                     id="username"
-                    type="text" /* TODO: changed type to proper when established what type should be the login value be*/
-                    value=""
+                    type="text"
+                    value={this.state.username}
                     placeholder="Nazwa użytkownika"
                     onChange={(event) => {
                       this.setState({ username: event.target.value})
@@ -64,7 +63,7 @@ export default connect(
                   <FormControl
                     id="password"
                     type="password"
-                    value=""
+                    value={this.state.password}
                     placeholder="Hasło"
                     onChange={(event) => {
                       this.setState({ password: event.target.value})
@@ -78,6 +77,7 @@ export default connect(
                   <FormControl
                     id="email"
                     type="email"
+                    value={this.state.email}
                     placeholder="Podaj adres e-mail"
                     onChange={(event) => {
                       this.setState({email: event.target.value})

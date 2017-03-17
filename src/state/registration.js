@@ -25,8 +25,6 @@ export const fetchRegistration = (username, password, email) => dispatch => {
               type: FETCH__SUCCESS,
               data
             })
-            dispatch(fetchUser(data.id, data.userId))
-            // dispatch(fetchFavs(data.id, data.userId))
           }
         ).catch(
           error => dispatch({
