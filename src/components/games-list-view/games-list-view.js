@@ -28,7 +28,8 @@ export default connect(
       const searchResults = (
         games.data ?
           games.data.filter(
-            game => (game.name.toLowerCase()).includes(searchString.toLowerCase())
+            game => (game.name.toLowerCase()).includes(searchString.toLowerCase()) &&
+            ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
             game => (
               <tr key={game.id}>
@@ -54,42 +55,13 @@ export default connect(
           )
       )
 
-      const rangeResults = (
-        games.data ?
-          games.data.filter(
-            game => (changeRange.min < game.playersMin )
-          ).map(
-            game => (
-              <tr key={game.id}>
-                <td>
-                  <img src={game.image}
-                       alt="Zdjęcie gry"
-                       height="70"
-                  />
-                </td>
-                <td>
-                  <Link to={'game-profile/' + game.id}>
-                    {game.name}
-                  </Link>
-                </td>
-                <td>{game.playersMin} - {game.playersMax}</td>
-              </tr>
-            )
-          ):
-          (
-            <tr>
-              <td colSpan="4">Oczekiwanie na dane gier...</td>
-            </tr>
-          )
-      )
-
       return (
         <Grid>
           <PageHeader>Lista gier<br/>
             <small>Poniżej znajdziesz listę dostępnych planszówek</small>
           </PageHeader>
-
           <Panel>
+            <h4>Wyszukiwarka gier</h4>
             <Row>
               <Col xs={5}>
                 <GameSearch/>
@@ -110,7 +82,7 @@ export default connect(
                 </tr>
                 </thead>
                 <tbody>
-                {rangeResults}
+                {searchResults}
                 </tbody>
               </Table>
             ) :
