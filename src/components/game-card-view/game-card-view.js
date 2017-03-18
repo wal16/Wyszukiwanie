@@ -3,11 +3,10 @@ import {connect} from 'react-redux'
 import {LinkContainer} from 'react-router-bootstrap'
 
 
-
 import {Grid, PageHeader, Panel, Button, Row, Col, Image} from 'react-bootstrap'
 
-import { fetchGames } from '../../state/games'
-import { favGame, unfavGame } from '../../state/favs'
+import {fetchGames} from '../../state/games'
+import {favGame, unfavGame} from '../../state/favs'
 import './game-card-view.css'
 
 export default connect(
