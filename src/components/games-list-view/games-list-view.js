@@ -12,6 +12,7 @@ import {favGame, unfavGame} from '../../state/favs'
 
 export default connect(
   state => ({
+    users: state.users,
     games: state.games,
     searchString: state.search.searchString,
     changeRange: state.range.changeRange,
@@ -29,6 +30,7 @@ export default connect(
   class GamesListView extends React.Component {
     render() {
       const {
+        users,
         games,
         searchString,
         changeRange,
@@ -79,6 +81,20 @@ export default connect(
                       )
                   }
                 </td>
+                {
+                  users.data ?
+                    users.data.filter(
+                      user => user.gameList.includes(game.id)
+                    ).map(
+                      user =>
+                        <Link to={'/user-profile/' + user.id}>
+                        <img key={user.id} className="avatars" src={user.picture}
+                             alt="Zdjęcie uzytkownikow posiadajacych gre"/>
+                        </Link>
+
+
+                    ) : null
+                }
               </tr>
             )
           ) :
@@ -113,6 +129,8 @@ export default connect(
                   <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -125,6 +143,7 @@ export default connect(
                   Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
                 </Alert>
               )
+
           }
         </Grid>
       )

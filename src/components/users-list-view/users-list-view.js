@@ -3,6 +3,15 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {Grid, Table} from 'react-bootstrap'
 
+
+export default connect(
+  state => ({
+    users: state.users,
+    games: state.games
+  }),
+  dispatch => ({})
+)(
+
 class UsersListView extends React.Component {
   render() {
     const {
@@ -84,11 +93,4 @@ class UsersListView extends React.Component {
     )
   }
 }
-
-export default connect(
-  state => ({
-    users: state.users,
-    games: state.games
-  }),
-  dispatch => ({})
-)(UsersListView)
+)
