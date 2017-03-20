@@ -1,16 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Button} from 'react-bootstrap'
-import {LinkContainer} from 'react-router-bootstrap'
+import {NavItem} from 'react-bootstrap'
 
 import {logOut} from '../state/session'
 
 const LogUserOut = ({logOut}) => (
-  <Button
+  <NavItem
     bsStyle="default"
     onClick={() => logOut()}>
     Wyloguj
-  </Button>
+  </NavItem>
 )
 
 export default connect(
