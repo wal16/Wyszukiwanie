@@ -6,7 +6,7 @@ const UNFAV_GAME = 'favs/UNFAV_GAME'
 export const favGame = (gameId, accessToken, userId) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '?access_token=' + accessToken, {
+    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -20,20 +20,20 @@ export const favGame = (gameId, accessToken, userId) => dispatch => {
     response => {
       if (response.ok) {
         return response.json().then(
-          data => {
+          data =>
             dispatch({
               type: FAV_GAME,
               gameId
             })
-          }
+
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
-            error: 'Zniekształcony JSON w odpowiedzi z serwera'
+            error: 'Malformed JSON response'
           })
         )
       }
-      throw new Error('Błąd połączenia z serwerem.')
+      throw new Error('Connection error')
     }
   ).catch(
     error => dispatch({
