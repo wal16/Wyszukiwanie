@@ -79,12 +79,13 @@ export default connect(
                     users.data.filter(
                       user => user.gameList.includes(game.id)
                     ).map(
-                      user => <li key={user.id}>
-                        <img className="thumb" src={user.picture}
-                             alt="Zdjęcie gry"
+                      user =>
+                        <Link to={'/user-profile/' + user.id}>
+                        <img key={user.id} className="avatars" src={user.picture}
+                             alt="Zdjęcie uzytkownikow posiadajacych gre"/>
+                        </Link>
 
-                        />
-                      </li>
+
                     ) : null
                 }
               </tr>
