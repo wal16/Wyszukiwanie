@@ -66,6 +66,7 @@ export default connect(
                       (
                         <img
                           className="fav"
+                          role="persentation"
                           src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
                           onClick={() => unfavGame(game.id)}
                         />
@@ -73,6 +74,7 @@ export default connect(
                       (
                         <img
                           className="fav"
+                          role="persentation"
                           src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
                           onClick={() => favGame(game.id, accessToken, userId, favId)}
                         />
