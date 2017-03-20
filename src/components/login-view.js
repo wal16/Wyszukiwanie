@@ -82,13 +82,6 @@ export default connect(
                 </Button>
               </form>
             </Col>
-            <Col>
-              <Button
-                bsStyle="default"
-                onClick={() => logOut()}>
-                Wyloguj
-              </Button>
-            </Col>
           </Row>
         </Grid>
       )
