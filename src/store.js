@@ -1,5 +1,6 @@
 import {createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import persistState from 'redux-localstorage'
 
 import gamesReducer from './state/games'
 import usersReducer from './state/users'
@@ -24,6 +25,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
   composeEnhancers(
+    persistState(['session']),
     applyMiddleware(thunk)
   )
 );

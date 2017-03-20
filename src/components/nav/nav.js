@@ -4,6 +4,8 @@ import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 import './nav.css'
 
+import LogUserOut from '../logout'
+
 const NavComponent = () => (
   <Navbar fixedTop>
     <Navbar.Header>
@@ -26,6 +28,7 @@ const NavComponent = () => (
         <LinkContainer to="/login">
           <NavItem eventKey={3}>Zaloguj się</NavItem>
         </LinkContainer>
+        <LogUserOut/>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
