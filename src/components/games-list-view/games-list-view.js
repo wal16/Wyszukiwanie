@@ -79,7 +79,12 @@ export default connect(
                     users.data.filter(
                       user => user.gameList.includes(game.id)
                     ).map(
-                      user => <li key={user.id}>{user.picture}</li>
+                      user => <li key={user.id}>
+                        <img className="thumb" src={user.picture}
+                             alt="Zdjęcie gry"
+
+                        />
+                      </li>
                     ) : null
                 }
               </tr>
