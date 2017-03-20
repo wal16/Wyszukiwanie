@@ -91,14 +91,8 @@ export default connect(
                               user.id ? (
                                 user.gameList.map(
                                   gameId => games.data.find(game => game.id === gameId)
-                                ).map(
-                                  game => (
-                                    <div key={game.id}>
-                                      <Link to={'game-profile/' + game.id}>
-                                        {game.name}
-                                      </Link>
-                                    </div>
-                                  )
+                                ).filter(
+                                  game => ({game.name})
                                 )
                               ) : null
                             }
@@ -108,7 +102,14 @@ export default connect(
                       )
                     ) : null
                 }
-
+{/*                {
+                  props.groups.data ?
+                    props.groups.data.filter(
+                      group => group.studentIds.includes(student.id)
+                    ).map(
+                      group => <li key={group.id}>{group.name}</li>
+                    ) : null
+                }*/}
 
 
               </tr>
