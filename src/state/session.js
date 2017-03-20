@@ -33,11 +33,11 @@ export const logIn = (username, password) => dispatch => {
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
-            error: 'Zniekształcony JSON w odpowiedzi z serwera'
+            error: 'Malformed JSON response'
           })
         )
       }
-      throw new Error('Błąd połączenia z serwerem.')
+      throw new Error('Connection error')
     }
   ).catch(
     error => dispatch({
