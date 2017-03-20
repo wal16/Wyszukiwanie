@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {logIn} from '../state/session'
+import {fetchRegistration} from '../../state/registration'
+
 import {
   Col,
   Row,
@@ -15,28 +16,30 @@ import {
 export default connect(
   null,
   dispatch => ({
-    logIn: (username, password) => dispatch(logIn(username, password))
+    register: ({username, password, email}) => dispatch(fetchRegistration(username, password, email))
   })
 )(
-  class LoginView extends React.Component {
-    constructor(props){
+  class RegistrationView extends React.Component {
+    constructor(props) {
       super(props)
 
       this.state = {
         username: '',
-        password: ''
+        password: '',
+        email: ''
+
       }
     }
 
     render() {
       return (
         <Grid>
-          <h1>Zaloguj się</h1>
+          <h1>Rejestracja</h1>
           <Row>
             <Col xs={12} sm={6} md={6}>
               <form onSubmit={(event) => {
                 event.preventDefault()
-                this.props.logIn(this.state.username, this.state.password)
+                this.props.register(this.state)
               }}>
                 <FormGroup>
                   <ControlLabel>
@@ -45,7 +48,7 @@ export default connect(
 
                   <FormControl
                     id="username"
-                    type="text" /* TODO: changed type to proper when established what type should be the login value be*/
+                    type="text"
                     value={this.state.username}
                     placeholder="Nazwa użytkownika"
                     onChange={(event) => {
@@ -66,14 +69,29 @@ export default connect(
                       this.setState({password: event.target.value})
                     }}
                   />
+
+                  <ControlLabel>
+                    <label htmlFor="email">Podaj adres e-mail</label>
+                  </ControlLabel>
+
+                  <FormControl
+                    id="email"
+                    type="email"
+                    value={this.state.email}
+                    placeholder="Podaj adres e-mail"
+                    onChange={(event) => {
+                      this.setState({email: event.target.value})
+                    }}
+                  />
+
                   <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
                 </FormGroup>
 
                 <Button
                   type="submit"
-                  bsStyle="primary"
+                  bsStyle="danger"
                 >
-                  Zaloguj
+                  Zarejstruj się
                 </Button>
               </form>
             </Col>

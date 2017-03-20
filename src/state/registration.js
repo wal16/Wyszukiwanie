@@ -1,13 +1,11 @@
-const FETCH__BEGIN = 'session/LOGIN__BEGIN'
-const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
-const FETCH__FAIL = 'session/LOGIN__FAILED'
-//const LOGOUT = 'login/LOGOUT'
-//TODO: add logout action
+const FETCH__BEGIN = 'registration/FETCH__BEGIN'
+const FETCH__SUCCESS = 'registration/FETCH__SUCCESS'
+const FETCH__FAIL = 'registration/FETCH__FAILED'
 
-export const logIn = (username, password) => dispatch => {
-  dispatch({ type: FETCH__BEGIN })
+export const fetchRegistration = (username, password, email) => dispatch => {
+  dispatch({type: FETCH__BEGIN})
   return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/login', {
+    'https://tranquil-ocean-17204.herokuapp.com/api/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -15,6 +13,7 @@ export const logIn = (username, password) => dispatch => {
       body: JSON.stringify({
         username: username,
         password: password,
+        email: email
       })
     }
   ).then(
@@ -26,16 +25,15 @@ export const logIn = (username, password) => dispatch => {
               type: FETCH__SUCCESS,
               data
             })
-            //dispatch(fetchUser(data.id, data.userId))
           }
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
-            error: 'Zniekształcony JSON w odpowiedzi z serwera'
+            error: 'Malformed JSON response'
           })
         )
       }
-      throw new Error('Błąd połączenia z serwerem.')
+      throw new Error('Connection error')
     }
   ).catch(
     error => dispatch({
@@ -71,10 +69,6 @@ export default (state = initialState, action = {}) => {
         fetching: false,
         error: action.error
       }
-  // case LOGOUT:
-  //   return {
-  //     ...state,
-  //   }
     default:
       return state
   }
