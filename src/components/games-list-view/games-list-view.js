@@ -74,44 +74,14 @@ export default connect(
                       )
                   }
                 </td>
-
                 {
                   users.data ?
-                    users.data.map(
-                      user => (
-                        <tr key={user.id}>
-                          <td>
-                            <img src={user.picture}
-                                 alt="Zdjecie gry"
-                                 height="70"
-                            />
-                          </td>
-                          <td>
-                            {
-                              user.id ? (
-                                user.gameList.map(
-                                  gameId => games.data.find(game => game.id === gameId)
-                                ).filter(
-                                  game => ({game.name})
-                                )
-                              ) : null
-                            }
-                          </td>
-
-                        </tr>
-                      )
+                    users.data.filter(
+                      user => user.gameList.includes(game.id)
+                    ).map(
+                      user => <li key={user.id}>{user.picture}</li>
                     ) : null
                 }
-{/*                {
-                  props.groups.data ?
-                    props.groups.data.filter(
-                      group => group.studentIds.includes(student.id)
-                    ).map(
-                      group => <li key={group.id}>{group.name}</li>
-                    ) : null
-                }*/}
-
-
               </tr>
             )
           ) :
