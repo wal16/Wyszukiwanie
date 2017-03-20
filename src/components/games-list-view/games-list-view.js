@@ -17,11 +17,12 @@ export default connect(
     changeRange: state.range.changeRange,
     favoriteGameIds: state.favs.favoriteGameIds,
     userId: state.session.data.userId,
-    accessToken: state.session.data.id
+    accessToken: state.session.data.id,
+    favId: state.favs.favId
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gameId, accessToken, userId) => dispatch(favGame(gameId, accessToken, userId)),
+    favGame: (gameId, accessToken, userId, favId) => dispatch(favGame(gameId, accessToken, userId, favId)),
     unfavGame: (gameId) => dispatch(unfavGame(gameId)),
   })
 )(
@@ -35,7 +36,8 @@ export default connect(
         unfavGame,
         favoriteGameIds,
         userId,
-        accessToken
+        accessToken,
+        favId
       } = this.props
 
       const searchResults = (
@@ -72,7 +74,7 @@ export default connect(
                         <img
                           className="fav"
                           src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                          onClick={() => favGame(game.id, accessToken, userId)}
+                          onClick={() => favGame(game.id, accessToken, userId, favId)}
                         />
                       )
                   }
