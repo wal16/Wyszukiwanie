@@ -75,24 +75,39 @@ export default connect(
                   }
                 </td>
 
+                {
+                  users.data ?
+                    users.data.map(
+                      user => (
+                        <tr key={user.id}>
+                          <td>
+                            <img src={user.picture}
+                                 alt="Zdjecie gry"
+                                 height="70"
+                            />
+                          </td>
+                          <td>
+                            {
+                              user.id ? (
+                                user.gameList.map(
+                                  gameId => games.data.find(game => game.id === gameId)
+                                ).map(
+                                  game => (
+                                    <div key={game.id}>
+                                      <Link to={'game-profile/' + game.id}>
+                                        {game.name}
+                                      </Link>
+                                    </div>
+                                  )
+                                )
+                              ) : null
+                            }
+                          </td>
 
-{/*                <td>
-                  {
-                    user.id ? (
-                      user.gameList.map(
-                        gameId => games.data.find(game => game.id === gameId)
-                      ).filter(
-                        user => (
-                          <div key={user.id}>
-                            <Link to={'user-profile/' + user.id}>
-                              {picture.name}
-                            </Link>
-                          </div>
-                        )
+                        </tr>
                       )
                     ) : null
-                  }
-                </td>*/}
+                }
 
 
               </tr>
@@ -129,6 +144,8 @@ export default connect(
                   <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
