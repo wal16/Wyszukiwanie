@@ -2,10 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {LinkContainer} from 'react-router-bootstrap'
 
+
 import {Grid, PageHeader, Panel, Button, Row, Col, Image} from 'react-bootstrap'
 
-import { fetchGames } from '../../state/games'
-import { favGame, unfavGame } from '../../state/favs'
+import {fetchGames} from '../../state/games'
+import {favGame, unfavGame} from '../../state/favs'
+import './game-card-view.css'
 
 export default connect(
   state => ({
@@ -63,16 +65,20 @@ export default connect(
                     <div>
                       {
                         favoriteGameIds.includes(currentGame.id) ?
-                          <Button
-                            bsStyle="success"
-                            onClick={() => unfavGame(currentGame.id)}>
-                            Fav
-                          </Button> :
-                          <Button
-                            bsStyle="default"
-                            onClick={() => favGame(currentGame.id)}>
-                            Fav
-                          </Button>
+                          (
+                            <img
+                              className="fav"
+                              src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
+                              onClick={() => unfavGame(currentGame.id)}
+                            />
+                          ) :
+                          (
+                            <img
+                              className="fav"
+                              src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
+                              onClick={() => favGame(currentGame.id)}
+                            />
+                          )
                       }
                     </div>
                     <Panel>
