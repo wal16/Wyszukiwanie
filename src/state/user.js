@@ -1,35 +1,19 @@
-const FETCH__BEGIN = 'session/LOGIN__BEGIN'
-const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
-const FETCH__FAIL = 'session/LOGIN__FAILED'
+export const FETCH__BEGIN = 'user/FETCH__BEGIN'
+export const FETCH__SUCCESS = 'user/FETCH__SUCCESS'
+export const FETCH__FAIL = 'user/FETCH__FAILED'
 
-const LOGOUT = 'session/LOGOUT'
-
-import { fetchUser } from './user'
-
-export const logIn = (username, password) => dispatch => {
+export const fetchUser = (accessToken, userId) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      })
-    }
+    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '?access_token=' + accessToken
   ).then(
     response => {
       if (response.ok) {
         return response.json().then(
-          data => {
-            dispatch({
-              type: FETCH__SUCCESS,
-              data
-            })
-            dispatch(fetchUser(data.id, data.userId))
-          }
+          data => dispatch({
+            type: FETCH__SUCCESS,
+            data
+          })
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
@@ -46,10 +30,6 @@ export const logIn = (username, password) => dispatch => {
     })
   )
 }
-
-export const logOut = () => ({
-  type: LOGOUT
-})
 
 const initialState = {
   data: null,
@@ -76,11 +56,6 @@ export default (state = initialState, action = {}) => {
         ...state,
         fetching: false,
         error: action.error
-      }
-    case LOGOUT:
-      return {
-        ...state,
-        data: initialState.data
       }
     default:
       return state

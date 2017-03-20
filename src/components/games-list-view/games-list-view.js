@@ -9,6 +9,7 @@ import './games-list-view.css'
 import {fetchGames} from '../../state/games'
 import {favGame, unfavGame} from '../../state/favs'
 
+
 export default connect(
   state => ({
     users: state.users,
@@ -16,11 +17,14 @@ export default connect(
     searchString: state.search.searchString,
     changeRange: state.range.changeRange,
     favoriteGameIds: state.favs.favoriteGameIds,
+    userId: state.session.data.userId,
+    accessToken: state.session.data.id,
+    favId: state.favs.favId
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gameId) => dispatch(favGame(gameId)),
-    unfavGame: (gameId) => dispatch(unfavGame(gameId))
+    favGame: (gameId, accessToken, userId, favId) => dispatch(favGame(gameId, accessToken, userId, favId)),
+    unfavGame: (gameId) => dispatch(unfavGame(gameId)),
   })
 )(
   class GamesListView extends React.Component {
@@ -32,7 +36,10 @@ export default connect(
         changeRange,
         favGame,
         unfavGame,
-        favoriteGameIds
+        favoriteGameIds,
+        userId,
+        accessToken,
+        favId
       } = this.props
 
       const searchResults = (
@@ -69,7 +76,7 @@ export default connect(
                         <img
                           className="fav"
                           src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                          onClick={() => favGame(game.id)}
+                          onClick={() => favGame(game.id, accessToken, userId, favId)}
                         />
                       )
                   }
