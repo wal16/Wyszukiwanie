@@ -11,6 +11,7 @@ import {favGame, unfavGame} from '../../state/favs'
 
 export default connect(
   state => ({
+    users: state.users,
     games: state.games,
     searchString: state.search.searchString,
     changeRange: state.range.changeRange,
@@ -25,6 +26,7 @@ export default connect(
   class GamesListView extends React.Component {
     render() {
       const {
+        users,
         games,
         searchString,
         changeRange,
@@ -72,6 +74,27 @@ export default connect(
                       )
                   }
                 </td>
+
+
+{/*                <td>
+                  {
+                    user.id ? (
+                      user.gameList.map(
+                        gameId => games.data.find(game => game.id === gameId)
+                      ).filter(
+                        user => (
+                          <div key={user.id}>
+                            <Link to={'user-profile/' + user.id}>
+                              {picture.name}
+                            </Link>
+                          </div>
+                        )
+                      )
+                    ) : null
+                  }
+                </td>*/}
+
+
               </tr>
             )
           ) :
