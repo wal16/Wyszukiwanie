@@ -1,8 +1,10 @@
 const FETCH__BEGIN = 'session/LOGIN__BEGIN'
 const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
 const FETCH__FAIL = 'session/LOGIN__FAILED'
-//const LOGOUT = 'login/LOGOUT'
-//TODO: add logout action
+
+const LOGOUT = 'session/LOGOUT'
+
+import { fetchUser } from './user'
 
 export const logIn = (username, password) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
@@ -26,7 +28,7 @@ export const logIn = (username, password) => dispatch => {
               type: FETCH__SUCCESS,
               data
             })
-            //dispatch(fetchUser(data.id, data.userId))
+            dispatch(fetchUser(data.id, data.userId))
           }
         ).catch(
           error => dispatch({
@@ -44,6 +46,10 @@ export const logIn = (username, password) => dispatch => {
     })
   )
 }
+
+export const logOut = () => ({
+  type: LOGOUT
+})
 
 const initialState = {
   data: null,
@@ -71,10 +77,11 @@ export default (state = initialState, action = {}) => {
         fetching: false,
         error: action.error
       }
-  // case LOGOUT:
-  //   return {
-  //     ...state,
-  //   }
+    case LOGOUT:
+      return {
+        ...state,
+        data: initialState.data
+      }
     default:
       return state
   }
