@@ -34,10 +34,10 @@ export default connect(
     render() {
       return (
         <Grid>
+          <Col xs={4}>
           <h1>Rejestracja</h1>
           <Row>
-            <Col xs={12} sm={6} md={6}>
-              <form onSubmit={(event) => {
+            <form onSubmit={(event) => {
                 event.preventDefault()
                 this.props.register(this.state)
               }}>
@@ -94,8 +94,9 @@ export default connect(
                   Zarejstruj się
                 </Button>
               </form>
-            </Col>
+
           </Row>
+            </Col>
         </Grid>
       )
     }

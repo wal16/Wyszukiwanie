@@ -36,10 +36,10 @@ export default connect(
 
       return (
         <Grid>
+          <Col xs={4}>
           <h1>Zaloguj się</h1>
           <Row>
-            <Col xs={12} sm={6} md={6}>
-              <form onSubmit={(event) => {
+            <form onSubmit={(event) => {
                 event.preventDefault()
                 this.props.logIn(this.state.username, this.state.password)
               }}>
@@ -81,8 +81,9 @@ export default connect(
                   Zaloguj
                 </Button>
               </form>
-            </Col>
+
           </Row>
+            </Col>
         </Grid>
       )
     }

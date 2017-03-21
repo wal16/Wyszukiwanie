@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {Grid, Tabs, Tab} from 'react-bootstrap'
+import {Grid, Tabs, Tab,Col, Row} from 'react-bootstrap'
 
 import Nav from '../nav/nav'
 import LoginView from '../login-view'
@@ -34,10 +34,16 @@ class App extends React.Component {
     ) :
       (
         <Grid>
-          <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
-            <Tab eventKey={1} title="Tab 1"><LoginView /></Tab>
-            <Tab eventKey={2} title="Tab 2"><RegistrationView/></Tab>
+            <h1>Witamy na naszej stronie</h1>
+          <Row>
+            <Col xs={5}>
+
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" >
+            <Tab eventKey={1} title="Logowanie"><LoginView /></Tab>
+            <Tab eventKey={2} title="Rejstracja"><RegistrationView/></Tab>
           </Tabs>
+            </Col>
+            </Row>
 
         </Grid>
 
