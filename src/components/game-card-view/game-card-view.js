@@ -19,7 +19,7 @@ export default connect(
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
     favGame: (gameId, userId, accessToken) => dispatch(favGame(gameId, userId, accessToken)),
-    unfavGame: (gamesId) => dispatch(unfavGame(gamesId))
+    unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken))
   })
 )(
   class GameProfileView extends React.Component {
@@ -73,7 +73,7 @@ export default connect(
                             <img
                               className="fav"
                               src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                              onClick={() => unfavGame(currentGame.id)}
+                              onClick={() => unfavGame(currentGame.id, userId, accessToken)}
                             />
                           ) :
                           (

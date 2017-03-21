@@ -1,7 +1,4 @@
-import {FETCH__BEGIN, FETCH__FAIL} from './user'
-
 const FAV_GAME = 'favs/FAV_GAME'
-const UNFAV_GAME = 'favs/UNFAV_GAME'
 const FETCH_FAVS = 'favs/FETCH_FAVS'
 
 export const fetchFavs = (accessToken, userId) => dispatch =>
@@ -16,9 +13,8 @@ export const fetchFavs = (accessToken, userId) => dispatch =>
     })
   )
 
-export const favGame = (gameId, userId, accessToken) => dispatch => {
-  dispatch({type: FETCH__BEGIN})
-  return fetch(
+export const favGame = (gameId, userId, accessToken) => dispatch =>
+  fetch(
     'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
       method: 'POST',
       headers: {
@@ -30,31 +26,15 @@ export const favGame = (gameId, userId, accessToken) => dispatch => {
       })
     }
   ).then(
-    response => {
-      if (response.ok) {
-        return response.json().then(
-          data =>
-            dispatch({
-              type: FAV_GAME,
-              gameId,
-              favId: data.id
-            })
-        ).catch(
-          error => dispatch({
-            type: FETCH__FAIL,
-            error: 'Malformed JSON response'
-          })
-        )
-      }
-      throw new Error('Connection error')
-    }
-  ).catch(
-    error => dispatch({
-      type: FETCH__FAIL,
-      error: error.message
+    response => response.json()
+  ).then(
+    data => dispatch({
+      type: FAV_GAME,
+      gameId,
+      favId: data.id
     })
   )
-}
+
 
 export const unfavGame = (favId, userId, accessToken) => dispatch => fetch(
   'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favId + '?access_token=' + accessToken, {
@@ -63,7 +43,7 @@ export const unfavGame = (favId, userId, accessToken) => dispatch => fetch(
       'Content-Type': 'application/json'
     }
   }
-  ).then(
+).then(
   response => dispatch(fetchFavs(accessToken, userId))
 )
 
@@ -77,13 +57,13 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         favoriteGameIds: state.favoriteGameIds.filter(
-          ({ gameId, favId }) => gameId !== action.gameId
-        ).concat({ gameId: action.gameId, favId: action.favId })
+          ({gameId, favId}) => gameId !== action.gameId
+        ).concat({gameId: action.gameId, favId: action.favId})
       }
     case FETCH_FAVS:
       return {
         ...state,
-        favoriteGamesIds: action.favs.map(fav => ({
+        favoriteGameIds: action.favs.map(fav => ({
           gameId: fav.itemId,
           favId: fav.id
         }))

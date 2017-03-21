@@ -23,7 +23,7 @@ export default connect(
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
     favGame: (gameId, userId, accessToken) => dispatch(favGame(gameId, userId, accessToken)),
-    unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken)),
+    unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken))
   })
 )(
   class GamesListView extends React.Component {
@@ -66,7 +66,7 @@ export default connect(
                   <td>{game.playersMin} - {game.playersMax}</td>
                   <td>
                     {
-                      favoriteGameIds.includes(game.id) ?
+                      fav !== undefined ?
                         (
                           <img
                             className="fav"
