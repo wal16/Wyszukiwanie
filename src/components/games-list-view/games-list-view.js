@@ -7,7 +7,7 @@ import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
 
 import {fetchGames} from '../../state/games'
-import {favGame, unfavGame} from '../../state/favs'
+import { fetchFavs, favGame, unfavGame } from '../../state/favs'
 
 
 export default connect(

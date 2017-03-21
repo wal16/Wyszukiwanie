@@ -1,22 +1,23 @@
-import { FETCH__BEGIN, FETCH__FAIL } from './user'
+import {FETCH__BEGIN, FETCH__FAIL} from './user'
 
 const FAV_GAME = 'favs/FAV_GAME'
 const UNFAV_GAME = 'favs/UNFAV_GAME'
 const FETCH_FAVS = 'favs/FETCH_FAVS'
 
-export const fetchFavs = (accessToken, userId) => dispatch => fetch(
-  'http://localhost:3010/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
-).then(
-  response => response.json()
-).then(
-  data => dispatch({
-    type: FETCH_FAVS,
-    favs: data,
-  })
-)
+export const fetchFavs = (userId, accessToken) => dispatch =>
+  fetch(
+    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+  ).then(
+    response => response.json()
+  ).then(
+    data => dispatch({
+      type: FETCH_FAVS,
+      favs: data,
+    })
+  )
 
 export const favGame = (gameId, accessToken, userId) => dispatch => {
-  dispatch({ type: FETCH__BEGIN })
+  dispatch({type: FETCH__BEGIN})
   return fetch(
     'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
       method: 'POST',
