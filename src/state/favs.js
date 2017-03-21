@@ -35,7 +35,6 @@ export const favGame = (gameId, userId, accessToken) => dispatch =>
     })
   )
 
-
 export const unfavGame = (favId, userId, accessToken) => dispatch => fetch(
   'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favId + '?access_token=' + accessToken, {
     method: 'DELETE',
