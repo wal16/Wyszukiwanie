@@ -7,7 +7,7 @@ import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
 
 import {fetchGames} from '../../state/games'
-import { fetchFavs, favGame, unfavGame } from '../../state/favs'
+import { favGame, unfavGame } from '../../state/favs'
 
 
 export default connect(
@@ -22,7 +22,7 @@ export default connect(
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gameId, accessToken, userId) => dispatch(favGame(gameId, accessToken, userId)),
+    favGame: (gameId, userId, accessToken) => dispatch(favGame(gameId, userId, accessToken)),
     unfavGame: (gameId) => dispatch(unfavGame(gameId)),
   })
 )(
@@ -74,7 +74,7 @@ export default connect(
                         <img
                           className="fav"
                           src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                          onClick={() => favGame(game.id, accessToken, userId)}
+                          onClick={() => favGame(game.id, userId, accessToken)}
                         />
                       )
                   }

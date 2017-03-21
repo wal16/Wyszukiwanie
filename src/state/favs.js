@@ -81,6 +81,11 @@ export default (state = initialState, action = {}) => {
           gameId => gameId !== action.gameId
         )
       }
+    case FETCH_FAVS:
+      return {
+        ...state,
+        favoriteGroupIds: action.favs.map( fav => fav.itemId )
+      }
     default:
       return state
   }

@@ -18,7 +18,7 @@ export default connect(
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gameId, accessToken, userId) => dispatch(favGame(gameId, accessToken, userId)),
+    favGame: (gameId, userId, accessToken) => dispatch(favGame(gameId, userId, accessToken)),
     unfavGame: (gamesId) => dispatch(unfavGame(gamesId))
   })
 )(
@@ -80,7 +80,7 @@ export default connect(
                             <img
                               className="fav"
                               src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                              onClick={() => favGame(currentGame.id, accessToken, userId)}
+                              onClick={() => favGame(currentGame.id, userId, accessToken)}
                             />
                           )
                       }
