@@ -7,14 +7,16 @@ import {Tabs, Tab} from 'react-bootstrap-tabs'
 export default connect(
   state => ({
     users: state.users,
-    games: state.games
+    games: state.games,
+    user: state.user
   })
 )(
   class MyProfileView extends React.Component {
     render() {
       const {
         users,
-        games
+        games,
+        user
       } = this.props
 
       const currentUser =
