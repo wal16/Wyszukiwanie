@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import {LinkContainer} from 'react-router-bootstrap'
 
 
@@ -11,7 +12,9 @@ import './game-card-view.css'
 
 export default connect(
   state => ({
+    users: state.users,
     games: state.games,
+    changeRange: state.range.changeRange,
     favoriteGameIds: state.favs.favoriteGameIds,
   }),
   dispatch => ({
@@ -23,6 +26,7 @@ export default connect(
   class GameProfileView extends React.Component {
     render() {
       const {
+        users,
         games,
         params,
         favGame,
@@ -68,6 +72,7 @@ export default connect(
                           (
                             <img
                               className="fav"
+                              role="persentation"
                               src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
                               onClick={() => unfavGame(currentGame.id)}
                             />
@@ -75,6 +80,7 @@ export default connect(
                           (
                             <img
                               className="fav"
+                              role="persentation"
                               src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
                               onClick={() => favGame(currentGame.id)}
                             />
@@ -95,7 +101,24 @@ export default connect(
                       </LinkContainer>
                     </Panel>
 
-                    <Panel header="Liczba graczy">{currentGame.players}</Panel>
+                    <Panel header="Liczba graczy">{currentGame.playersMin} - {currentGame.playersMax}</Panel>
+                    <Panel header="Gracze, którzy posiadaja grę">
+                      {
+                        users.data ?
+                          users.data.filter(
+                            user => user.gameList.includes(currentGame.id)
+                          ).map(
+                            user =>
+                              <Link to={'/user-profile/' + user.id}>
+                                <img key={user.id} role="persentation" className="avatars" src={user.picture}
+                                     alt="Zdjęcie uzytkownikow posiadajacych gre"/>
+                              </Link>
+
+
+                          ) : null
+                      }
+
+                    </Panel>
                   </Col>
                 </Row>
 
