@@ -4,7 +4,7 @@ const FAV_GAME = 'favs/FAV_GAME'
 const UNFAV_GAME = 'favs/UNFAV_GAME'
 const FETCH_FAVS = 'favs/FETCH_FAVS'
 
-export const fetchFavs = (userId, accessToken) => dispatch =>
+export const fetchFavs = (accessToken, userId) => dispatch =>
   fetch(
     'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
   ).then(
@@ -16,7 +16,7 @@ export const fetchFavs = (userId, accessToken) => dispatch =>
     })
   )
 
-export const favGame = (gameId, accessToken, userId) => dispatch => {
+export const favGame = (gameId, userId, accessToken) => dispatch => {
   dispatch({type: FETCH__BEGIN})
   return fetch(
     'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
