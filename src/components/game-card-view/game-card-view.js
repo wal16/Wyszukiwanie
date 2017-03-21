@@ -13,10 +13,13 @@ export default connect(
   state => ({
     games: state.games,
     favoriteGameIds: state.favs.favoriteGameIds,
+    userId: state.session.data.userId,
+    accessToken: state.session.data.id,
+    favId: state.favs.favId
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gamesId) => dispatch(favGame(gamesId)),
+    favGame: (gameId, accessToken, userId, favId) => dispatch(favGame(gameId, accessToken, userId, favId)),
     unfavGame: (gamesId) => dispatch(unfavGame(gamesId))
   })
 )(
@@ -27,7 +30,10 @@ export default connect(
         params,
         favGame,
         unfavGame,
-        favoriteGameIds
+        favoriteGameIds,
+        userId,
+        accessToken,
+        favId
       } = this.props
 
       if (games.data === null) {
@@ -76,7 +82,7 @@ export default connect(
                             <img
                               className="fav"
                               src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                              onClick={() => favGame(currentGame.id)}
+                              onClick={() => favGame(currentGame.id, accessToken, userId, favId)}
                             />
                           )
                       }
