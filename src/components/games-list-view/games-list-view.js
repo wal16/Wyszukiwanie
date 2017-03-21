@@ -23,7 +23,7 @@ export default connect(
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
     favGame: (gameId, userId, accessToken) => dispatch(favGame(gameId, userId, accessToken)),
-    unfavGame: (gameId) => dispatch(unfavGame(gameId)),
+    unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken)),
   })
 )(
   class GamesListView extends React.Component {
@@ -46,55 +46,60 @@ export default connect(
             game => (game.name.toLowerCase()).includes(searchString.toLowerCase()) &&
             ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
-            game => (
-              <tr key={game.id}>
-                <td>
-                  <img className="thumb" src={game.image}
-                       alt="Zdjęcie gry"
+            game => {
+              const fav = favoriteGameIds.find( fav => fav.gameId === game.id)
+              const favId = (fav && fav.favId) || undefined
 
-                  />
-                </td>
-                <td>
-                  <Link to={'game-profile/' + game.id}>
-                    {game.name}
-                  </Link>
-                </td>
-                <td>{game.playersMin} - {game.playersMax}</td>
-                <td>
+              return (
+                <tr key={game.id}>
+                  <td>
+                    <img className="thumb" src={game.image}
+                         alt="Zdjęcie gry"
+
+                    />
+                  </td>
+                  <td>
+                    <Link to={'game-profile/' + game.id}>
+                      {game.name}
+                    </Link>
+                  </td>
+                  <td>{game.playersMin} - {game.playersMax}</td>
+                  <td>
+                    {
+                      favoriteGameIds.includes(game.id) ?
+                        (
+                          <img
+                            className="fav"
+                            src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
+                            onClick={() => unfavGame(favId, userId, accessToken)}
+                          />
+                        ) :
+                        (
+                          <img
+                            className="fav"
+                            src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
+                            onClick={() => favGame(game.id, userId, accessToken)}
+                          />
+                        )
+                    }
+                  </td>
                   {
-                    favoriteGameIds.includes(game.id) ?
-                      (
-                        <img
-                          className="fav"
-                          src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                          onClick={() => unfavGame(game.id)}
-                        />
-                      ) :
-                      (
-                        <img
-                          className="fav"
-                          src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                          onClick={() => favGame(game.id, userId, accessToken)}
-                        />
-                      )
+                    users.data ?
+                      users.data.filter(
+                        user => user.gameList.includes(game.id)
+                      ).map(
+                        user =>
+                          <Link to={'/user-profile/' + user.id}>
+                            <img key={user.id} className="avatars" src={user.picture}
+                                 alt="Zdjęcie uzytkownikow posiadajacych gre"/>
+                          </Link>
+
+
+                      ) : null
                   }
-                </td>
-                {
-                  users.data ?
-                    users.data.filter(
-                      user => user.gameList.includes(game.id)
-                    ).map(
-                      user =>
-                        <Link to={'/user-profile/' + user.id}>
-                        <img key={user.id} className="avatars" src={user.picture}
-                             alt="Zdjęcie uzytkownikow posiadajacych gre"/>
-                        </Link>
-
-
-                    ) : null
-                }
-              </tr>
-            )
+                </tr>
+              )
+            }
           ) :
           (
             <tr>

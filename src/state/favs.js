@@ -56,10 +56,16 @@ export const favGame = (gameId, userId, accessToken) => dispatch => {
   )
 }
 
-export const unfavGame = gameId => ({
-  type: UNFAV_GAME,
-  gameId
-})
+export const unfavGame = (favId, userId, accessToken) => dispatch => fetch(
+  'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favId + '?access_token=' + accessToken, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+  ).then(
+  response => dispatch(fetchFavs(accessToken, userId))
+)
 
 const initialState = {
   favoriteGameIds: []
@@ -71,20 +77,16 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         favoriteGameIds: state.favoriteGameIds.filter(
-          gameId => gameId !== action.gameId
-        ).concat(action.gameId)
-      }
-    case UNFAV_GAME:
-      return {
-        ...state,
-        favoriteGameIds: state.favoriteGameIds.filter(
-          gameId => gameId !== action.gameId
-        )
+          ({ gameId, favId }) => gameId !== action.gameId
+        ).concat({ gameId: action.gameId, favId: action.favId })
       }
     case FETCH_FAVS:
       return {
         ...state,
-        favoriteGroupIds: action.favs.map( fav => fav.itemId )
+        favoriteGamesIds: action.favs.map(fav => ({
+          gameId: fav.itemId,
+          favId: fav.id
+        }))
       }
     default:
       return state
