@@ -102,7 +102,7 @@ export default connect(
                     </Panel>
 
                     <Panel header="Liczba graczy">{currentGame.playersMin} - {currentGame.playersMax}</Panel>
-                    <Panel>
+                    <Panel header="Gracze, którzy posiadaja grę">
                       {
                         users.data ?
                           users.data.filter(
