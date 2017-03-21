@@ -34,9 +34,9 @@ class App extends React.Component {
     ) :
       (
         <Grid>
-            <h1>Witamy na naszej stronie</h1>
+            <h1 className="tittle">Witamy na naszej stronie</h1>
           <Row>
-            <Col xs={5}>
+            <Col xs={5} className = "col-centered">
 
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" >
             <Tab eventKey={1} title="Logowanie"><LoginView /></Tab>

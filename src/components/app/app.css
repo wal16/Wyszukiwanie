@@ -1,3 +1,22 @@
+body {
+
+  background-image: url('background.jpg');
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: hsla(0, 0%, 100%, 0.7);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+}
+
+
 .props-children{
   padding-top: 120px;
   background: #f8f8ff;
@@ -18,6 +37,21 @@
 .tabWrap{
 
   height: ;
+
+}
+
+.col-centered
+{
+  float: none;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.tittle{
+
+  text-align: center;
+  margin-top: 50px;
+color: #002060;
 
 }
 
