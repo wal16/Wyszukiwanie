@@ -2,8 +2,20 @@ import { FETCH__BEGIN, FETCH__FAIL } from './user'
 
 const FAV_GAME = 'favs/FAV_GAME'
 const UNFAV_GAME = 'favs/UNFAV_GAME'
+const FETCH_FAVS = 'favs/FETCH_FAVS'
 
-export const favGame = (gameId, accessToken, userId, favId) => dispatch => {
+export const fetchFavs = (accessToken, userId) => dispatch => fetch(
+  'http://localhost:3010/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+).then(
+  response => response.json()
+).then(
+  data => dispatch({
+    type: FETCH_FAVS,
+    favs: data,
+  })
+)
+
+export const favGame = (gameId, accessToken, userId) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
     'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
@@ -26,7 +38,6 @@ export const favGame = (gameId, accessToken, userId, favId) => dispatch => {
               gameId,
               favId: data.id
             })
-
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
@@ -60,8 +71,7 @@ export default (state = initialState, action = {}) => {
         ...state,
         favoriteGameIds: state.favoriteGameIds.filter(
           gameId => gameId !== action.gameId
-        ).concat(action.gameId),
-        favId: action.gameId
+        ).concat(action.gameId)
       }
     case UNFAV_GAME:
       return {
