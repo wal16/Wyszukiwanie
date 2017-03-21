@@ -49,6 +49,10 @@ export default connect(
         (currentGame.id <= games.data.length - 1) ? (currentGame.id + 1) : (1)
       )
 
+      const fav = favoriteGameIds.find( fav => fav.gameId === currentGame.id)
+
+      const favId = (fav && fav.favId) || undefined
+
       return (
         <Grid>
           <div>
@@ -68,12 +72,12 @@ export default connect(
                     <h2>{currentGame.name}</h2>
                     <div>
                       {
-                        favoriteGameIds.includes(currentGame.id) ?
+                        fav !== undefined ?
                           (
                             <img
                               className="fav"
                               src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                              onClick={() => unfavGame(currentGame.id, userId, accessToken)}
+                              onClick={() => unfavGame(favId, userId, accessToken)}
                             />
                           ) :
                           (
