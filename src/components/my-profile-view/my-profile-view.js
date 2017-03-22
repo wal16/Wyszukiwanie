@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import {Grid, Row, Col, Panel, PageHeader, Image} from 'react-bootstrap'
+import {Grid, Row, Col, Panel, PageHeader, Image, Alert} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs'
 
 export default connect(
@@ -19,12 +19,21 @@ export default connect(
         user.data ? user.data : null
 
       if (currentUser === null) {
-        return <p>Waiting for users data...</p>
+        return (
+          <Grid>
+            <PageHeader>
+              Mój profil<br/>
+            </PageHeader>
+            <Alert bsStyle="warning">
+              Oczekiwanie na dane użytkownika...
+            </Alert>
+          </Grid>
+        )
       }
 
       return (
         <Grid>
-          <PageHeader>Profil użytkownika<br/>
+          <PageHeader>Mój profil<br/>
           </PageHeader>
           <Row>
             <Col xs={12} md={4} sm={6}>
