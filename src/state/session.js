@@ -5,6 +5,7 @@ const FETCH__FAIL = 'session/LOGIN__FAILED'
 export const LOGOUT = 'session/LOGOUT'
 
 import { fetchUser } from './user'
+import { fetchFavs } from './favs'
 
 export const logIn = (username, password) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
@@ -29,6 +30,7 @@ export const logIn = (username, password) => dispatch => {
               data
             })
             dispatch(fetchUser(data.id, data.userId))
+            dispatch(fetchFavs(data.id, data.userId))
           }
         ).catch(
           error => dispatch({

@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import {LinkContainer} from 'react-router-bootstrap'
 
 
@@ -11,23 +12,30 @@ import './game-card-view.css'
 
 export default connect(
   state => ({
+    users: state.users,
     games: state.games,
+    changeRange: state.range.changeRange,
     favoriteGameIds: state.favs.favoriteGameIds,
+    userId: state.session.data.userId,
+    accessToken: state.session.data.id
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gamesId) => dispatch(favGame(gamesId)),
-    unfavGame: (gamesId) => dispatch(unfavGame(gamesId))
+    favGame: (gameId, userId, accessToken) => dispatch(favGame(gameId, userId, accessToken)),
+    unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken))
   })
 )(
   class GameProfileView extends React.Component {
     render() {
       const {
+        users,
         games,
         params,
         favGame,
         unfavGame,
-        favoriteGameIds
+        favoriteGameIds,
+        userId,
+        accessToken
       } = this.props
 
       if (games.data === null) {
@@ -44,6 +52,10 @@ export default connect(
       const nextGame = (
         (currentGame.id <= games.data.length - 1) ? (currentGame.id + 1) : (1)
       )
+
+      const fav = favoriteGameIds.find( fav => fav.gameId === currentGame.id)
+
+      const favId = (fav && fav.favId) || undefined
 
       return (
         <Grid>
@@ -64,19 +76,21 @@ export default connect(
                     <h2>{currentGame.name}</h2>
                     <div>
                       {
-                        favoriteGameIds.includes(currentGame.id) ?
+                        fav !== undefined ?
                           (
                             <img
                               className="fav"
+                              role="persentation"
                               src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                              onClick={() => unfavGame(currentGame.id)}
+                              onClick={() => unfavGame(favId, userId, accessToken)}
                             />
                           ) :
                           (
                             <img
                               className="fav"
+                              role="persentation"
                               src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                              onClick={() => favGame(currentGame.id)}
+                              onClick={() => favGame(currentGame.id, userId, accessToken)}
                             />
                           )
                       }
@@ -95,7 +109,24 @@ export default connect(
                       </LinkContainer>
                     </Panel>
 
-                    <Panel header="Liczba graczy">{currentGame.players}</Panel>
+                    <Panel header="Liczba graczy">{currentGame.playersMin} - {currentGame.playersMax}</Panel>
+                    <Panel header="Gracze, którzy posiadaja grę">
+                      {
+                        users.data ?
+                          users.data.filter(
+                            user => user.gameList.includes(currentGame.id)
+                          ).map(
+                            user =>
+                              <Link to={'/user-profile/' + user.id}>
+                                <img key={user.id} role="persentation" className="avatars" src={user.picture}
+                                     alt="Zdjęcie uzytkownikow posiadajacych gre"/>
+                              </Link>
+
+
+                          ) : null
+                      }
+
+                    </Panel>
                   </Col>
                 </Row>
 

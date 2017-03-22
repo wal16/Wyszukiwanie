@@ -12,25 +12,22 @@ import {favGame, unfavGame} from '../../state/favs'
 
 export default connect(
   state => ({
-    users: state.users,
     games: state.games,
     searchString: state.search.searchString,
     changeRange: state.range.changeRange,
     favoriteGameIds: state.favs.favoriteGameIds,
     userId: state.session.data.userId,
-    accessToken: state.session.data.id,
-    favId: state.favs.favId
+    accessToken: state.session.data.id
   }),
   dispatch => ({
     fetchGamesHelper: () => dispatch(fetchGames()),
-    favGame: (gameId, accessToken, userId, favId) => dispatch(favGame(gameId, accessToken, userId, favId)),
-    unfavGame: (gameId) => dispatch(unfavGame(gameId)),
+    favGame: (gameId, userId, accessToken) => dispatch(favGame(gameId, userId, accessToken)),
+    unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken))
   })
 )(
   class GamesListView extends React.Component {
     render() {
       const {
-        users,
         games,
         searchString,
         changeRange,
@@ -38,8 +35,7 @@ export default connect(
         unfavGame,
         favoriteGameIds,
         userId,
-        accessToken,
-        favId
+        accessToken
       } = this.props
 
       const searchResults = (
@@ -48,55 +44,48 @@ export default connect(
             game => (game.name.toLowerCase()).includes(searchString.toLowerCase()) &&
             ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
-            game => (
-              <tr key={game.id}>
-                <td>
-                  <img className="thumb" src={game.image}
-                       alt="Zdjęcie gry"
+            game => {
+              const fav = favoriteGameIds.find( fav => fav.gameId === game.id)
+              const favId = (fav && fav.favId) || undefined
 
-                  />
-                </td>
-                <td>
-                  <Link to={'game-profile/' + game.id}>
-                    {game.name}
-                  </Link>
-                </td>
-                <td>{game.playersMin} - {game.playersMax}</td>
-                <td>
-                  {
-                    favoriteGameIds.includes(game.id) ?
-                      (
-                        <img
-                          className="fav"
-                          src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                          onClick={() => unfavGame(game.id)}
-                        />
-                      ) :
-                      (
-                        <img
-                          className="fav"
-                          src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                          onClick={() => favGame(game.id, accessToken, userId, favId)}
-                        />
-                      )
-                  }
-                </td>
-                {
-                  users.data ?
-                    users.data.filter(
-                      user => user.gameList.includes(game.id)
-                    ).map(
-                      user =>
-                        <Link to={'/user-profile/' + user.id}>
-                        <img key={user.id} className="avatars" src={user.picture}
-                             alt="Zdjęcie uzytkownikow posiadajacych gre"/>
-                        </Link>
+              return (
+                <tr key={game.id}>
+                  <td>
+                    <img className="thumb" src={game.image}
+                         alt="Zdjęcie gry"
 
-
-                    ) : null
-                }
-              </tr>
-            )
+                    />
+                  </td>
+                  <td>
+                    <Link to={'game-profile/' + game.id}>
+                      {game.name}
+                    </Link>
+                  </td>
+                  <td>{game.playersMin} - {game.playersMax}</td>
+                  <td>
+                    {
+                      fav !== undefined ?
+                        (
+                          <img
+                            className="fav"
+                            role="persentation"
+                            src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
+                            onClick={() => unfavGame(favId, userId, accessToken)}
+                          />
+                        ) :
+                        (
+                          <img
+                            className="fav"
+                            role="persentation"
+                            src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
+                            onClick={() => favGame(game.id, userId, accessToken)}
+                          />
+                        )
+                    }
+                  </td>
+                </tr>
+              )
+            }
           ) :
           (
             <tr>
@@ -129,7 +118,6 @@ export default connect(
                   <th></th>
                   <th>Nazwa gry</th>
                   <th>Liczba graczy</th>
-                  <th></th>
                   <th></th>
                 </tr>
                 </thead>
