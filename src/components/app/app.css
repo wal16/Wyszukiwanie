@@ -63,7 +63,7 @@ body{
 .uncontrolled-tab-example-tab-1{
 
   border: none;
-  color: #337ab7;
+  color: #002060;
 
 
 }
@@ -73,7 +73,7 @@ body{
 .uncontrolled-tab-example-tab-2{
 
   border: none;
-  color: #337ab7;
+  color: #002060;
 
 
 }
@@ -89,7 +89,7 @@ body{
 
 .nav > li > a:hover, .nav > li > a:focus{
   background-color: #f8f8ff;
-  color: #002060;
+  color: #337ab7;
   border: none;
 
 }
@@ -103,4 +103,25 @@ body{
 
 a:focus {
   outline:0;
+}
+
+.btn.btn-button{
+
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #002060;
+  color: #f8f8ff;
+  font-size: 15px;
+  padding: 10px 1.5rem;
+  border: solid 2px #002060;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+}
+
+
+.btn.btn-button:hover {
+  border-color: #0080e0;
+  background-color: #0080e0;
+  outline: inherit;
 }

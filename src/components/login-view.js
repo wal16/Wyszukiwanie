@@ -76,7 +76,7 @@ export default connect(
 
                 <Button
                   type="submit"
-                  bsStyle="primary"
+                  bsStyle="button"
                 >
                   Zaloguj
                 </Button>
