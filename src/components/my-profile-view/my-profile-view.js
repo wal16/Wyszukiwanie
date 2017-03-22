@@ -63,6 +63,27 @@ export default connect(
               </div>
             </Col>
           </Row>
+
+          <Row>
+            <Col xs={12} md={12}>
+              <Panel>
+                <Tabs id="noanim-tab-example">
+                  <Tab headerClass='pointer' label="Posiadam">
+                    <h3>Posiadam</h3>
+                    <ul>
+                      <li>Dummy</li>
+                    </ul>
+                  </Tab>
+                  <Tab headerClass='pointer' label="Szukam">
+                    <h3>Szukam</h3>
+                    <ul>
+                      <li>Foo</li>
+                    </ul>
+                  </Tab>
+                </Tabs>
+              </Panel>
+            </Col>
+          </Row>
         </Grid>
       )
     }
