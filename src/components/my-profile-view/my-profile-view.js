@@ -38,7 +38,21 @@ export default connect(
           <Row>
             <Col xs={12} md={4} sm={6}>
               <div key={currentUser.id}>
-
+                {
+                  currentUser.picture ? (
+                <Image
+                  src={process.env.PUBLIC_URL + currentUser.picture}
+                  alt={"Awatar użytkownika " + currentUser.usernamen}
+                  responsive
+                />
+                  ) : (
+                    <Image
+                      src={process.env.PUBLIC_URL + '/img/board-games-with-roles-blue.png'}
+                      alt={"Awatar użytkownika " + currentUser.username}
+                      responsive
+                    />
+                  )
+                }
               </div>
             </Col>
 
