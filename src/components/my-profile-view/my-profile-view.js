@@ -4,15 +4,26 @@ import {connect} from 'react-redux'
 import {Grid, Row, Col, Panel, PageHeader, Image, Alert} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs'
 
+import {fetchFavs} from '../../state/favs'
+
 export default connect(
   state => ({
-    user: state.user
+    session: state.session.data,
+    games: state.games.data,
+    user: state.user,
+    favs: state.favs
   })
 )(
   class MyProfileView extends React.Component {
+    componentWillMount() {
+
+    }
+
     render() {
       const {
-        user
+        user,
+        favs,
+        games
       } = this.props
 
       const currentUser =
@@ -81,6 +92,33 @@ export default connect(
                     </ul>
                   </Tab>
                 </Tabs>
+              </Panel>
+            </Col>
+            <Col xs={12} md={12}>
+              <Panel header="Ulubione gry">
+                {
+                  (favs.favoriteGameIds === []) ? (
+                    <ul>
+                      {
+                        favs.favoriteGameIds.map(
+                          game => favs.favoriteGameIds.filter( fav => fav.gameId === games.id)
+                        ).map(
+                          game => (
+                            <li key={game.id}>
+                              <Link to={'game-profile/' + games.id}>
+                                {game.name}
+                              </Link>
+                            </li>
+                          )
+                        )
+                      }
+                    </ul>
+                  ) : (
+                    <Alert>
+                      Nie masz jeszcze ulubionych gier. <Link to="/games-list"><b>Przejdź do listy gier</b></Link> i pokaż innym graczom, które planszówki lubisz najbardziej! :)
+                    </Alert>
+                  )
+                }
               </Panel>
             </Col>
           </Row>
