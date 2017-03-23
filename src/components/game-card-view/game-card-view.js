@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 import {LinkContainer} from 'react-router-bootstrap'
 
 
-import {Grid, PageHeader, Panel, ButtonToolbar, ButtonGroup, Button, Row, Col, Image, Glyphicon} from 'react-bootstrap'
+import {Grid, PageHeader, Panel, ButtonGroup, Button, Row, Col, Image, Glyphicon} from 'react-bootstrap'
 
 import {fetchGames} from '../../state/games'
 import {favGame, unfavGame} from '../../state/favs'
@@ -73,8 +73,9 @@ export default connect(
                 </Col>
 
                 <Col xs={12} sm={6} md={8}>
-                  <h2>{currentGame.name}</h2>
-                  <ButtonGroup bsSize="large">
+                  <Panel>
+                    <h2>{currentGame.name}</h2>
+                    <ButtonGroup bsSize="">
                     <LinkContainer to={'/game-profile/' + prevGame}>
                       <Button bsStyle="custom">
                         <Glyphicon glyph="chevron-left"
@@ -84,7 +85,7 @@ export default connect(
                     {
                       fav !== undefined ?
                         (
-                          <Button bsSize="large"
+                          <Button bsSize=""
                                   bsStyle="custom"
                                   onClick={() => unfavGame(favId, userId, accessToken)}>
                             <Glyphicon glyph="star"
@@ -92,7 +93,7 @@ export default connect(
                           </Button>
                         ) :
                         (
-                          <Button bsSize="large"
+                          <Button bsSize=""
                                   bsStyle="custom"
                                   onClick={() => favGame(currentGame.id, userId, accessToken)}>
                             <Glyphicon glyph="star-empty"
@@ -107,9 +108,13 @@ export default connect(
                       </Button>
                     </LinkContainer>
                   </ButtonGroup>
+                  </Panel>
 
-                  <Panel header="Liczba graczy">{currentGame.playersMin} - {currentGame.playersMax}</Panel>
-                  <Panel header="Gracze, którzy posiadaja grę">
+                  <Panel header="Liczba graczy">
+                    {currentGame.playersMin} - {currentGame.playersMax}
+                  </Panel>
+
+                  <Panel header="Posiadają">
                     {
                       users.data ?
                         users.data.filter(
@@ -117,12 +122,15 @@ export default connect(
                         ).map(
                           user =>
                             <Link to={'/user-profile/' + user.id}>
-                              <img key={user.id} role="persentation" className="avatars" src={user.picture}
-                                   alt="Zdjęcie uzytkownikow posiadajacych gre"/>
+                              <Image key={user.id}
+                                     role="presentation"
+                                     className="avatars"
+                                     src={user.picture}
+                                     alt="Zdjęcie uzytkownikow posiadajacych gre"
+                              />
                             </Link>
                         ) : null
                     }
-
                   </Panel>
                 </Col>
 
