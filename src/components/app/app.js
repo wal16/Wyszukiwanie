@@ -34,16 +34,21 @@ class App extends React.Component {
     ) :
       (
         <Grid>
+
+            <Col xs={5} className = "col-centered" >
+              <img src={process.env.PUBLIC_URL + '/img/pozyczme-logo-blue2.svg'}
+                   alt="Logo PożyczME"/>
             <h1 className="tittle">Witamy na naszej stronie</h1>
-          <Row>
-            <Col xs={5} className = "col-centered">
+
 
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example" >
             <Tab eventKey={1} title="Logowanie"><LoginView /></Tab>
             <Tab eventKey={2} title="Rejstracja"><RegistrationView/></Tab>
           </Tabs>
-            </Col>
-            </Row>
+
+
+
+              </Col>
 
         </Grid>
 

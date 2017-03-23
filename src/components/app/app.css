@@ -1,9 +1,10 @@
 body{
 
-  background-color: #f8f8ff;
+  background-image: url("background.jpg");
 
 
 }
+
 
 
 
@@ -34,23 +35,18 @@ body{
 {
   float: none;
   margin: 0 auto;
-  padding-top: 30px;
+  background-color: #f8f8ff;
+
 }
 
 .tittle{
 
   text-align: center;
-  margin-top: 50px;
   color: #002060;
 
 }
 
-#uncontrolled-tab-example .active{
 
-  background-color: #f8f8ff;
-
-
-}
 
 .nav-tabs{
 
@@ -78,11 +74,26 @@ body{
 
 }
 
+#uncontrolled-tab-example .active{
+
+  background-color: #f8f8ff;
+
+
+
+}
+
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 
-  border: none;
-  background-color: #f8f8ff;
-  color: #002060;
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #337ab7;
+  color: #f8f8ff;
+  font-size: 15px;
+  padding: 10px 1.5rem;
+  border: solid 1px #337ab7;
+  border-radius: 5px;
+
 }
 
 
@@ -115,7 +126,7 @@ a:focus {
   padding: 10px 1.5rem;
   border: solid 2px #002060;
   border-radius: 5px;
-  box-sizing: border-box;
+
 
 }
 
