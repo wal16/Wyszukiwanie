@@ -108,7 +108,7 @@ export default connect(
                         ).map(
                           game => (
                             <li key={game.id}>
-                              <Link to={'game-profile/' + games.id}>
+                              <Link to={'game-profile/' + game.id}>
                                 {game.name}
                               </Link>
                             </li>
