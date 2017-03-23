@@ -100,11 +100,11 @@ export default connect(
             <Col xs={12} md={12}>
               <Panel header="Ulubione gry">
                 {
-                  (favs.favoriteGameIds === []) ? (
+                  (favs.favoriteGameIds.length !== 0 && games !== null) ? (
                     <ul>
                       {
                         favs.favoriteGameIds.map(
-                          game => favs.favoriteGameIds.filter( fav => fav.gameId === games.id)
+                          fav => games.find(game => game.id === fav.gameId)
                         ).map(
                           game => (
                             <li key={game.id}>

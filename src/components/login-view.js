@@ -29,10 +29,6 @@ export default connect(
     }
 
     render() {
-      const {
-        logOut
-      } = this.props
-
       return (
         <Grid>
           <h1>Zaloguj się</h1>
