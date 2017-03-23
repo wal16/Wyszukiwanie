@@ -4,7 +4,7 @@ const FETCH__BEGIN = 'session/LOGIN__BEGIN'
 const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
 const FETCH__FAIL = 'session/LOGIN__FAILED'
 
-const LOGOUT = 'session/LOGOUT'
+export const LOGOUT = 'session/LOGOUT'
 
 import { fetchUser } from './user'
 import { fetchFavs } from './favs'

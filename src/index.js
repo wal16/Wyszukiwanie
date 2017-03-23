@@ -18,6 +18,7 @@ import GameProfileView from './components/game-card-view/game-card-view'
 
 import UsersListView from './components/users-list-view/users-list-view'
 import UserProfileView from './components/user-profile-view/user-profile-view'
+import MyProfileView from './components/my-profile-view/my-profile-view'
 
 
 ReactDOM.render(
@@ -32,6 +33,7 @@ ReactDOM.render(
           <Route path="/user-profile/:userId" component={UserProfileView}/>
           <Route path="/login" component={LoginView}/>
           <Route path="/registration" component={RegistrationView}/>
+          <Route path="/my-profile" component={MyProfileView}/>
         </Route>
       </Router>
     </Provider>

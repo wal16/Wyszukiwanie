@@ -1,6 +1,7 @@
 .props-children{
   padding-top: 120px;
   background: #f8f8ff;
+  min-height: 100vh;
 }
 
 .enter{

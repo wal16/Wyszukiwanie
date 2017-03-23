@@ -25,8 +25,8 @@ const NavComponent = () => (
         <LinkContainer to="/users-list">
           <NavItem eventKey={2}>Użytkownicy</NavItem>
         </LinkContainer>
-        <LinkContainer to="/login">
-          <NavItem eventKey={3}>Zaloguj się</NavItem>
+        <LinkContainer to="/my-profile">
+          <NavItem eventKey={3}>Mój profil</NavItem>
         </LinkContainer>
         <LogUserOut/>
       </Nav>
