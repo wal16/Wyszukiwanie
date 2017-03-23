@@ -84,7 +84,6 @@ export default connect(
                     }}
                   />
 
-                  <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
                 </FormGroup>
 
                 <Button

@@ -71,7 +71,6 @@ export default connect(
                       this.setState({password: event.target.value})
                     }}
                   />
-                  <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
                 </FormGroup>
 
                 <Button
