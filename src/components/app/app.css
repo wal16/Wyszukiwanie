@@ -1,4 +1,4 @@
-body{
+body {
   background-image: url("background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,12 +20,12 @@ body{
 {
   float: none;
   background-color: #f8f8ff;
-  min-height: 80vh;
+  min-height: 500px;
   margin: auto;
   margin-top: 10%;
   padding-top: 20px;
   border-radius: 10px;
-  width: 300px;
+  min-width: 500px;
 }
 
 .col-xs-4 {
@@ -37,7 +37,7 @@ h1 {
   text-align: center;
 }
 img {
-  padding-left: 65px;
+  padding-left: 35%;
 }
 
 
