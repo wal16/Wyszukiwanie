@@ -6,10 +6,13 @@ export const range = (value) => ({
   value
 })
 
+const minLabel = 2
+const maxLabel = 20
+
 const initialState = {
-  minLabel: 2,
-  maxLabel: 20,
-  changeRange: {min: 2, max: 20}
+  minLabel: minLabel,
+  maxLabel: maxLabel,
+  changeRange: {min: minLabel, max: maxLabel}
 }
 
 export default (state = initialState, action = {}) => {
