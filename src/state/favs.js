@@ -1,9 +1,11 @@
+import Api from '../api'
+
 const FAV_GAME = 'favs/FAV_GAME'
 const FETCH_FAVS = 'favs/FETCH_FAVS'
 
 export const fetchFavs = (accessToken, userId) => dispatch =>
   fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+    Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
   ).then(
     response => response.json()
   ).then(
@@ -15,7 +17,7 @@ export const fetchFavs = (accessToken, userId) => dispatch =>
 
 export const favGame = (gameId, userId, accessToken) => dispatch =>
   fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
+    Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -36,7 +38,7 @@ export const favGame = (gameId, userId, accessToken) => dispatch =>
   )
 
 export const unfavGame = (favId, userId, accessToken) => dispatch => fetch(
-  'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favId + '?access_token=' + accessToken, {
+  Api.url + '/users/' + userId + '/favoriteItems/' + favId + '?access_token=' + accessToken, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'

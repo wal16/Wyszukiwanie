@@ -29,7 +29,8 @@ export default connect(
           maxValue={maxLabel}
           minValue={minLabel}
           value={changeRange}
-          onChange={ value => range(value) } />
+          onChange={ value => range(value) }
+        />
       );
     }
   }

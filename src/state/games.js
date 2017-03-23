@@ -2,6 +2,8 @@ const FETCH__BEGIN = 'games/FETCH__BEGIN'
 const FETCH__SUCCESS = 'games/FETCH__SUCCESS'
 const FETCH__FAIL = 'games/FETCH__FAILED'
 
+import { SET_MIN_MAX_LABEL } from './range'
+
 export const fetchGames = () => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
@@ -10,10 +12,16 @@ export const fetchGames = () => dispatch => {
     response => {
       if (response.ok) {
         return response.json().then(
-          data => dispatch({
-            type: FETCH__SUCCESS,
-            data
-          })
+          data => {
+            dispatch({
+              type: FETCH__SUCCESS,
+              data
+            })
+            dispatch({
+              type: SET_MIN_MAX_LABEL,
+              data
+            })
+          }
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
