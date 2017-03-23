@@ -1,12 +1,25 @@
-import { FETCH__BEGIN, FETCH__FAIL } from './user'
+import Api from '../api'
 
 const FAV_GAME = 'favs/FAV_GAME'
-const UNFAV_GAME = 'favs/UNFAV_GAME'
+const FETCH_FAVS = 'favs/FETCH_FAVS'
 
-export const favGame = (gameId, accessToken, userId, favId) => dispatch => {
-  dispatch({ type: FETCH__BEGIN })
-  return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
+import { LOGOUT } from './session'
+
+export const fetchFavs = (accessToken, userId) => dispatch =>
+  fetch(
+    Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
+  ).then(
+    response => response.json()
+  ).then(
+    data => dispatch({
+      type: FETCH_FAVS,
+      favs: data,
+    })
+  )
+
+export const favGame = (gameId, userId, accessToken) => dispatch =>
+  fetch(
+    Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -17,37 +30,25 @@ export const favGame = (gameId, accessToken, userId, favId) => dispatch => {
       })
     }
   ).then(
-    response => {
-      if (response.ok) {
-        return response.json().then(
-          data =>
-            dispatch({
-              type: FAV_GAME,
-              gameId,
-              favId: data.id
-            })
-
-        ).catch(
-          error => dispatch({
-            type: FETCH__FAIL,
-            error: 'Malformed JSON response'
-          })
-        )
-      }
-      throw new Error('Connection error')
-    }
-  ).catch(
-    error => dispatch({
-      type: FETCH__FAIL,
-      error: error.message
+    response => response.json()
+  ).then(
+    data => dispatch({
+      type: FAV_GAME,
+      gameId,
+      favId: data.id
     })
   )
-}
 
-export const unfavGame = gameId => ({
-  type: UNFAV_GAME,
-  gameId
-})
+export const unfavGame = (favId, userId, accessToken) => dispatch => fetch(
+  Api.url + '/users/' + userId + '/favoriteItems/' + favId + '?access_token=' + accessToken, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+).then(
+  response => dispatch(fetchFavs(accessToken, userId))
+)
 
 const initialState = {
   favoriteGameIds: []
@@ -59,16 +60,21 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         favoriteGameIds: state.favoriteGameIds.filter(
-          gameId => gameId !== action.gameId
-        ).concat(action.gameId),
-        favId: action.gameId
+          ({gameId, favId}) => gameId !== action.gameId
+        ).concat({gameId: action.gameId, favId: action.favId})
       }
-    case UNFAV_GAME:
+    case FETCH_FAVS:
       return {
         ...state,
-        favoriteGameIds: state.favoriteGameIds.filter(
-          gameId => gameId !== action.gameId
-        )
+        favoriteGameIds: action.favs.map(fav => ({
+          gameId: fav.itemId,
+          favId: fav.id
+        }))
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        favoriteGameIds: initialState.favoriteGameIds
       }
     default:
       return state

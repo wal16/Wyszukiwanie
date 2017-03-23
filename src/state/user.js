@@ -1,11 +1,15 @@
+import Api from '../api'
+
 export const FETCH__BEGIN = 'user/FETCH__BEGIN'
 export const FETCH__SUCCESS = 'user/FETCH__SUCCESS'
 export const FETCH__FAIL = 'user/FETCH__FAILED'
 
-export const fetchUser = (accessToken, userId) => dispatch => {
+import { LOGOUT } from './session'
+
+export const fetchUser = (accessToken, userId, injectedFetch = fetch) => (dispatch) => {
   dispatch({ type: FETCH__BEGIN })
-  return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/' + userId + '?access_token=' + accessToken
+  return injectedFetch(
+    Api.url + '/users/' + userId + '?access_token=' + accessToken
   ).then(
     response => {
       if (response.ok) {
@@ -56,6 +60,11 @@ export default (state = initialState, action = {}) => {
         ...state,
         fetching: false,
         error: action.error
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        data: initialState.data
       }
     default:
       return state

@@ -1,15 +1,18 @@
+import Api from '../api'
+
 const FETCH__BEGIN = 'session/LOGIN__BEGIN'
 const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
 const FETCH__FAIL = 'session/LOGIN__FAILED'
 
-const LOGOUT = 'session/LOGOUT'
+export const LOGOUT = 'session/LOGOUT'
 
 import { fetchUser } from './user'
+import { fetchFavs } from './favs'
 
 export const logIn = (username, password) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/login', {
+    Api.url + '/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -29,6 +32,7 @@ export const logIn = (username, password) => dispatch => {
               data
             })
             dispatch(fetchUser(data.id, data.userId))
+            dispatch(fetchFavs(data.id, data.userId))
           }
         ).catch(
           error => dispatch({
