@@ -45,7 +45,7 @@ export default connect(
             ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
             game => {
-              const fav = favoriteGameIds.find( fav => fav.gameId === game.id)
+              const fav = favoriteGameIds.find(fav => fav.gameId === game.id)
               const favId = (fav && fav.favId) || undefined
 
               return (
@@ -123,6 +123,7 @@ export default connect(
                 </thead>
                 <tbody>
                 {searchResults}
+
                 </tbody>
               </Table>
             ) :
@@ -131,7 +132,6 @@ export default connect(
                   Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
                 </Alert>
               )
-
           }
         </Grid>
       )
