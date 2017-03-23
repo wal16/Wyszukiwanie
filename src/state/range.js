@@ -28,8 +28,14 @@ export default (state = initialState, action = {}) => {
           (prev, next) => (
             prev <= next ? prev : next
           )
+        ),
+        maxLabel: action.data.map(
+          item => item.playersMax
+        ).reduce(
+          (prev, next) => (
+            prev >= next ? prev : next
+          )
         )
-
       }
     default:
       return state
