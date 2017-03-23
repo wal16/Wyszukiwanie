@@ -37,12 +37,13 @@ export default connect(
       return (
           <div>
           <Col xs={4}>
-          <h1>Zaloguj się</h1>
           <Row>
-            <form onSubmit={(event) => {
+
+            <form className="login" onSubmit={(event) => {
                 event.preventDefault()
                 this.props.logIn(this.state.username, this.state.password)
               }}>
+              <h1 className="h1login">Zaloguj się</h1>
                 <FormGroup>
                   <ControlLabel>
                     <label htmlFor="username">Nazwa użytkownika</label>

@@ -15,16 +15,7 @@ body {
   text-align: center;
   font-size: 40px;
 }
-form {
-  float: none;
-  background-color: #f8f8ff;
-  min-height: 200px;
-  margin: auto;
-  margin-top: 10%;
-  padding-top: 20px;
-  border-radius: 10px;
-  max-width: 500px;
-}
+
 
 .form-group {
   margin: 15px;
@@ -37,7 +28,7 @@ form {
   margin: auto;
   margin-top: 10%;
   padding-top: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   min-width: 500px;
 }
 
@@ -66,7 +57,19 @@ img {
 
 }
 
+form.login {
 
+  float: none;
+  background-color: #f8f8ff;
+  min-height: 200px;
+  margin: auto;
+  border-radius: 20px;
+  max-width: 500px;
+
+}
+h1.h1login {
+  padding: 20px;
+}
 
 .uncontrolled-tab-example-tab-1{
 
