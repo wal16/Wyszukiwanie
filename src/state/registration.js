@@ -1,3 +1,5 @@
+import Api from '../api'
+
 const FETCH__BEGIN = 'registration/FETCH__BEGIN'
 const FETCH__SUCCESS = 'registration/FETCH__SUCCESS'
 const FETCH__FAIL = 'registration/FETCH__FAILED'
@@ -5,7 +7,7 @@ const FETCH__FAIL = 'registration/FETCH__FAILED'
 export const fetchRegistration = (username, password, email) => dispatch => {
   dispatch({type: FETCH__BEGIN})
   return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users', {
+    Api.url + '/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

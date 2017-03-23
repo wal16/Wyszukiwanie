@@ -1,3 +1,5 @@
+import Api from '../api'
+
 const FETCH__BEGIN = 'session/LOGIN__BEGIN'
 const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
 const FETCH__FAIL = 'session/LOGIN__FAILED'
@@ -10,7 +12,7 @@ import { fetchFavs } from './favs'
 export const logIn = (username, password) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    'https://tranquil-ocean-17204.herokuapp.com/api/users/login', {
+    Api.url + '/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
