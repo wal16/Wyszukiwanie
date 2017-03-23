@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 import {LinkContainer} from 'react-router-bootstrap'
 
 
-import {Grid, PageHeader, Panel, ButtonToolbar, Button, Row, Col, Image} from 'react-bootstrap'
+import {Grid, PageHeader, Panel, ButtonToolbar, ButtonGroup, Button, Row, Col, Image, Glyphicon} from 'react-bootstrap'
 
 import {fetchGames} from '../../state/games'
 import {favGame, unfavGame} from '../../state/favs'
@@ -64,76 +64,71 @@ export default connect(
               <small>Zapoznaj się ze szczegółami wybranej pozycji</small>
             </PageHeader>
             {
-                <div key={currentGame.id}>
-                  <Col xs={12} sm={6} md={4}>
-                    <Image src={currentGame.image}
-                           alt="Zdjęcie gry"
-                           responsive
-                    />
-                  </Col>
+              <div key={currentGame.id}>
+                <Col xs={12} sm={6} md={4}>
+                  <Image src={currentGame.image}
+                         alt="Zdjęcie gry"
+                         responsive
+                  />
+                </Col>
 
-                  <Col xs={12} sm={6} md={8}>
+                <Col xs={12} sm={6} md={8}>
+                  <h2>{currentGame.name}</h2>
+                  <ButtonGroup bsSize="large">
+                    <LinkContainer to={'/game-profile/' + prevGame}>
+                      <Button bsStyle="custom">
+                        <Glyphicon glyph="chevron-left"
+                                   className="glyph"/>
+                      </Button>
+                    </LinkContainer>
+                    {
+                      fav !== undefined ?
+                        (
+                          <Button bsSize="large"
+                                  bsStyle="custom"
+                                  onClick={() => unfavGame(favId, userId, accessToken)}>
+                            <Glyphicon glyph="star"
+                                       className="glyph"/>
+                          </Button>
+                        ) :
+                        (
+                          <Button bsSize="large"
+                                  bsStyle="custom"
+                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                            <Glyphicon glyph="star-empty"
+                                       className="glyph"/>
+                          </Button>
+                        )
+                    }
+                    <LinkContainer to={'/game-profile/' + nextGame}>
+                      <Button bsStyle="custom">
+                        <Glyphicon glyph="chevron-right"
+                                   className="glyph"/>
+                      </Button>
+                    </LinkContainer>
+                  </ButtonGroup>
 
-                      <Col>
-                        <h2>{currentGame.name}</h2>
-                        <div>
-                          {
-                            fav !== undefined ?
-                              (
-                                <img
-                                  className="fav"
-                                  role="persentation"
-                                  src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                                  onClick={() => unfavGame(favId, userId, accessToken)}
-                                />
-                              ) :
-                              (
-                                <img
-                                  className="fav"
-                                  role="persentation"
-                                  src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                                  onClick={() => favGame(currentGame.id, userId, accessToken)}
-                                />
-                              )
-                          }
-                        </div>
-                        <ButtonToolbar>
-                          <LinkContainer to={'/game-profile/' + prevGame}>
-                            <Button>
-                              &larr; Poprzednia
-                            </Button>
-                          </LinkContainer>
+                  <Panel header="Liczba graczy">{currentGame.playersMin} - {currentGame.playersMax}</Panel>
+                  <Panel header="Gracze, którzy posiadaja grę">
+                    {
+                      users.data ?
+                        users.data.filter(
+                          user => user.gameList.includes(currentGame.id)
+                        ).map(
+                          user =>
+                            <Link to={'/user-profile/' + user.id}>
+                              <img key={user.id} role="persentation" className="avatars" src={user.picture}
+                                   alt="Zdjęcie uzytkownikow posiadajacych gre"/>
+                            </Link>
+                        ) : null
+                    }
 
-                          <LinkContainer to={'/game-profile/' + nextGame}>
-                            <Button>
-                              Następna &rarr;
-                            </Button>
-                          </LinkContainer>
-                        </ButtonToolbar>
-                      </Col>
+                  </Panel>
+                </Col>
 
-
-                    <Panel header="Liczba graczy">{currentGame.playersMin} - {currentGame.playersMax}</Panel>
-                    <Panel header="Gracze, którzy posiadaja grę">
-                      {
-                        users.data ?
-                          users.data.filter(
-                            user => user.gameList.includes(currentGame.id)
-                          ).map(
-                            user =>
-                              <Link to={'/user-profile/' + user.id}>
-                                <img key={user.id} role="persentation" className="avatars" src={user.picture}
-                                     alt="Zdjęcie uzytkownikow posiadajacych gre"/>
-                              </Link>
-                          ) : null
-                      }
-
-                    </Panel>
-                  </Col>
-
-                  <Col xs={12} sm={12}>
-                    <Panel header="Opis">{currentGame.description}</Panel>
-                  </Col>
+                <Col xs={12} sm={12}>
+                  <Panel header="Opis">{currentGame.description}</Panel>
+                </Col>
               </div>
             }
           </div>

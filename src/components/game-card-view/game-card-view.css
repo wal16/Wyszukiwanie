@@ -5,3 +5,12 @@
 .avatars {
   height: 50px;
 }
+
+.glyph {
+  color: #f8f8ff;
+  background-color: #0080e0;
+}
+
+.btn-custom {
+  background-color: #0080e0;
+}
