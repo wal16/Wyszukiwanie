@@ -5,9 +5,6 @@ body{
   height: 100vh;
 }
 
-
-
-
 .props-children{
   padding-top: 120px;
   background-color: #f8f8ff;
@@ -19,19 +16,22 @@ body{
   font-size: 40px;
 }
 
-.tabWrap{
-
-  height: ;
-
-}
-
 .col-centered
 {
   float: none;
-  margin: 0 auto;
   background-color: #f8f8ff;
   min-height: 80vh;
-  margin-top: 100px;
+  margin: auto;
+  margin-top: 10%;
+  padding-top: 20px;
+  border-radius: 10px;
+}
+
+.col-xs-4 {
+  width: 100%;
+}
+
+img {
 
 }
 
@@ -42,42 +42,28 @@ body{
 
 }
 
-
-
 .nav-tabs{
-
-
   border-bottom: none;
 
 }
+
 
 
 .uncontrolled-tab-example-tab-1{
 
   border: none;
   color: #002060;
-
-
 }
-
-
 
 .uncontrolled-tab-example-tab-2{
 
   border: none;
   color: #002060;
-
-
 }
-
 #uncontrolled-tab-example .active{
 
   background-color: #f8f8ff;
-
-
-
 }
-
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 
@@ -91,8 +77,6 @@ body{
   border-radius: 5px;
 
 }
-
-
 
 .nav > li > a:hover, .nav > li > a:focus{
   background-color: #f8f8ff;
@@ -125,7 +109,6 @@ a:focus {
 
 
 }
-
 
 .btn.btn-button:hover {
   border-color: #0080e0;
