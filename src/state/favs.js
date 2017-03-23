@@ -3,6 +3,8 @@ import Api from '../api'
 const FAV_GAME = 'favs/FAV_GAME'
 const FETCH_FAVS = 'favs/FETCH_FAVS'
 
+import { LOGOUT } from './session'
+
 export const fetchFavs = (accessToken, userId) => dispatch =>
   fetch(
     Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
@@ -68,6 +70,11 @@ export default (state = initialState, action = {}) => {
           gameId: fav.itemId,
           favId: fav.id
         }))
+      }
+    case LOGOUT:
+      return {
+        ...state,
+        favoriteGameIds: initialState.favoriteGameIds
       }
     default:
       return state
