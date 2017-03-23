@@ -59,8 +59,8 @@ export default connect(
 
       return (
         <Grid>
-          <div>
-            <PageHeader>Profil gry <br/>
+          <Col xs={12}>
+            <PageHeader>Karta gry <br/>
               <small>Zapoznaj się ze szczegółami wybranej pozycji</small>
             </PageHeader>
             {
@@ -73,7 +73,9 @@ export default connect(
                 </Col>
 
                 <Col xs={12} sm={6} md={8}>
+                <div>
                   <Panel>
+
                     <h2>{currentGame.name}</h2>
                     <ButtonGroup bsSize="">
                     <LinkContainer to={'/game-profile/' + prevGame}>
@@ -109,12 +111,12 @@ export default connect(
                     </LinkContainer>
                   </ButtonGroup>
                   </Panel>
-
+                </div>
                   <Panel header="Liczba graczy">
                     {currentGame.playersMin} - {currentGame.playersMax}
                   </Panel>
 
-                  <Panel header="Posiadają">
+                  <Panel header="Pożyczysz od">
                     {
                       users.data ?
                         users.data.filter(
@@ -126,7 +128,7 @@ export default connect(
                                      role="presentation"
                                      className="avatars"
                                      src={user.picture}
-                                     alt="Zdjęcie uzytkownikow posiadajacych gre"
+                                     alt="Zdjęcie uzytkownika posiadajacego gre"
                               />
                             </Link>
                         ) : null
@@ -139,7 +141,7 @@ export default connect(
                 </Col>
               </div>
             }
-          </div>
+          </Col>
         </Grid>
       )
     }

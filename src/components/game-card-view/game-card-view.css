@@ -1,10 +1,8 @@
-.fav{
-  height: 50px;
-}
-
 .avatars {
   height: 50px;
   border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .glyph {
@@ -12,6 +10,17 @@
   background-color: #0080e0;
 }
 
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .btn-custom {
   background-color: #0080e0;
+}
+
+.panel-body {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
 }
