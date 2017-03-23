@@ -12,11 +12,14 @@ export default connect(
     games: state.games.data,
     user: state.user,
     favs: state.favs
+  }),
+  dispatch => ({
+    fetchFavsHelper: (accessToken, userId) => dispatch(fetchFavs(accessToken, userId))
   })
 )(
   class MyProfileView extends React.Component {
     componentWillMount() {
-
+      this.props.fetchFavsHelper(this.props.session.id, this.props.session.userId)
     }
 
     render() {
