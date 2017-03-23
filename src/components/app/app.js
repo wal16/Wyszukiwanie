@@ -59,21 +59,7 @@ class App extends React.Component {
 
 
 
-   /*     <Grid>
-          <div className="enter">
-          <img src={process.env.PUBLIC_URL + '/img/pozyczme-logo-blue2.svg'}
-               alt="Logo PożyczME"/>
-          <h1>Witamy na naszej stronie</h1>
-</div>
-          <Col lg={6}>
-            <RegistrationView/>
-          </Col>
 
-          <Col lg={6}>
-            <LoginView />
-          </Col>
-
-        </Grid>*/
       )
   }
 }

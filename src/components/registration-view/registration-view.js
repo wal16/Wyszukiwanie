@@ -33,7 +33,7 @@ export default connect(
 
     render() {
       return (
-        <Grid>
+        <div>
           <Col xs={4}>
           <h1>Rejestracja</h1>
           <Row>
@@ -97,7 +97,7 @@ export default connect(
 
           </Row>
             </Col>
-        </Grid>
+          </div>
       )
     }
   }

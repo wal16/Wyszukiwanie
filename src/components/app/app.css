@@ -1,8 +1,8 @@
 body{
-
   background-image: url("background.jpg");
-
-
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 
@@ -19,12 +19,6 @@ body{
   font-size: 40px;
 }
 
-.enter img{
-
-  height: 50px;
-  margin-right: 100%;
-}
-
 .tabWrap{
 
   height: ;
@@ -36,6 +30,8 @@ body{
   float: none;
   margin: 0 auto;
   background-color: #f8f8ff;
+  min-height: 80vh;
+  margin-top: 100px;
 
 }
 

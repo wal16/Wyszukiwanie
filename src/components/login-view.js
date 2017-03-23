@@ -35,7 +35,7 @@ export default connect(
       } = this.props
 
       return (
-        <Grid>
+          <div>
           <Col xs={4}>
           <h1>Zaloguj się</h1>
           <Row>
@@ -84,7 +84,7 @@ export default connect(
 
           </Row>
             </Col>
-        </Grid>
+          </div>
       )
     }
   }
