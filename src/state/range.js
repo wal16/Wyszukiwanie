@@ -22,8 +22,14 @@ export default (state = initialState, action = {}) => {
     case SET_MIN_MAX_LABEL:
       return {
         ...state,
-        minLabel: action.data.map(),
-        maxLabel:  action.data.map()
+        minLabel: action.data.map(
+          item => item.playersMin
+        ).reduce(
+          (prev, next) => (
+            prev <= next ? prev : next
+          )
+        )
+
       }
     default:
       return state
