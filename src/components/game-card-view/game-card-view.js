@@ -62,41 +62,45 @@ export default connect(
           {
             <div key={currentGame.id}>
               <Col xs={12}>
-                <Panel>
-                  <h2>{currentGame.name}</h2>
-                  <ButtonGroup>
-                    <LinkContainer to={'/game-profile/' + prevGame}>
-                      <Button bsStyle="custom__game-card">
-                        <Glyphicon glyph="chevron-left"
-                                   className="glyph"/>
-                      </Button>
-                    </LinkContainer>
-                    {
-                      fav !== undefined ?
-                        (
-                          <Button bsSize=""
-                                  bsStyle="custom__game-card__clicked"
-                                  onClick={() => unfavGame(favId, userId, accessToken)}>
-                            <Glyphicon glyph="heart"
-                                       className="glyph"/>
-                          </Button>
-                        ) :
-                        (
-                          <Button bsSize=""
-                                  bsStyle="custom__game-card"
-                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
-                            <Glyphicon glyph="heart-empty"
-                                       className="glyph"/>
-                          </Button>
-                        )
-                    }
-                    <LinkContainer to={'/game-profile/' + nextGame}>
-                      <Button bsStyle="custom__game-card">
-                        <Glyphicon glyph="chevron-right"
-                                   className="glyph"/>
-                      </Button>
-                    </LinkContainer>
-                  </ButtonGroup>
+                <Panel className="panel-header">
+                  <Col xs={12}>
+                    <h3>{currentGame.name}</h3>
+                  </Col>
+                  <Col xs={12}>
+                    <ButtonGroup>
+                      <LinkContainer to={'/game-profile/' + prevGame}>
+                        <Button bsStyle="custom__game-card">
+                          <Glyphicon glyph="chevron-left"
+                                     className="glyph"/>
+                        </Button>
+                      </LinkContainer>
+                      {
+                        fav !== undefined ?
+                          (
+                            <Button bsSize=""
+                                    bsStyle="custom__game-card"
+                                    onClick={() => unfavGame(favId, userId, accessToken)}>
+                              <Glyphicon glyph="heart"
+                                         className="glyph"/>
+                            </Button>
+                          ) :
+                          (
+                            <Button bsSize=""
+                                    bsStyle="custom__game-card"
+                                    onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                              <Glyphicon glyph="heart-empty"
+                                         className="glyph"/>
+                            </Button>
+                          )
+                      }
+                      <LinkContainer to={'/game-profile/' + nextGame}>
+                        <Button bsStyle="custom__game-card">
+                          <Glyphicon glyph="chevron-right"
+                                     className="glyph"/>
+                        </Button>
+                      </LinkContainer>
+                    </ButtonGroup>
+                  </Col>
                 </Panel>
               </Col>
 
