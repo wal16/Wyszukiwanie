@@ -59,91 +59,88 @@ export default connect(
 
       return (
         <Grid>
-          <Col xs={12}>
-            <PageHeader>Karta gry <br/>
-              <small>Zapoznaj się ze szczegółami wybranej pozycji</small>
-            </PageHeader>
-            {
-              <div key={currentGame.id}>
-                <Col xs={12} sm={6} md={4}>
-                  <Image src={currentGame.image}
-                         alt="Zdjęcie gry"
-                         responsive
-                  />
-                </Col>
-
-                <Col xs={12} sm={6} md={8}>
-                  <div>
-                    <Panel>
-                      <h2>{currentGame.name}</h2>
-                      <ButtonGroup>
-                        <LinkContainer to={'/game-profile/' + prevGame}>
-                          <Button bsStyle="custom__game-card">
-                            <Glyphicon glyph="chevron-left"
-                                       className="glyph"/>
-                          </Button>
-                        </LinkContainer>
-                        {
-                          fav !== undefined ?
-                            (
-                              <Button bsSize=""
-                                      bsStyle="custom__game-card__clicked"
-                                      onClick={() => unfavGame(favId, userId, accessToken)}>
-                                <Glyphicon glyph="heart"
-                                           className="glyph"/>
-                              </Button>
-                            ) :
-                            (
-                              <Button bsSize=""
-                                      bsStyle="custom__game-card"
-                                      onClick={() => favGame(currentGame.id, userId, accessToken)}>
-                                <Glyphicon glyph="heart-empty"
-                                           className="glyph"/>
-                              </Button>
-                            )
-                        }
-                        <LinkContainer to={'/game-profile/' + nextGame}>
-                          <Button bsStyle="custom__game-card">
-                            <Glyphicon glyph="chevron-right"
-                                       className="glyph"/>
-                          </Button>
-                        </LinkContainer>
-                      </ButtonGroup>
-                    </Panel>
-                  </div>
-                  <Panel
-                    header="Liczba graczy"
-                    >
-                    {currentGame.playersMin} - {currentGame.playersMax}
-                  </Panel>
-
-                  <Panel header="Pożyczysz od">
+          {
+            <div key={currentGame.id}>
+              <Col xs={12}>
+                <Panel>
+                  <h2>{currentGame.name}</h2>
+                  <ButtonGroup>
+                    <LinkContainer to={'/game-profile/' + prevGame}>
+                      <Button bsStyle="custom__game-card">
+                        <Glyphicon glyph="chevron-left"
+                                   className="glyph"/>
+                      </Button>
+                    </LinkContainer>
                     {
-                      users.data ?
-                        users.data.filter(
-                          user => user.gameList.includes(currentGame.id)
-                        ).map(
-                          user =>
-                            <Link to={'/user-profile/' + user.id}>
-                              <Image key={user.id}
-                                     role="presentation"
-                                     className="avatars"
-                                     src={user.picture}
-                                     alt="Zdjęcie uzytkownika posiadajacego gre"
-                              />
-                            </Link>
-                        ) : null
+                      fav !== undefined ?
+                        (
+                          <Button bsSize=""
+                                  bsStyle="custom__game-card__clicked"
+                                  onClick={() => unfavGame(favId, userId, accessToken)}>
+                            <Glyphicon glyph="heart"
+                                       className="glyph"/>
+                          </Button>
+                        ) :
+                        (
+                          <Button bsSize=""
+                                  bsStyle="custom__game-card"
+                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                            <Glyphicon glyph="heart-empty"
+                                       className="glyph"/>
+                          </Button>
+                        )
                     }
-                  </Panel>
-                </Col>
+                    <LinkContainer to={'/game-profile/' + nextGame}>
+                      <Button bsStyle="custom__game-card">
+                        <Glyphicon glyph="chevron-right"
+                                   className="glyph"/>
+                      </Button>
+                    </LinkContainer>
+                  </ButtonGroup>
+                </Panel>
+              </Col>
 
-                <Col xs={12} sm={12}>
-                  <Panel header="Opis">{currentGame.description}</Panel>
-                </Col>
-              </div>
-            }
-          </Col>
-        </Grid>
+              <Col xs={12} sm={6} md={4}>
+                <Image src={currentGame.image}
+                       alt="Zdjęcie gry"
+                       responsive
+                />
+              </Col>
+
+              <Col xs={12} sm={6} md={8}>
+                <Panel header="Liczba graczy">
+                  {currentGame.playersMin} - {currentGame.playersMax}
+                </Panel>
+
+                <Panel header="Pożyczysz od">
+                  {
+                    users.data ?
+                      users.data.filter(
+                        user => user.gameList.includes(currentGame.id)
+                      ).map(
+                        user =>
+                          <Link to={'/user-profile/' + user.id}>
+                            <Image key={user.id}
+                                   role="presentation"
+                                   className="avatars"
+                                   src={user.picture}
+                                   alt="Zdjęcie uzytkownika posiadajacego gre"
+                            />
+                          </Link>
+                      ) : null
+                  }
+                </Panel>
+              </Col>
+
+              <Col xs={12} sm={12}>
+                <Panel header="Opis">{currentGame.description}</Panel>
+              </Col>
+
+
+            </div>
+          }
+        </Grid >
+
       )
     }
   }
