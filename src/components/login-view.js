@@ -9,11 +9,13 @@ import {
   FormControl,
   ControlLabel,
   Button,
-  HelpBlock
+  Alert
 } from 'react-bootstrap'
 
 export default connect(
-  null,
+  state => ({
+    session: state.session
+  }),
   dispatch => ({
     logIn: (username, password) => dispatch(logIn(username, password))
   })
@@ -29,6 +31,10 @@ export default connect(
     }
 
     render() {
+      const {
+        session
+      } = this.props
+
       return (
         <Grid>
           <h1>Zaloguj się</h1>
@@ -66,7 +72,6 @@ export default connect(
                       this.setState({password: event.target.value})
                     }}
                   />
-                  <HelpBlock>Tekst pomocniczy do ew. wykorzystania</HelpBlock>
                 </FormGroup>
 
                 <Button
@@ -75,6 +80,12 @@ export default connect(
                 >
                   Zaloguj
                 </Button>
+
+                {
+                  session.error ? (
+                    <Alert bsStyle="warning">{session.error}</Alert>
+                  ) : null
+                }
               </form>
             </Col>
           </Row>

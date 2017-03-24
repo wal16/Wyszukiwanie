@@ -4,6 +4,8 @@ const FETCH__BEGIN = 'session/LOGIN__BEGIN'
 const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
 const FETCH__FAIL = 'session/LOGIN__FAILED'
 
+const CLEAR_ERRORS = 'session/CLEAR_ERRORS'
+
 export const LOGOUT = 'session/LOGOUT'
 
 import { fetchUser } from './user'
@@ -41,7 +43,14 @@ export const logIn = (username, password) => dispatch => {
           })
         )
       }
-      throw new Error('Connection error')
+      if (response.status === 401) {
+        return response.json().then(
+          error => dispatch({
+          type: FETCH__FAIL,
+          error: 'Nieprawidłowy login lub hasło. Spróbuj ponownie.'
+        }))
+      }
+      throw new Error('Błąd połączenia')
     }
   ).catch(
     error => dispatch({
@@ -50,6 +59,10 @@ export const logIn = (username, password) => dispatch => {
     })
   )
 }
+
+export const clearLoginErrors = () => ({
+  type: CLEAR_ERRORS
+})
 
 export const logOut = () => ({
   type: LOGOUT
@@ -80,6 +93,11 @@ export default (state = initialState, action = {}) => {
         ...state,
         fetching: false,
         error: action.error
+      }
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: initialState.data
       }
     case LOGOUT:
       return {

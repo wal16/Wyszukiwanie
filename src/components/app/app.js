@@ -8,6 +8,7 @@ import LoginView from '../login-view'
 import RegistrationView from '../registration-view/registration-view'
 import {fetchGames} from '../../state/games'
 import {fetchUsers} from '../../state/users'
+import {clearLoginErrors} from '../../state/session'
 
 import './app.css'
 
@@ -15,6 +16,7 @@ import './app.css'
 class App extends React.Component {
 
   componentWillMount() {
+    this.props.clearLoginErrors()
     this.props.fetchGamesHelper()
     this.props.fetchUsersHelper()
   }
@@ -57,6 +59,7 @@ export default connect(
     session: state.session
   }),
   dispatch => ({
+    clearLoginErrors: () => dispatch(clearLoginErrors()),
     fetchGamesHelper: () => dispatch(fetchGames()),
     fetchUsersHelper: () => dispatch(fetchUsers())
   })
