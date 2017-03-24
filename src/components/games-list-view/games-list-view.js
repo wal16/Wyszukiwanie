@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Row, Col} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Row, Col,  Image, Glyphicon} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
@@ -96,10 +96,10 @@ export default connect(
 
       return (
         <Grid>
-          <PageHeader>Lista gier<br/>
-            <small>Poniżej znajdziesz listę dostępnych planszówek</small>
-          </PageHeader>
-          <Panel>
+          <Panel className="panel-header"
+                  header="Lista gier">
+            </Panel>
+          <div>
             <h4>Wyszukiwarka gier</h4>
             <Row>
               <Col xs={5}>
@@ -109,7 +109,7 @@ export default connect(
                 <GameRanges/>
               </Col>
             </Row>
-          </Panel>
+          </div>
           {
             searchResults.length !== 0 ? (
               <Table striped>
@@ -133,6 +133,7 @@ export default connect(
                 </Alert>
               )
           }
+
         </Grid>
       )
     }

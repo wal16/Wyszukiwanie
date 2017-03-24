@@ -7,3 +7,33 @@
   height: 150px;
 
 }
+
+/*Panel*/
+.panel-default {
+  border: none;
+  color: #002060;
+  border-radius: 5px;
+  background-color: #f8f8ff;
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.panel-default > .panel-heading {
+  color: #f8f8ff;
+  background-image: linear-gradient(to bottom, #002060 0%, #002060 100%);
+
+}
+
+.panel-header {
+  font-size: 20px;
+  color: #f8f8ff;
+  background-color: #002060;
+}
+
+.panel-header h3 {
+  margin: 0
+}
+
+.panel-body {
+  display: flex;
+  align-items: center;
+}
