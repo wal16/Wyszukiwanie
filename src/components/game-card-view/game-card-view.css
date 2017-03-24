@@ -1,7 +1,77 @@
-.fav{
-  height: 50px;
+.glyph {
+  color: #f8f8ff;
 }
 
-.avatars {
-  height: 50px;
+.row {
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
+
+/*Images*/
+.game-image__wrapper {
+  text-align: -webkit-center;
+}
+
+.game-image__game-card {
+  border-radius: 5px;
+  max-width: 250px;
+  max-height: 250px;
+  margin-bottom: 20px;
+}
+
+.user-avatar__game-card {
+  height: 50px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 6px;
+}
+
+/*Panel*/
+.panel-default {
+  border: none;
+  color: #002060;
+  border-radius: 5px;
+  background-color: #f8f8ff;
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.panel-default > .panel-heading {
+  color: #f8f8ff;
+  background-image: linear-gradient(to bottom, #002060 0%, #002060 100%);
+
+}
+
+.panel-header {
+  color: #f8f8ff;
+  background-color: #002060;
+}
+
+.panel-header h3 {
+  margin: 0
+}
+
+.panel-body {
+  display: flex;
+  align-items: center;
+}
+
+/*Buttons*/
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-custom__game-card {
+  background-color: #0080e0;
+  border-radius: 5px;
+  border: #002060;
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn-custom__game-card:hover {
+  transform: scale(1.1);
+  transition: 0.3s transform linear;
+  border-radius: 5px;
+}
+
