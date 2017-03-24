@@ -48,7 +48,7 @@ export const logIn = (username, password) => dispatch => {
           error: 'Nieprawidłowy login lub hasło. Spróbuj ponownie.'
         }))
       }
-      else throw new Error('Błąd połączenia')
+      throw new Error('Błąd połączenia')
     }
   ).catch(
     error => dispatch({
