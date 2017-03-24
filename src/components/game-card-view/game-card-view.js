@@ -73,45 +73,45 @@ export default connect(
                 </Col>
 
                 <Col xs={12} sm={6} md={8}>
-                <div>
-                  <Panel>
+                  <div>
+                    <Panel className="panel-body__game-card">
 
-                    <h2>{currentGame.name}</h2>
-                    <ButtonGroup bsSize="">
-                    <LinkContainer to={'/game-profile/' + prevGame}>
-                      <Button bsStyle="custom">
-                        <Glyphicon glyph="chevron-left"
-                                   className="glyph"/>
-                      </Button>
-                    </LinkContainer>
-                    {
-                      fav !== undefined ?
-                        (
-                          <Button bsSize=""
-                                  bsStyle="custom"
-                                  onClick={() => unfavGame(favId, userId, accessToken)}>
-                            <Glyphicon glyph="star"
+                      <h2>{currentGame.name}</h2>
+                      <ButtonGroup>
+                        <LinkContainer to={'/game-profile/' + prevGame}>
+                          <Button bsStyle="custom__game-card">
+                            <Glyphicon glyph="chevron-left"
                                        className="glyph"/>
                           </Button>
-                        ) :
-                        (
-                          <Button bsSize=""
-                                  bsStyle="custom"
-                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
-                            <Glyphicon glyph="star-empty"
+                        </LinkContainer>
+                        {
+                          fav !== undefined ?
+                            (
+                              <Button bsSize=""
+                                      bsStyle="custom__game-card__clicked"
+                                      onClick={() => unfavGame(favId, userId, accessToken)}>
+                                <Glyphicon glyph="heart"
+                                           className="glyph"/>
+                              </Button>
+                            ) :
+                            (
+                              <Button bsSize=""
+                                      bsStyle="custom__game-card"
+                                      onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                                <Glyphicon glyph="heart"
+                                           className="glyph"/>
+                              </Button>
+                            )
+                        }
+                        <LinkContainer to={'/game-profile/' + nextGame}>
+                          <Button bsStyle="custom__game-card">
+                            <Glyphicon glyph="chevron-right"
                                        className="glyph"/>
                           </Button>
-                        )
-                    }
-                    <LinkContainer to={'/game-profile/' + nextGame}>
-                      <Button bsStyle="custom">
-                        <Glyphicon glyph="chevron-right"
-                                   className="glyph"/>
-                      </Button>
-                    </LinkContainer>
-                  </ButtonGroup>
-                  </Panel>
-                </div>
+                        </LinkContainer>
+                      </ButtonGroup>
+                    </Panel>
+                  </div>
                   <Panel header="Liczba graczy">
                     {currentGame.playersMin} - {currentGame.playersMax}
                   </Panel>

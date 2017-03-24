@@ -7,20 +7,35 @@
 
 .glyph {
   color: #f8f8ff;
-  background-color: #0080e0;
 }
 
-.btn-group {
-  display: flex;
-  justify-content: flex-end;
-}
 
-.btn-custom {
-  background-color: #0080e0;
-}
-
-.panel-body {
+.panel-body__game-card {
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
 }
+
+.btn-group__game-card {
+  display: flex;
+}
+
+.btn-custom__game-card {
+  background-color: #0080e0;
+  border-radius: 5px;
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn-custom__game-card:hover {
+  background-color: #002060;
+  border-radius: 5px;
+  transition-duration: 0.5s
+}
+
+.btn-custom__game-card__clicked {
+  background-color: #002060;
+  border-radius: 5px;
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
+}
+
+
