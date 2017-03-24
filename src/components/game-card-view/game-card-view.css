@@ -9,6 +9,22 @@
   color: #f8f8ff;
 }
 
+.row {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.game-image__wrapper {
+  text-align: center;
+}
+
+.game-image__game-card {
+  border-radius: 5px;
+  width: 75%;
+}
+
+
 /*Panel*/
 .panel-default {
   border: none;

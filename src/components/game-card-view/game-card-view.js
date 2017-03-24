@@ -61,6 +61,7 @@ export default connect(
         <Grid>
           {
             <div key={currentGame.id}>
+              <Row>
               <Col xs={12}>
                 <Panel className="panel-header">
                   <Col xs={12}>
@@ -103,12 +104,17 @@ export default connect(
                   </Col>
                 </Panel>
               </Col>
+                </Row>
 
+              <Row>
               <Col xs={12} sm={6} md={4}>
+                <div className="game-image__wrapper">
                 <Image src={currentGame.image}
                        alt="Zdjęcie gry"
+                       className="game-image__game-card"
                        responsive
                 />
+                  </div>
               </Col>
 
               <Col xs={12} sm={6} md={8}>
@@ -135,10 +141,12 @@ export default connect(
                   }
                 </Panel>
               </Col>
-
+              </Row>
+              <Row>
               <Col xs={12} sm={12}>
                 <Panel header="Opis">{currentGame.description}</Panel>
               </Col>
+                </Row>
 
 
             </div>
