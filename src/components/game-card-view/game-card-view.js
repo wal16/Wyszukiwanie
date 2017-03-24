@@ -74,8 +74,7 @@ export default connect(
 
                 <Col xs={12} sm={6} md={8}>
                   <div>
-                    <Panel className="panel-body__game-card">
-
+                    <Panel>
                       <h2>{currentGame.name}</h2>
                       <ButtonGroup>
                         <LinkContainer to={'/game-profile/' + prevGame}>
@@ -98,7 +97,7 @@ export default connect(
                               <Button bsSize=""
                                       bsStyle="custom__game-card"
                                       onClick={() => favGame(currentGame.id, userId, accessToken)}>
-                                <Glyphicon glyph="heart"
+                                <Glyphicon glyph="heart-empty"
                                            className="glyph"/>
                               </Button>
                             )
@@ -112,7 +111,9 @@ export default connect(
                       </ButtonGroup>
                     </Panel>
                   </div>
-                  <Panel header="Liczba graczy">
+                  <Panel
+                    header="Liczba graczy"
+                    >
                     {currentGame.playersMin} - {currentGame.playersMax}
                   </Panel>
 

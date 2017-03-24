@@ -9,13 +9,30 @@
   color: #f8f8ff;
 }
 
+.panel {
 
-.panel-body__game-card {
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
+
 }
 
+.panel-default {
+  border: none;
+  color: #002060;
+  border-radius: 5px;
+  background-color: #f8f8ff;
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.panel-default > .panel-heading {
+  color: #f8f8ff;
+  background-image: linear-gradient(to bottom, #002060 0%, #002060 100%);
+  border-radius: 5px;
+}
+
+/*.panel-body {*/
+  /*color: #002060;*/
+/*}*/
+
+/*Buttons*/
 .btn-group__game-card {
   display: flex;
 }
