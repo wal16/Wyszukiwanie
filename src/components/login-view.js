@@ -9,11 +9,14 @@ import {
   FormControl,
   ControlLabel,
   Button,
-  HelpBlock
+  HelpBlock,
+  Alert
 } from 'react-bootstrap'
 
 export default connect(
-  null,
+  state => ({
+    session: state.session
+  }),
   dispatch => ({
     logIn: (username, password) => dispatch(logIn(username, password))
   })
@@ -29,6 +32,10 @@ export default connect(
     }
 
     render() {
+      const {
+        session
+      } = this.props
+
       return (
         <Grid>
           <h1>Zaloguj się</h1>

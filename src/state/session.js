@@ -41,7 +41,14 @@ export const logIn = (username, password) => dispatch => {
           })
         )
       }
-      throw new Error('Connection error')
+      if (response.status === 401) {
+        return response.json().then(
+          error => dispatch({
+          type: FETCH__FAIL,
+          error: 'Nieprawidłowy login lub hasło. Spróbuj ponownie.'
+        }))
+      }
+      else throw new Error('Błąd połączenia')
     }
   ).catch(
     error => dispatch({
