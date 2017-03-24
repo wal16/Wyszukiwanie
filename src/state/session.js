@@ -4,6 +4,8 @@ const FETCH__BEGIN = 'session/LOGIN__BEGIN'
 const FETCH__SUCCESS = 'session/LOGIN__SUCCESS'
 const FETCH__FAIL = 'session/LOGIN__FAILED'
 
+const CLEAR_ERRORS = 'session/CLEAR_ERRORS'
+
 export const LOGOUT = 'session/LOGOUT'
 
 import { fetchUser } from './user'
@@ -58,6 +60,10 @@ export const logIn = (username, password) => dispatch => {
   )
 }
 
+export const clearLoginErrors = () => ({
+  type: CLEAR_ERRORS
+})
+
 export const logOut = () => ({
   type: LOGOUT
 })
@@ -87,6 +93,11 @@ export default (state = initialState, action = {}) => {
         ...state,
         fetching: false,
         error: action.error
+      }
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: initialState.data
       }
     case LOGOUT:
       return {

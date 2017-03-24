@@ -80,6 +80,12 @@ export default connect(
                 >
                   Zaloguj
                 </Button>
+
+                {
+                  session.error ? (
+                    <Alert bsStyle="warning">{session.error}</Alert>
+                  ) : null
+                }
               </form>
             </Col>
           </Row>
