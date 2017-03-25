@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Row, Col,  Image, Glyphicon} from 'react-bootstrap'
+import {Grid, PageHeader, Table, Alert, Panel, Row, Col, Image, Glyphicon} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
@@ -51,9 +51,9 @@ export default connect(
               return (
                 <tr key={game.id}>
                   <td>
-                    <img className="thumb" src={game.image}
+                    <img className="thumb"
+                         src={game.image}
                          alt="Zdjęcie gry"
-
                     />
                   </td>
                   <td>
@@ -96,44 +96,32 @@ export default connect(
 
       return (
         <Grid>
-          <Panel className="panel-header"
-                  header="Lista gier">
-            </Panel>
-          <div>
-            <h4>Wyszukiwarka gier</h4>
+          <Panel header="Lista gier">
             <Row>
-              <Col xs={5}>
-                <GameSearch/>
-              </Col>
-              <Col xs={5}>
-                <GameRanges/>
-              </Col>
             </Row>
-          </div>
-          {
-            searchResults.length !== 0 ? (
-              <Table striped>
-                <thead>
-                <tr>
-                  <th></th>
-                  <th>Nazwa gry</th>
-                  <th>Liczba graczy</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {searchResults}
-
-                </tbody>
-              </Table>
-            ) :
-              (
-                <Alert bsStyle="warning">
-                  Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
-                </Alert>
-              )
-          }
-
+            {
+              searchResults.length !== 0 ? (
+                  <Table>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Nazwa gry</th>
+                        <th>Liczba graczy</th>
+                        <th>Dodaj do ulubinych</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {searchResults}
+                    </tbody>
+                  </Table>
+                  ) :
+                  (
+                    <Alert bsStyle="warning">
+                      Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
+                    </Alert>
+                  )
+              }
+          </Panel>
         </Grid>
       )
     }

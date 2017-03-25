@@ -13,7 +13,7 @@
   text-align: -webkit-center;
 }
 
-.game-image__game-card {
+  .game-image__game-card {
   border-radius: 5px;
   max-width: 250px;
   max-height: 250px;
@@ -49,11 +49,6 @@
 
 .panel-header h3 {
   margin: 0
-}
-
-.panel-body {
-  display: flex;
-  align-items: center;
 }
 
 /*Buttons*/
