@@ -51,6 +51,11 @@
   margin: 0
 }
 
+.panel-header > .panel-body {
+ display: flex;
+  align-items: center;
+}
+
 /*Buttons*/
 .btn-group {
   display: flex;

@@ -20,21 +20,10 @@
 .panel-default > .panel-heading {
   color: #f8f8ff;
   background-image: linear-gradient(to bottom, #002060 0%, #002060 100%);
-
+  font-size: 24px
 }
 
-.panel-header {
-  font-size: 20px;
-  color: #f8f8ff;
-  background-color: #002060;
-}
-
-.panel-header h3 {
-  margin: 0
-}
-
-.panel-body {
+.panel-body__game-list {
   display: flex;
-
-  ;
-}
+  flex-direction: column;
+  }

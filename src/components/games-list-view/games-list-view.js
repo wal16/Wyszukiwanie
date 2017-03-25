@@ -96,8 +96,14 @@ export default connect(
 
       return (
         <Grid>
-          <Panel header="Lista gier">
+          <Panel header="Wyszukiwarka gier"
+                 className="panel-body__game-list">
             <Row>
+            </Row>
+
+            <Row>
+              <GameSearch/>
+              <GameRanges/>
             </Row>
             {
               searchResults.length !== 0 ? (
