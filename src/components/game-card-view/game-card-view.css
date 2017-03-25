@@ -2,7 +2,7 @@
   color: #f8f8ff;
 }
 
-.row {
+.row-header {
   display: flex;
   align-items: center;
   margin: 0;

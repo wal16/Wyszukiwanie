@@ -58,8 +58,8 @@ export default connect(
                   <td>
                     <div className="game-image__wrapper">
                       <Image className="game-image__game-list"
-                           src={game.image}
-                           alt="Zdjęcie gry"
+                             src={game.image}
+                             alt="Zdjęcie gry"
                       />
                     </div>
                   </td>
@@ -105,15 +105,24 @@ export default connect(
         <Grid>
           <Panel header="Wyszukiwarka gier"
                  className="panel-body__game-list">
-            <Row>
-              <p>Znajdź grę po tytule</p>
-              <p>Znajdź grę po liczbie graczy</p>
-
+            <Row className="row-search__game-list">
+              <Col className="col-search__game-list" xs={12} sm={6}>
+                <p>Znajdź grę po tytule</p>
+                <p>Znajdź grę po liczbie graczy</p>
+              </Col>
             </Row>
 
-            <Row>
-              <GameSearch/>
-              <GameRanges/>
+            <Row className="row-search__game-list">
+              <Col className="col-search__game-list" xs={12} sm={6}>
+                <div className="input-group">
+                  <div className="input-group-addon">
+                    <Glyphicon glyph="search"
+                               className=""/>
+                  </div>
+                <GameSearch/>
+                </div>
+                <GameRanges/>
+              </Col>
             </Row>
             {
               searchResults.length !== 0 ? (

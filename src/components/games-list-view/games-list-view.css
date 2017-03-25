@@ -2,18 +2,15 @@
   color: #f8f8ff;
 }
 
-.row {
+.row-search__game-list {
   display: flex;
-  align-items: center;
-  margin: 0;
+  justify-content: space-between;
 }
 
-
-.fav{
-  height: 70px;
-
+.col-search__game-list {
+  display: flex;
+  justify-content: space-between;
 }
-
 
 /*Images*/
 .game-image__wrapper {

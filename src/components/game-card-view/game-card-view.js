@@ -61,7 +61,7 @@ export default connect(
         <Grid>
           {
             <div key={currentGame.id}>
-              <Row>
+              <Row className="row-header">
                 <Col xs={12}>
                   <Panel className="panel-header">
                     <Col xs={12}>
