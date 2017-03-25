@@ -6,7 +6,7 @@ const GameSearch = ({ games, searchString, search }) => (
     <input
       id="search"
       type="text"
-      placeholder="Zacznij wpisywać tytuł..."
+      placeholder="Wpisz tytuł gry..."
       value={searchString}
       onChange={ (event) => search(event.target.value) }
     />

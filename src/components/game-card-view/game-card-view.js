@@ -76,25 +76,25 @@ export default connect(
                                        className="glyph"/>
                           </Button>
                         </LinkContainer>
-                        {
-                          fav !== undefined ?
-                            (
-                              <Button bsSize=""
-                                      bsStyle="custom__game-card"
-                                      onClick={() => unfavGame(favId, userId, accessToken)}>
-                                <Glyphicon glyph="heart"
-                                           className="glyph"/>
-                              </Button>
-                            ) :
-                            (
-                              <Button bsSize=""
-                                      bsStyle="custom__game-card"
-                                      onClick={() => favGame(currentGame.id, userId, accessToken)}>
-                                <Glyphicon glyph="heart-empty"
-                                           className="glyph"/>
-                              </Button>
-                            )
-                        }
+                          {
+                            fav !== undefined ?
+                              (
+                                <Button bsSize=""
+                                        bsStyle="custom__game-card"
+                                        onClick={() => unfavGame(favId, userId, accessToken)}>
+                                  <Glyphicon glyph="heart"
+                                             className="glyph"/>
+                                </Button>
+                              ) :
+                              (
+                                <Button bsSize=""
+                                        bsStyle="custom__game-card"
+                                        onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                                  <Glyphicon glyph="heart-empty"
+                                             className="glyph"/>
+                                </Button>
+                              )
+                          }
                         <LinkContainer to={'/game-profile/' + nextGame}>
                           <Button bsStyle="custom__game-card">
                             <Glyphicon glyph="chevron-right"
@@ -109,7 +109,6 @@ export default connect(
 
               <Col xs={12} sm={6} md={4}>
                 <div className="game-image__wrapper">
-
                   <Image src={currentGame.image}
                          alt="Zdjęcie gry"
                          className="game-image__game-card"

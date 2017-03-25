@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Row, Col, Image, Glyphicon} from 'react-bootstrap'
+import {Grid, Table, Alert, Panel, Row, Col, Image, Button, Glyphicon} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
@@ -29,6 +29,7 @@ export default connect(
     render() {
       const {
         games,
+        params,
         searchString,
         changeRange,
         favGame,
@@ -45,16 +46,22 @@ export default connect(
             ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
             game => {
+              const currentGame = games.data.find(
+                game => game.id === parseInt(params.gameId, 10))
+
               const fav = favoriteGameIds.find(fav => fav.gameId === game.id)
+
               const favId = (fav && fav.favId) || undefined
 
               return (
                 <tr key={game.id}>
                   <td>
-                    <img className="thumb"
-                         src={game.image}
-                         alt="Zdjęcie gry"
-                    />
+                    <div className="game-image__wrapper">
+                      <Image className="game-image__game-list"
+                           src={game.image}
+                           alt="Zdjęcie gry"
+                      />
+                    </div>
                   </td>
                   <td>
                     <Link to={'game-profile/' + game.id}>
@@ -66,20 +73,20 @@ export default connect(
                     {
                       fav !== undefined ?
                         (
-                          <img
-                            className="fav"
-                            role="persentation"
-                            src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                            onClick={() => unfavGame(favId, userId, accessToken)}
-                          />
+                          <Button bsSize=""
+                                  bsStyle="custom__game-card"
+                                  onClick={() => unfavGame(favId, userId, accessToken)}>
+                            <Glyphicon glyph="heart"
+                                       className="glyph"/>
+                          </Button>
                         ) :
                         (
-                          <img
-                            className="fav"
-                            role="persentation"
-                            src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                            onClick={() => favGame(game.id, userId, accessToken)}
-                          />
+                          <Button bsSize=""
+                                  bsStyle="custom__game-card"
+                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                            <Glyphicon glyph="heart-empty"
+                                       className="glyph"/>
+                          </Button>
                         )
                     }
                   </td>
@@ -99,6 +106,9 @@ export default connect(
           <Panel header="Wyszukiwarka gier"
                  className="panel-body__game-list">
             <Row>
+              <p>Znajdź grę po tytule</p>
+              <p>Znajdź grę po liczbie graczy</p>
+
             </Row>
 
             <Row>
@@ -109,24 +119,24 @@ export default connect(
               searchResults.length !== 0 ? (
                   <Table>
                     <thead>
-                      <tr>
-                        <th></th>
-                        <th>Nazwa gry</th>
-                        <th>Liczba graczy</th>
-                        <th>Dodaj do ulubinych</th>
-                      </tr>
+                    <tr>
+                      <th></th>
+                      <th>Nazwa gry</th>
+                      <th>Liczba graczy</th>
+                      <th>Dodaj do ulubinych</th>
+                    </tr>
                     </thead>
                     <tbody>
-                      {searchResults}
+                    {searchResults}
                     </tbody>
                   </Table>
-                  ) :
-                  (
-                    <Alert bsStyle="warning">
-                      Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
-                    </Alert>
-                  )
-              }
+                ) :
+                (
+                  <Alert bsStyle="warning">
+                    Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
+                  </Alert>
+                )
+            }
           </Panel>
         </Grid>
       )

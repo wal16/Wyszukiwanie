@@ -13,8 +13,7 @@
   text-align: -webkit-center;
 }
 
-  .game-image__game-card {
-  border-radius: 5px;
+.game-image__game-card {
   max-width: 250px;
   max-height: 250px;
   margin-bottom: 20px;

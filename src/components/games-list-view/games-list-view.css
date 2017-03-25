@@ -1,11 +1,28 @@
+.glyph {
+  color: #f8f8ff;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+
 .fav{
   height: 70px;
 
 }
 
-.thumb{
-  height: 150px;
 
+/*Images*/
+.game-image__wrapper {
+  text-align: -webkit-center;
+}
+
+.game-image__game-list {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 /*Panel*/
@@ -20,7 +37,6 @@
 .panel-default > .panel-heading {
   color: #f8f8ff;
   background-image: linear-gradient(to bottom, #002060 0%, #002060 100%);
-  font-size: 24px
 }
 
 .panel-body__game-list {
