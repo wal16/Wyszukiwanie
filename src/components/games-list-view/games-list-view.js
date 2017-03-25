@@ -107,21 +107,21 @@ export default connect(
                  className="panel-body__game-list">
             <Row className="row-search__game-list">
               <Col className="col-search__game-list" xs={12} sm={6}>
-                <p>Znajdź grę po tytule</p>
-                <p>Znajdź grę po liczbie graczy</p>
-              </Col>
-            </Row>
-
-            <Row className="row-search__game-list">
-              <Col className="col-search__game-list" xs={12} sm={6}>
                 <div className="input-group">
                   <div className="input-group-addon">
                     <Glyphicon glyph="search"
-                               className=""/>
+                               className="glyph"/>
                   </div>
-                <GameSearch/>
+                                    <GameSearch/>
                 </div>
+              </Col>
+              <Col className="col-search__game-list" xs={12} sm={4}>
                 <GameRanges/>
+                <Button bsStyle="custom__game-list">
+                  <Glyphicon glyph="repeat"
+                             className="glyph"/>
+                </Button>
+
               </Col>
             </Row>
             {
@@ -132,7 +132,7 @@ export default connect(
                       <th></th>
                       <th>Nazwa gry</th>
                       <th>Liczba graczy</th>
-                      <th>Dodaj do ulubinych</th>
+                      <th>Dodaj do ulubionych</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -147,6 +147,7 @@ export default connect(
                 )
             }
           </Panel>
+
         </Grid>
       )
     }
