@@ -38,6 +38,7 @@
 .active {
     background-color: #002060;
     color: #f8f8ff;
+    border-radius: 5px;
 }
 
 .nav-tabs > li > a {
