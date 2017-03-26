@@ -2,7 +2,7 @@
   color: #f8f8ff;
 }
 
-.row {
+.row-header {
   display: flex;
   align-items: center;
   margin: 0;
@@ -14,7 +14,6 @@
 }
 
 .game-image__game-card {
-  border-radius: 5px;
   max-width: 250px;
   max-height: 250px;
   margin-bottom: 20px;
@@ -51,8 +50,8 @@
   margin: 0
 }
 
-.panel-body {
-  display: flex;
+.panel-header > .panel-body {
+ display: flex;
   align-items: center;
 }
 
@@ -75,3 +74,9 @@
   border-radius: 5px;
 }
 
+@media screen and (max-width: 320px) {
+  .panel-header h3 {
+    font-size: 20px;
+    margin-left: -15px;
+  }
+}

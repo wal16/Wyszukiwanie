@@ -5,8 +5,9 @@ import { search } from '../../state/search'
 const GameSearch = ({ games, searchString, search }) => (
     <input
       id="search"
+      className="form-control"
       type="text"
-      placeholder="Zacznij wpisywać tytuł..."
+      placeholder="Wpisz tytuł gry..."
       value={searchString}
       onChange={ (event) => search(event.target.value) }
     />

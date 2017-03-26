@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, PageHeader, Table, Alert, Panel, Row, Col} from 'react-bootstrap'
+import {Grid, Table, Alert, Panel, Row, Col, Image, Button, Glyphicon} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
 import './games-list-view.css'
@@ -29,6 +29,7 @@ export default connect(
     render() {
       const {
         games,
+        params,
         searchString,
         changeRange,
         favGame,
@@ -45,41 +46,50 @@ export default connect(
             ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
             game => {
+              const currentGame = games.data.find(
+                game => game.id === parseInt(params.gameId, 10))
+
               const fav = favoriteGameIds.find(fav => fav.gameId === game.id)
+
               const favId = (fav && fav.favId) || undefined
 
               return (
-                <tr key={game.id}>
-                  <td>
-                    <img className="thumb" src={game.image}
-                         alt="Zdjęcie gry"
-
-                    />
+                <tr className="table-tr__game-list"
+                    key={game.id}>
+                  <td className="table-td__game-list table__game-list-empty">
+                    <div className="game-image__wrapper">
+                      <Image className="game-image__game-list"
+                             src={game.image}
+                             alt="Zdjęcie gry"
+                      />
+                    </div>
                   </td>
-                  <td>
+                  <td className="table-td__game-list">
                     <Link to={'game-profile/' + game.id}>
                       {game.name}
                     </Link>
                   </td>
-                  <td>{game.playersMin} - {game.playersMax}</td>
-                  <td>
+                  <td className="table-td__game-list">
+                    {game.playersMin} - {game.playersMax}
+                  </td>
+                  <td className="table-td__game-list">
                     {
                       fav !== undefined ?
                         (
-                          <img
-                            className="fav"
-                            role="persentation"
-                            src={process.env.PUBLIC_URL + '/img/favorite-remove.png'}
-                            onClick={() => unfavGame(favId, userId, accessToken)}
-                          />
+                          <Button bsSize=""
+                                  bsStyle="custom__game-card"
+                                  onClick={() => unfavGame(favId, userId, accessToken)}>
+                            <Glyphicon glyph="heart"
+                                       className="glyph"/>
+                          </Button>
                         ) :
                         (
-                          <img
-                            className="fav"
-                            role="persentation"
-                            src={process.env.PUBLIC_URL + '/img/favorite-add.png'}
-                            onClick={() => favGame(game.id, userId, accessToken)}
-                          />
+                          <Button bsSize=""
+                                  bsStyle="custom__game-card"
+                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                            <Glyphicon glyph="heart-empty"
+                                       className="glyph"/>
+                          </Button>
                         )
                     }
                   </td>
@@ -96,43 +106,53 @@ export default connect(
 
       return (
         <Grid>
-          <PageHeader>Lista gier<br/>
-            <small>Poniżej znajdziesz listę dostępnych planszówek</small>
-          </PageHeader>
-          <Panel>
-            <h4>Wyszukiwarka gier</h4>
-            <Row>
-              <Col xs={5}>
-                <GameSearch/>
+          <Panel header="Wyszukiwarka gier"
+                 className="panel-body__game-list">
+            <Row className="row-search__game-list">
+              <Col className="col-search__game-list" xs={12} sm={5} smOffset={1}>
+                <div className="input-group">
+                  <div className="input-group-addon">
+                    <Glyphicon glyph="search"
+                               className="glyph"/>
+                  </div>
+                  <GameSearch/>
+                </div>
               </Col>
-              <Col xs={5}>
+              <Col className="col-search__game-list" xs={8} sm={3} mdOffset={1}>
                 <GameRanges/>
               </Col>
+              <Col className="col-search__game-list" xs={2} sm={2}>
+                <Button bsStyle="custom__game-list">
+                  <Glyphicon glyph="repeat"
+                             className="glyph"/>
+                </Button>
+              </Col>
             </Row>
+            <div className="panel-body-table__game-list">
+              {
+                searchResults.length !== 0 ? (
+                    <Table className="table__game-list table-hover">
+                      <thead className="table-head__game-list">
+                      <tr className="table-tr__game-list">
+                        <th className="table__game-list-empty"></th>
+                        <th className="table-th__game-list">Nazwa gry</th>
+                        <th className="table-th__game-list">Liczba graczy</th>
+                        <th className="table-th__game-list">Dodaj do ulubionych</th>
+                      </tr>
+                      </thead>
+                      <tbody className="table-body__game-list">
+                      {searchResults}
+                      </tbody>
+                    </Table>
+                  ) :
+                  (
+                    <Alert bsStyle="">
+                      Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
+                    </Alert>
+                  )
+              }
+            </div>
           </Panel>
-          {
-            searchResults.length !== 0 ? (
-              <Table striped>
-                <thead>
-                <tr>
-                  <th></th>
-                  <th>Nazwa gry</th>
-                  <th>Liczba graczy</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {searchResults}
-
-                </tbody>
-              </Table>
-            ) :
-              (
-                <Alert bsStyle="warning">
-                  Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
-                </Alert>
-              )
-          }
         </Grid>
       )
     }

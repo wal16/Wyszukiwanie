@@ -10,7 +10,6 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'react-input-range/lib/css/index.css'
 
 import App from './components/app/app'
-import MainView from './components/main-view'
 import LoginView from './components/login-view'
 import RegistrationView from './components/registration-view/registration-view'
 import GamesListView from './components/games-list-view/games-list-view'
@@ -26,7 +25,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={MainView}/>
+          <IndexRoute component={GamesListView}/>
           <Route path="/games-list" component={GamesListView}/>
           <Route path="/game-profile/:gameId" component={GameProfileView}/>
           <Route path="/users-list" component={UsersListView}/>

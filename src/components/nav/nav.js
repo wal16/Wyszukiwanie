@@ -15,12 +15,12 @@ const NavComponent = () => (
                alt="Logo PożyczME"/>
         </Link>
       </Navbar.Brand>
-      <Navbar.Toggle  />
+      <Navbar.Toggle/>
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
         <LinkContainer to="/games-list">
-          <NavItem eventKey={1}>Lista gier</NavItem>
+          <NavItem eventKey={1}>Nasze gry</NavItem>
         </LinkContainer>
         <LinkContainer to="/users-list">
           <NavItem eventKey={2}>Użytkownicy</NavItem>
