@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, Table, Alert, Panel, Row, Col, Image, Button, Glyphicon} from 'react-bootstrap'
+import {Grid, Table, Panel, Image, Alert} from 'react-bootstrap'
 
 import './users-list-view.css'
 
@@ -91,7 +91,9 @@ export default connect(
                       )
                     )
                     : <tr>
-                      <td colSpan="4">Oczekiwanie na dane użytkowników...</td>
+                        <td>
+                          Oczekiwanie na dane użytkowników...
+                        </td>
                     </tr>
                 }
                 </tbody>

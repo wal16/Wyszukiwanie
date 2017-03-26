@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {Grid, Row, Col, Panel, PageHeader, Image} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs'
-import style from './user-profile-view.css'
+import './user-profile-view.css'
 
 import {fetchUsers} from '../../state/users'
 
@@ -37,6 +37,7 @@ export default connect(
 
       return (
         <Grid>
+
           <PageHeader>Profil użytkownika<br/>
           </PageHeader>
           <Row>
@@ -106,7 +107,6 @@ export default connect(
                             }
                           </ul> : null
                       }
-
                     </ul>
                   </Tab>
                 </Tabs>

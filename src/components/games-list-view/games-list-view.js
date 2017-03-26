@@ -99,7 +99,9 @@ export default connect(
           ) :
           (
             <tr>
-              <td colSpan="4">Oczekiwanie na dane gier...</td>
+              <td>
+                Oczekiwanie na dane gier...
+              </td>
             </tr>
           )
       )
