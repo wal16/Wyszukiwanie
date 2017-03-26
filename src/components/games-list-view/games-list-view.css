@@ -13,10 +13,8 @@ a:hover {
 }
 
 .row-search__game-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 30px;
+  /*display: flex;*/
+  /*justify-content: space-between;*/
 }
 
 .col-search__game-list {
@@ -25,6 +23,10 @@ a:hover {
 }
 
 /*Input search*/
+.input-group {
+  margin-top: 18px;
+}
+
 .input-group-addon {
   background-color: #0080e0;
   border-radius: 5px;
@@ -46,6 +48,11 @@ a:hover {
 }
 
 /*Input range*/
+.input-range {
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
 .input-range__label {
   color: #002060;
   bottom: 0;
@@ -101,6 +108,8 @@ a:hover {
 
 /*Button reset*/
 .btn-custom__game-list {
+  margin-top: 18px;
+  margin-left: 25px;
   outline: none;
   height: 34px;
   background-color: #0080e0;
