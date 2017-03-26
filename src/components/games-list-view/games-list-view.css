@@ -2,6 +2,26 @@
   color: #f8f8ff;
 }
 
+a {
+  color: #002060;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #002060;
+  text-decoration: none;
+}
+
+.row-search__game-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-search__game-list {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*Input search*/
 .input-group-addon {
   background-color: #0080e0;
@@ -32,15 +52,59 @@
   box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
 }
 
-
-.row-search__game-list {
-  display: flex;
-  justify-content: space-between;
+/*Table*/
+.table__game-list {
+  margin-top: 50px;
+  margin-bottom: 0;
 }
 
-.col-search__game-list {
-  display: flex;
-  justify-content: space-between;
+.table-head__game-list {
+  color: #f8f8ff;
+  background-color: #002060;
+  border: 2px;
+  border-color: #002060;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-transform: uppercase;
+}
+
+.table-th__game-list {
+  text-align: center;
+}
+
+.table > thead > tr > th {
+  vertical-align: middle;
+  border: 2px;
+  border-color: #002060;
+}
+
+.table-tr__game-list {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-td__game-list {
+  vertical-align: middle;
+}
+
+.table-body__game-list {
+
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+  border: none;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #0080e0;
+}
+
+.alert {
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-shadow: none;
+  box-shadow: none;
 }
 
 /*Images*/
@@ -70,4 +134,13 @@
 .panel-body__game-list {
   display: flex;
   flex-direction: column;
+  margin-left: 0;
+  margin-right: 0;
   }
+
+.panel-body-table__game-list {
+  display: flex;
+  flex-direction: column;
+  margin-right: -15px;
+  margin-left: -15px;
+}

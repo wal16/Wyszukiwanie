@@ -54,8 +54,9 @@ export default connect(
               const favId = (fav && fav.favId) || undefined
 
               return (
-                <tr key={game.id}>
-                  <td>
+                <tr className="table-tr__game-list"
+                    key={game.id}>
+                  <td className="table-td__game-list">
                     <div className="game-image__wrapper">
                       <Image className="game-image__game-list"
                              src={game.image}
@@ -63,13 +64,15 @@ export default connect(
                       />
                     </div>
                   </td>
-                  <td>
+                  <td className="table-td__game-list">
                     <Link to={'game-profile/' + game.id}>
                       {game.name}
                     </Link>
                   </td>
-                  <td>{game.playersMin} - {game.playersMax}</td>
-                  <td>
+                  <td className="table-td__game-list">
+                    {game.playersMin} - {game.playersMax}
+                  </td>
+                  <td className="table-td__game-list">
                     {
                       fav !== undefined ?
                         (
@@ -112,7 +115,7 @@ export default connect(
                     <Glyphicon glyph="search"
                                className="glyph"/>
                   </div>
-                                    <GameSearch/>
+                  <GameSearch/>
                 </div>
               </Col>
               <Col className="col-search__game-list" xs={12} sm={4}>
@@ -124,30 +127,31 @@ export default connect(
 
               </Col>
             </Row>
-            {
-              searchResults.length !== 0 ? (
-                  <Table>
-                    <thead>
-                    <tr>
-                      <th></th>
-                      <th>Nazwa gry</th>
-                      <th>Liczba graczy</th>
-                      <th>Dodaj do ulubionych</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {searchResults}
-                    </tbody>
-                  </Table>
-                ) :
-                (
-                  <Alert bsStyle="warning">
-                    Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
-                  </Alert>
-                )
-            }
+            <div className="panel-body-table__game-list">
+              {
+                searchResults.length !== 0 ? (
+                    <Table className="table__game-list table-hover">
+                      <thead className="table-head__game-list">
+                      <tr className="table-tr__game-list">
+                        <th></th>
+                        <th className="table-th__game-list">Nazwa gry</th>
+                        <th className="table-th__game-list">Liczba graczy</th>
+                        <th className="table-th__game-list">Dodaj do ulubionych</th>
+                      </tr>
+                      </thead>
+                      <tbody className="table-body__game-list">
+                      {searchResults}
+                      </tbody>
+                    </Table>
+                  ) :
+                  (
+                    <Alert bsStyle="">
+                      Nie znaleziono gier spełniających kryteria wyszukiwania. Spróbuj wyszukać inny tytuł...
+                    </Alert>
+                  )
+              }
+            </div>
           </Panel>
-
         </Grid>
       )
     }
