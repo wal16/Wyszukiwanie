@@ -99,7 +99,9 @@ export default connect(
           ) :
           (
             <tr>
-              <td colSpan="4">Oczekiwanie na dane gier...</td>
+              <td>
+                Oczekiwanie na dane gier...
+              </td>
             </tr>
           )
       )
@@ -134,7 +136,7 @@ export default connect(
                     <Table className="table__game-list table-hover">
                       <thead className="table-head__game-list">
                       <tr className="table-tr__game-list">
-                        <th className="table__game-list-empty"></th>
+                        <th className="table__game-list-empty"/>
                         <th className="table-th__game-list">Nazwa gry</th>
                         <th className="table-th__game-list">Liczba graczy</th>
                         <th className="table-th__game-list">Dodaj do ulubionych</th>

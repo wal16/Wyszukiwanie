@@ -167,9 +167,10 @@ a:hover {
   background-color: #0080e0;
 }
 
-.alert {
+.alert__no-data {
   margin-top: 20px;
   margin-bottom: 0;
+  margin-left: 50px;
   text-shadow: none;
   box-shadow: none;
 }
