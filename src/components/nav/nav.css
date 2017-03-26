@@ -1,90 +1,81 @@
 .navbar-default {
-    background: #f8f8ff;
-    border: none;
-    margin: 0 auto;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.23);
-    font-size: 20px;
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  background: #f8f8ff;
+  border: none;
+  margin: 0 auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 20px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .navbar-brand {
-    margin-top: 25px;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-bottom: 25px;
+  margin-top: 25px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 25px;
 }
 
 .navbar > .container .navbar-brand {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .navbar-right {
-    margin-right: 0;
+  margin-right: 15px;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #002060;
-    border-radius: 5px;
-    padding: 40px;
+  color: #002060;
+  border-radius: 5px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    color: #f8f8ff;
-    background: #0080e0;
-    transition: background-color 0.4s, color 0.2s;
-    transition-timing-function: ease-in-out;
-    padding: 40px;
+  color: #f8f8ff;
+  background: #0080e0;
+  transition: background-color 0.4s, color 0.2s;
+  transition-timing-function: ease-in-out;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #f8f8ff;
-    background: #0080e0;
+  color: #f8f8ff;
+  background: #0080e0;
 }
 
 .navbar-default .navbar-toggle {
-    border: 0;
-    margin-top: 35px;
+  border: 0;
+  margin-top: 35px;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #f8f8ff;
+  background-color: #f8f8ff;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #002060;
-    width: 33px;
-    height: 4px;
-    border-radius: 3px;
-    margin-bottom: 5px;
+  background-color: #002060;
+  width: 33px;
+  height: 4px;
+  border-radius: 3px;
+  margin-bottom: 5px;
 }
 
 .navbar-default .navbar-toggle .icon-bar:hover {
-    background-color: #002060;
-    width: 33px;
-    height: 4px;
-    border-radius: 3px;
-    margin-bottom: 5px;
+  background-color: #002060;
+  width: 33px;
+  height: 4px;
+  border-radius: 3px;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 425px) {
-    .navbar-default .navbar-nav > li > a:focus,
-    .navbar-default .navbar-nav > .active > a {
-        background-color: #f8f8ff;
-        color: #002060;
-    }
-}
-
-@media (min-width: 426px) and (max-width: 768px) {
-    .navbar-default {
-        font-size: 16px;
-    }
-
-    .navbar-default .navbar-nav > li > a {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
+  .navbar-default .navbar-nav > li > a:focus,
+  .navbar-default .navbar-nav > .active > a {
+    background-color: #f8f8ff;
+    color: #002060;
+  }
 }
 
