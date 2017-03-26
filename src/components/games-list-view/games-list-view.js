@@ -29,7 +29,6 @@ export default connect(
     render() {
       const {
         games,
-        params,
         searchString,
         changeRange,
         favGame,
@@ -46,9 +45,6 @@ export default connect(
             ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
             game => {
-              const currentGame = games.data.find(
-                game => game.id === parseInt(params.gameId, 10))
-
               const fav = favoriteGameIds.find(fav => fav.gameId === game.id)
 
               const favId = (fav && fav.favId) || undefined
@@ -86,7 +82,7 @@ export default connect(
                         (
                           <Button bsSize=""
                                   bsStyle="custom__game-card"
-                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                                  onClick={() => favGame(game.id, userId, accessToken)}>
                             <Glyphicon glyph="heart-empty"
                                        className="glyph"/>
                           </Button>
