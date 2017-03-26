@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import {Grid, Row, Col, Panel, PageHeader, Image, Alert} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs'
 
+import './my-profile-view.css'
+
 import {fetchFavs} from '../../state/favs'
 
 export default connect(
@@ -32,15 +34,20 @@ export default connect(
       const currentUser =
         user.data ? user.data : null
 
+
       if (currentUser === null) {
         return (
           <Grid>
-            <PageHeader>
-              Mój profil<br/>
-            </PageHeader>
-            <Alert bsStyle="warning">
-              Oczekiwanie na dane użytkownika...
-            </Alert>
+            <Row className="row-header">
+              <Col xs={12}>
+                <Panel className="panel-header">
+                  <h3>Mój profil</h3>
+                </Panel>
+                <p className="alert-waiting">
+                  Oczekiwanie na dane użytkownika...
+                </p>
+              </Col>
+            </Row>
           </Grid>
         )
       }
@@ -54,18 +61,18 @@ export default connect(
               <div key={currentUser.id}>
                 {
                   currentUser.picture ? (
-                <Image
-                  src={process.env.PUBLIC_URL + currentUser.picture}
-                  alt={"Awatar użytkownika " + currentUser.usernamen}
-                  responsive
-                />
-                  ) : (
-                    <Image
-                      src={process.env.PUBLIC_URL + '/img/board-games-with-roles-blue.png'}
-                      alt={"Awatar użytkownika " + currentUser.username}
-                      responsive
-                    />
-                  )
+                      <Image
+                        src={process.env.PUBLIC_URL + currentUser.picture}
+                        alt={"Awatar użytkownika " + currentUser.usernamen}
+                        responsive
+                      />
+                    ) : (
+                      <Image
+                        src={process.env.PUBLIC_URL + '/img/board-games-with-roles-blue.png'}
+                        alt={"Awatar użytkownika " + currentUser.username}
+                        responsive
+                      />
+                    )
                 }
               </div>
             </Col>
@@ -101,26 +108,27 @@ export default connect(
               <Panel header="Ulubione gry">
                 {
                   (favs.favoriteGameIds.length !== 0 && games !== null) ? (
-                    <ul>
-                      {
-                        favs.favoriteGameIds.map(
-                          fav => games.find(game => game.id === fav.gameId)
-                        ).map(
-                          game => (
-                            <li key={game.id}>
-                              <Link to={'game-profile/' + game.id}>
-                                {game.name}
-                              </Link>
-                            </li>
+                      <ul>
+                        {
+                          favs.favoriteGameIds.map(
+                            fav => games.find(game => game.id === fav.gameId)
+                          ).map(
+                            game => (
+                              <li key={game.id}>
+                                <Link to={'game-profile/' + game.id}>
+                                  {game.name}
+                                </Link>
+                              </li>
+                            )
                           )
-                        )
-                      }
-                    </ul>
-                  ) : (
-                    <Alert>
-                      Nie masz jeszcze ulubionych gier. <Link to="/games-list"><b>Przejdź do listy gier</b></Link> i pokaż innym graczom, które planszówki lubisz najbardziej! :)
-                    </Alert>
-                  )
+                        }
+                      </ul>
+                    ) : (
+                      <Alert>
+                        Nie masz jeszcze ulubionych gier. <Link to="/games-list"><b>Przejdź do listy gier</b></Link> i
+                        pokaż innym graczom, które planszówki lubisz najbardziej! :)
+                      </Alert>
+                    )
                 }
               </Panel>
             </Col>
