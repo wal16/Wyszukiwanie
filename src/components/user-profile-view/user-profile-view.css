@@ -28,3 +28,25 @@
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+/*Tabs*/
+.nav-tabs {
+  border-bottom: 1px solid #002060;
+  margin-bottom: 15px;
+}
+
+.active {
+  background-color: #002060;
+  color: #f8f8ff;
+}
+
+.nav-tabs > li > a {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: #0080e0;
+  color: #f8f8ff;
+}
+
