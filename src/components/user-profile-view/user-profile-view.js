@@ -46,7 +46,7 @@ export default connect(
           </Row>
 
           <Col xs={12} md={4} sm={6}>
-            <div className="user-image__wrapper"
+            <div className="image__wrapper-bottom"
                  key={currentUser.id}>
               <Image src={process.env.PUBLIC_URL + currentUser.picture}
                      alt={"Avatar użytkownika " + currentUser.name}

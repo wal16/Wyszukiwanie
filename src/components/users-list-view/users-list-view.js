@@ -41,7 +41,7 @@ export default connect(
                         <tr className="table-tr__users-list"
                             key={user.id}>
                           <td className="table-td__users-list table__users-list-empty">
-                            <div className="user-image__wrapper">
+                            <div className="image__wrapper">
                               <Image className="user-image__users-list"
                                      src={user.picture}
                                      alt="Zdjecie gry"

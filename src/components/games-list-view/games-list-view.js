@@ -53,7 +53,7 @@ export default connect(
                 <tr className="table-tr__game-list"
                     key={game.id}>
                   <td className="table-td__game-list table__game-list-empty">
-                    <div className="game-image__wrapper">
+                    <div className="image__wrapper">
                       <Image className="game-image__game-list"
                              src={game.image}
                              alt="Zdjęcie gry"
@@ -73,7 +73,7 @@ export default connect(
                       fav !== undefined ?
                         (
                           <Button bsStyle="link"
-                                  className="btn-custom__game-card"
+                                  className="btn-custom"
                                   onClick={() => unfavGame(favId, userId, accessToken)}>
                             <Glyphicon glyph="heart"
                                        className="glyph"/>
@@ -81,7 +81,7 @@ export default connect(
                         ) :
                         (
                           <Button bsStyle="link"
-                                  className="btn-custom__game-card"
+                                  className="btn-custom"
                                   onClick={() => favGame(game.id, userId, accessToken)}>
                             <Glyphicon glyph="heart-empty"
                                        className="glyph"/>

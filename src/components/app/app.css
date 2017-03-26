@@ -21,7 +21,7 @@
   margin-right: 100%;
 }
 
-
+/**/
 .panel-default {
   border: none;
   color: #002060;
@@ -48,4 +48,27 @@
   display: flex;
   align-items: center;
   margin: 0;
+}
+
+.glyph {
+  color: #f8f8ff;
+}
+
+a {
+  color: #002060;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #002060;
+  text-decoration: none;
+}
+
+.image__wrapper {
+  text-align: -webkit-center;
+}
+
+.image__wrapper-bottom {
+  text-align: -webkit-center;
+  margin-bottom: 20px;
 }
