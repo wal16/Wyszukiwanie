@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import {Grid, Row, Col, Panel, PageHeader, Image} from 'react-bootstrap'
+import {Grid, Row, Col, Panel, Image} from 'react-bootstrap'
 import {Tabs, Tab} from 'react-bootstrap-tabs'
 import './user-profile-view.css'
 

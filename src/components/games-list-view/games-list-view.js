@@ -72,16 +72,14 @@ export default connect(
                     {
                       fav !== undefined ?
                         (
-                          <Button bsSize=""
-                                  bsStyle="custom__game-card"
+                          <Button bsStyle="custom__game-card"
                                   onClick={() => unfavGame(favId, userId, accessToken)}>
                             <Glyphicon glyph="heart"
                                        className="glyph"/>
                           </Button>
                         ) :
                         (
-                          <Button bsSize=""
-                                  bsStyle="custom__game-card"
+                          <Button bsStyle="custom__game-card"
                                   onClick={() => favGame(game.id, userId, accessToken)}>
                             <Glyphicon glyph="heart-empty"
                                        className="glyph"/>

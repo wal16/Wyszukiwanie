@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, Table, Panel, Image, Alert} from 'react-bootstrap'
+import {Grid, Table, Panel, Image} from 'react-bootstrap'
 
 import './users-list-view.css'
 

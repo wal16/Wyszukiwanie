@@ -25,7 +25,7 @@ export default connect(
     unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken))
   })
 )(
-  class GameProfileView extends React.Component {
+  class GameCardView extends React.Component {
     render() {
       const {
         users,
@@ -79,16 +79,14 @@ export default connect(
                           {
                             fav !== undefined ?
                               (
-                                <Button bsSize=""
-                                        bsStyle="custom__game-card"
+                                <Button bsStyle="custom__game-card"
                                         onClick={() => unfavGame(favId, userId, accessToken)}>
                                   <Glyphicon glyph="heart"
                                              className="glyph"/>
                                 </Button>
                               ) :
                               (
-                                <Button bsSize=""
-                                        bsStyle="custom__game-card"
+                                <Button bsStyle="custom__game-card"
                                         onClick={() => favGame(currentGame.id, userId, accessToken)}>
                                   <Glyphicon glyph="heart-empty"
                                              className="glyph"/>
