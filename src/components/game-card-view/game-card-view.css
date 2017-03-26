@@ -61,7 +61,9 @@
   justify-content: flex-end;
 }
 
-.btn-custom__game-card {
+.btn-custom__game-card,
+.btn-custom__game-card:visited,
+.btn-custom__game-card:focus {
   background-color: #0080e0;
   border-radius: 5px;
   border: #002060;
@@ -69,6 +71,7 @@
 }
 
 .btn-custom__game-card:hover {
+  background-color: #0080e0;
   transform: scale(1.1);
   transition: 0.3s transform linear;
   border-radius: 5px;

@@ -71,7 +71,8 @@ export default connect(
                     <Col xs={12}>
                       <ButtonGroup>
                         <LinkContainer to={'/game-profile/' + prevGame}>
-                          <Button bsStyle="custom__game-card">
+                          <Button bsStyle="link"
+                                  className="btn-custom__game-card">
                             <Glyphicon glyph="chevron-left"
                                        className="glyph"/>
                           </Button>
@@ -79,14 +80,16 @@ export default connect(
                           {
                             fav !== undefined ?
                               (
-                                <Button bsStyle="custom__game-card"
+                                <Button bsStyle="link"
+                                        className="btn-custom__game-card"
                                         onClick={() => unfavGame(favId, userId, accessToken)}>
                                   <Glyphicon glyph="heart"
                                              className="glyph"/>
                                 </Button>
                               ) :
                               (
-                                <Button bsStyle="custom__game-card"
+                                <Button bsStyle="link"
+                                        className="btn-custom__game-card"
                                         onClick={() => favGame(currentGame.id, userId, accessToken)}>
                                   <Glyphicon glyph="heart-empty"
                                              className="glyph"/>
@@ -94,7 +97,8 @@ export default connect(
                               )
                           }
                         <LinkContainer to={'/game-profile/' + nextGame}>
-                          <Button bsStyle="custom__game-card">
+                          <Button bsStyle="link"
+                                  className="btn-custom__game-card">
                             <Glyphicon glyph="chevron-right"
                                        className="glyph"/>
                           </Button>
