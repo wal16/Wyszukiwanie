@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 import {Grid, Table, Alert, Panel, Row, Col, Image, Button, Glyphicon} from 'react-bootstrap'
 import GameSearch from '../game-search/game-search'
 import GameRanges from '../game-ranges/game-ranges'
-import { reset } from '../../state/range'
+import {reset} from '../../state/range'
 import './games-list-view.css'
 
 import {fetchGames} from '../../state/games'
@@ -15,7 +15,6 @@ export default connect(
   state => ({
     games: state.games,
     searchString: state.search.searchString,
-    // resetRange: state.reset.resetRange,
     changeRange: state.range.changeRange,
     favoriteGameIds: state.favs.favoriteGameIds,
     userId: state.session.data.userId,
@@ -35,7 +34,6 @@ export default connect(
         searchString,
         reset,
         changeRange,
-        resetRange,
         favGame,
         unfavGame,
         favoriteGameIds,
@@ -129,7 +127,7 @@ export default connect(
                         className="btn-custom__reset">
                   <Glyphicon glyph="repeat"
                              className="glyph"
-                             onClick={value => reset(value)}/>
+                             onClick={(value) => reset(value)}/>
                 </Button>
               </Col>
             </Row>
