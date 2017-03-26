@@ -210,3 +210,9 @@ a:hover {
   margin-right: -15px;
   margin-left: -15px;
 }
+
+@media screen and (max-width: 320px) {
+  .table__game-list-empty  {
+    display: none;
+  }
+}

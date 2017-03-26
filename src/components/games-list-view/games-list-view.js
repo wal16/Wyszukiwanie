@@ -56,7 +56,7 @@ export default connect(
               return (
                 <tr className="table-tr__game-list"
                     key={game.id}>
-                  <td className="table-td__game-list">
+                  <td className="table-td__game-list table__game-list-empty">
                     <div className="game-image__wrapper">
                       <Image className="game-image__game-list"
                              src={game.image}
@@ -131,10 +131,10 @@ export default connect(
             <div className="panel-body-table__game-list">
               {
                 searchResults.length !== 0 ? (
-                    <Table className="table__game-list table-hover">
+                    <Table className="table__game-list table-hover container-fluid">
                       <thead className="table-head__game-list">
                       <tr className="table-tr__game-list">
-                        <th></th>
+                        <th className="table__game-list-empty"></th>
                         <th className="table-th__game-list">Nazwa gry</th>
                         <th className="table-th__game-list">Liczba graczy</th>
                         <th className="table-th__game-list">Dodaj do ulubionych</th>
