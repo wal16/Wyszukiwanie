@@ -130,8 +130,7 @@ export default connect(
                 <Button bsStyle="custom__game-list">
                   <Glyphicon glyph="repeat"
                              className="glyph"
-                             onClick={ value => reset(value) }/>
-                  {/*onClick={() => favGame(currentGame.id, userId, accessToken)}*/}
+                             onClick={value => reset(value)}/>
                 </Button>
               </Col>
             </Row>
