@@ -6,8 +6,8 @@ export const range = (value) => ({
   value
 })
 
-const minLabel = 2
-const maxLabel = 20
+export const minLabel = 2
+export const maxLabel = 20
 
 const initialState = {
   minLabel: minLabel,
