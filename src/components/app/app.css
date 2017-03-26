@@ -1,19 +1,51 @@
-.props-children{
+.props-children {
   padding-top: 120px;
   background: #f8f8ff;
   min-height: 100vh;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-.enter{
+.props-children h6 {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.enter {
   margin-top: 50px;
   text-align: center;
   font-size: 40px;
 }
 
-.enter img{
-
+.enter img {
   height: 50px;
   margin-right: 100%;
-
 }
 
+
+.panel-default {
+  border: none;
+  color: #002060;
+  border-radius: 5px;
+  background-color: #f8f8ff;
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.panel-body-table__list {
+  display: flex;
+  flex-direction: column;
+  margin-left: -45px;
+  margin-right: 15px;
+}
+
+.panel-body__list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row-header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}

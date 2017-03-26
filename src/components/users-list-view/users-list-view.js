@@ -22,8 +22,8 @@ export default connect(
       return (
         <Grid>
           <Panel header="Użytkownicy"
-                 className="panel-body__users-list">
-            <div className="panel-body-table__users-list">
+                 className="panel-body__list">
+            <div className="panel-body-table__list">
               <Table className="table__users-list table-hover">
                 <thead className="table-head__users-list">
                 <tr className="table-tr__users-list">
