@@ -5,3 +5,26 @@
 .active {
   background-color: #eee;
 }
+
+.row-header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.panel-header {
+  color: #f8f8ff;
+  background-color: #002060;
+}
+
+/*Images*/
+.user-image__wrapper {
+  text-align: -webkit-center;
+}
+
+.user-avatar__user-profile {
+  max-width: 350px;
+  max-height: 350px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

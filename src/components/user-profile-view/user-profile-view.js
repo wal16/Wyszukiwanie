@@ -37,82 +37,85 @@ export default connect(
 
       return (
         <Grid>
-
-          <PageHeader>Profil użytkownika<br/>
-          </PageHeader>
-          <Row>
-            <Col xs={12} md={4} sm={6}>
-              <div key={currentUser.id}>
-                <Image
-                  src={process.env.PUBLIC_URL + currentUser.picture}
-                  alt={"Awatar użytkownika " + currentUser.name}
-                  responsive
-                />
-              </div>
-            </Col>
-
-            <Col xs={12} sm={6} md={8}>
-              <div key={currentUser.id}>
-                <h3>{currentUser.name} {currentUser.surname}</h3>
-                <p>{currentUser.about}</p>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12}>
-              <Panel>
-                <Tabs id="noanim-tab-example">
-                  <Tab headerClass='pointer' label="Posiadam">
-                    <h3>Posiadam</h3>
-                    <ul>
-                      {
-                        currentUser.id ?
-                          <ul>
-                            {
-                              currentUser.gameList.map(
-                                game => games.data.find(g => g.id === game)
-                              ).map(
-                                game => (
-                                  <li key={game.id}>
-                                    <Link to={'game-profile/' + game.id}>
-                                      {game.name}
-                                    </Link>
-                                  </li>
-                                )
-                              )
-                            }
-                          </ul> : null
-                      }
-
-                    </ul>
-                  </Tab>
-                  <Tab headerClass='pointer' label="Szukam">
-                    <h3>Szukam</h3>
-                    <ul>
-                      {
-                        currentUser.id ?
-                          <ul>
-                            {
-                              currentUser.wishList.map(
-                                game => games.data.find(g => g.id === game)
-                              ).map(
-                                game => (
-                                  <li key={game.id}>
-                                    <Link to={'game-profile/' + game.id}>
-                                      {game.name}
-                                    </Link>
-                                  </li>
-                                )
-                              )
-                            }
-                          </ul> : null
-                      }
-                    </ul>
-                  </Tab>
-                </Tabs>
+          <Row className="row-header">
+            <Col xs={12}>
+              <Panel className="panel-header">
+                <h3>Profil użytkownika</h3>
               </Panel>
             </Col>
           </Row>
+
+
+          <Col xs={12} md={4} sm={6}>
+            <div className="user-image__wrapper"
+                 key={currentUser.id}>
+              <Image src={process.env.PUBLIC_URL + currentUser.picture}
+                     alt={"Awatar użytkownika " + currentUser.name}
+                     className="user-avatar__user-profile"
+                     responsive
+              />
+            </div>
+          </Col>
+
+          <Col xs={12} sm={6} md={8}>
+            <Panel header={currentUser.name +" "+ currentUser.surname}
+                   key={currentUser.id}>
+              {currentUser.about}
+            </Panel>
+          </Col>
+
+          <Col xs={12} md={12}>
+            <Panel>
+              <Tabs id="noanim-tab-example">
+                <Tab headerClass='pointer' label="Posiadam">
+                  <h3>Posiadam</h3>
+                  <ul>
+                    {
+                      currentUser.id ?
+                        <ul>
+                          {
+                            currentUser.gameList.map(
+                              game => games.data.find(g => g.id === game)
+                            ).map(
+                              game => (
+                                <li key={game.id}>
+                                  <Link to={'game-profile/' + game.id}>
+                                    {game.name}
+                                  </Link>
+                                </li>
+                              )
+                            )
+                          }
+                        </ul> : null
+                    }
+                  </ul>
+                </Tab>
+                <Tab headerClass='pointer' label="Szukam">
+                  <h3>Szukam</h3>
+                  <ul>
+                    {
+                      currentUser.id ?
+                        <ul>
+                          {
+                            currentUser.wishList.map(
+                              game => games.data.find(g => g.id === game)
+                            ).map(
+                              game => (
+                                <li key={game.id}>
+                                  <Link to={'game-profile/' + game.id}>
+                                    {game.name}
+                                  </Link>
+                                </li>
+                              )
+                            )
+                          }
+                        </ul> : null
+                    }
+                  </ul>
+                </Tab>
+              </Tabs>
+            </Panel>
+          </Col>
         </Grid>
       )
     }
