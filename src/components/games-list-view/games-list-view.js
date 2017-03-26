@@ -120,7 +120,8 @@ export default connect(
                 <GameRanges/>
               </Col>
               <Col className="col-search__game-list" xs={2} sm={2}>
-                <Button bsStyle="custom__game-list">
+                <Button bsStyle="link"
+                        className="btn-custom__reset">
                   <Glyphicon glyph="repeat"
                              className="glyph"/>
                 </Button>
