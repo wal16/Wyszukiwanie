@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, Table, Panel, Image, Alert} from 'react-bootstrap'
+import {Grid, Table, Panel, Image} from 'react-bootstrap'
 
 import './users-list-view.css'
 
@@ -22,8 +22,8 @@ export default connect(
       return (
         <Grid>
           <Panel header="Użytkownicy"
-                 className="panel-body__users-list">
-            <div className="panel-body-table__users-list">
+                 className="panel-body__list">
+            <div className="panel-body-table__list">
               <Table className="table__users-list table-hover">
                 <thead className="table-head__users-list">
                 <tr className="table-tr__users-list">
@@ -41,7 +41,7 @@ export default connect(
                         <tr className="table-tr__users-list"
                             key={user.id}>
                           <td className="table-td__users-list table__users-list-empty">
-                            <div className="user-image__wrapper">
+                            <div className="image__wrapper">
                               <Image className="user-image__users-list"
                                      src={user.picture}
                                      alt="Zdjecie gry"

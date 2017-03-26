@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 
 import {Grid, Col} from 'react-bootstrap'
 
+import './app.css'
+
 import Nav from '../nav/nav'
 import LoginView from '../login-view'
 import RegistrationView from '../registration-view/registration-view'
@@ -10,7 +12,7 @@ import {fetchGames} from '../../state/games'
 import {fetchUsers} from '../../state/users'
 import {clearLoginErrors} from '../../state/session'
 
-import './app.css'
+
 
 
 class App extends React.Component {

@@ -25,7 +25,7 @@ export default connect(
     unfavGame: (gameId, userId, accessToken) => dispatch(unfavGame(gameId, userId, accessToken))
   })
 )(
-  class GameProfileView extends React.Component {
+  class GameCardView extends React.Component {
     render() {
       const {
         users,
@@ -71,7 +71,8 @@ export default connect(
                     <Col xs={12}>
                       <ButtonGroup>
                         <LinkContainer to={'/game-profile/' + prevGame}>
-                          <Button bsStyle="custom__game-card">
+                          <Button bsStyle="link"
+                                  className="btn-custom">
                             <Glyphicon glyph="chevron-left"
                                        className="glyph"/>
                           </Button>
@@ -79,16 +80,16 @@ export default connect(
                           {
                             fav !== undefined ?
                               (
-                                <Button bsSize=""
-                                        bsStyle="custom__game-card"
+                                <Button bsStyle="link"
+                                        className="btn-custom"
                                         onClick={() => unfavGame(favId, userId, accessToken)}>
                                   <Glyphicon glyph="heart"
                                              className="glyph"/>
                                 </Button>
                               ) :
                               (
-                                <Button bsSize=""
-                                        bsStyle="custom__game-card"
+                                <Button bsStyle="link"
+                                        className="btn-custom"
                                         onClick={() => favGame(currentGame.id, userId, accessToken)}>
                                   <Glyphicon glyph="heart-empty"
                                              className="glyph"/>
@@ -96,7 +97,8 @@ export default connect(
                               )
                           }
                         <LinkContainer to={'/game-profile/' + nextGame}>
-                          <Button bsStyle="custom__game-card">
+                          <Button bsStyle="link"
+                                  className="btn-custom">
                             <Glyphicon glyph="chevron-right"
                                        className="glyph"/>
                           </Button>
@@ -108,7 +110,7 @@ export default connect(
               </Row>
 
               <Col xs={12} sm={6} md={4}>
-                <div className="game-image__wrapper">
+                <div className="image__wrapper">
                   <Image src={currentGame.image}
                          alt="Zdjęcie gry"
                          className="game-image__game-card"

@@ -29,7 +29,6 @@ export default connect(
     render() {
       const {
         games,
-        params,
         searchString,
         changeRange,
         favGame,
@@ -46,9 +45,6 @@ export default connect(
             ((changeRange.min <= game.playersMin) && (game.playersMax <= changeRange.max))
           ).map(
             game => {
-              const currentGame = games.data.find(
-                game => game.id === parseInt(params.gameId, 10))
-
               const fav = favoriteGameIds.find(fav => fav.gameId === game.id)
 
               const favId = (fav && fav.favId) || undefined
@@ -57,7 +53,7 @@ export default connect(
                 <tr className="table-tr__game-list"
                     key={game.id}>
                   <td className="table-td__game-list table__game-list-empty">
-                    <div className="game-image__wrapper">
+                    <div className="image__wrapper">
                       <Image className="game-image__game-list"
                              src={game.image}
                              alt="Zdjęcie gry"
@@ -76,17 +72,17 @@ export default connect(
                     {
                       fav !== undefined ?
                         (
-                          <Button bsSize=""
-                                  bsStyle="custom__game-card"
+                          <Button bsStyle="link"
+                                  className="btn-custom"
                                   onClick={() => unfavGame(favId, userId, accessToken)}>
                             <Glyphicon glyph="heart"
                                        className="glyph"/>
                           </Button>
                         ) :
                         (
-                          <Button bsSize=""
-                                  bsStyle="custom__game-card"
-                                  onClick={() => favGame(currentGame.id, userId, accessToken)}>
+                          <Button bsStyle="link"
+                                  className="btn-custom"
+                                  onClick={() => favGame(game.id, userId, accessToken)}>
                             <Glyphicon glyph="heart-empty"
                                        className="glyph"/>
                           </Button>
@@ -109,7 +105,7 @@ export default connect(
       return (
         <Grid>
           <Panel header="Wyszukiwarka gier"
-                 className="panel-body__game-list">
+                 className="panel-body__list">
             <Row className="row-search__game-list">
               <Col className="col-search__game-list" xs={12} sm={5} smOffset={1}>
                 <div className="input-group">
@@ -124,13 +120,14 @@ export default connect(
                 <GameRanges/>
               </Col>
               <Col className="col-search__game-list" xs={2} sm={2}>
-                <Button bsStyle="custom__game-list">
+                <Button bsStyle="link"
+                        className="btn-custom__reset">
                   <Glyphicon glyph="repeat"
                              className="glyph"/>
                 </Button>
               </Col>
             </Row>
-            <div className="panel-body-table__game-list">
+            <div className="panel-body-table__list">
               {
                 searchResults.length !== 0 ? (
                     <Table className="table__game-list table-hover">
