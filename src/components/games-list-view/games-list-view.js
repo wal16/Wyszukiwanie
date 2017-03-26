@@ -131,7 +131,7 @@ export default connect(
             <div className="panel-body-table__game-list">
               {
                 searchResults.length !== 0 ? (
-                    <Table className="table__game-list table-hover container-fluid">
+                    <Table className="table__game-list table-hover">
                       <thead className="table-head__game-list">
                       <tr className="table-tr__game-list">
                         <th className="table__game-list-empty"></th>
