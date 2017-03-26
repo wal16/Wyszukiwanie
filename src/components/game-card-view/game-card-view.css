@@ -2,11 +2,11 @@
   color: #f8f8ff;
 }
 
-.row-header {
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
+/*.row-header {*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*margin: 0;*/
+/*}*/
 
 /*Images*/
 .game-image__wrapper {
