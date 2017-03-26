@@ -1,22 +1,3 @@
-.glyph {
-  color: #f8f8ff;
-}
-
-a {
-  color: #002060;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #002060;
-  text-decoration: none;
-}
-
-.row-search__game-list {
-  /*display: flex;*/
-  /*justify-content: space-between;*/
-}
-
 .col-search__game-list {
   display: flex;
   justify-content: space-between;
@@ -57,6 +38,7 @@ a:hover {
   color: #002060;
   bottom: 0;
   font-size: 10px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .input-range__label--value {
@@ -64,7 +46,7 @@ a:hover {
   z-index: 3;
   color: #f8f8ff;
   font-size: 14px;
-  top: -25px;
+  top: -27px;
   left: 13px
 }
 
@@ -106,18 +88,6 @@ a:hover {
   margin-top: -34px;
 }
 
-/*Button reset*/
-.btn-custom__game-list {
-  margin-top: 18px;
-  margin-left: 25px;
-  outline: none;
-  height: 34px;
-  background-color: #0080e0;
-  border-radius: 5px;
-  border: #002060;
-  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
-}
-
 /*Table*/
 .table__game-list {
   margin-top: 50px;
@@ -154,10 +124,6 @@ a:hover {
   vertical-align: middle;
 }
 
-.table-body__game-list {
-
-}
-
 .table > tbody > tr > td {
   vertical-align: middle;
   border: none;
@@ -167,50 +133,18 @@ a:hover {
   background-color: #0080e0;
 }
 
-.alert {
-  margin-top: 20px;
-  margin-bottom: 0;
-  text-shadow: none;
-  box-shadow: none;
-}
-
 /*Images*/
-.game-image__wrapper {
-  text-align: -webkit-center;
-}
-
 .game-image__game-list {
   max-width: 50px;
   max-height: 50px;
 }
 
 /*Panel*/
-.panel-default {
-  border: none;
-  color: #002060;
-  border-radius: 5px;
-  background-color: #f8f8ff;
-  box-shadow: 0 3px 10px #ccc;
-}
 
 .panel-default > .panel-heading {
   font-size: 24px;
   color: #f8f8ff;
   background-image: linear-gradient(to bottom, #002060 0%, #002060 100%);
-}
-
-.panel-body__game-list {
-  display: flex;
-  flex-direction: column;
-  margin-left: 0;
-  margin-right: 0;
-  }
-
-.panel-body-table__game-list {
-  display: flex;
-  flex-direction: column;
-  margin-left: -45px;
-  margin-right: 15px;
 }
 
 @media screen and (max-width: 320px) {

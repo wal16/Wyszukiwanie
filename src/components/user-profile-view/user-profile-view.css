@@ -1,7 +1,76 @@
+/*Panel*/
+.panel-header {
+  color: #f8f8ff;
+  background-color: #002060;
+}
+
+/*Images*/
+.user-avatar__user-profile {
+  max-width: 350px;
+  max-height: 350px;
+  border-radius: 5px;
+}
+
+/*Tabs*/
+.nav-tabs {
+  border-bottom: 1px solid #002060;
+  margin-bottom: 15px;
+}
+
 .tabs .pointer {
   cursor: pointer;
 }
 
 .active {
-  background-color: #eee;
+  background-color: #002060;
+  color: #f8f8ff;
+}
+
+.nav-tabs > li > a {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: #0080e0;
+  color: #f8f8ff;
+}
+
+@media screen and (max-width: 320px) {
+  .user-avatar__user-profile {
+    max-width: 240px;
+    max-height: 240px;
+  }
+
+  .panel-header h3 {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  .user-avatar__user-profile {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .user-avatar__user-profile {
+    max-width: 345px;
+    max-height: 345px;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .user-avatar__user-profile {
+    max-width: 327px;
+    max-height: 327px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .user-avatar__user-profile {
+    max-width: 280px;
+    max-height: 280px;
+  }
 }
