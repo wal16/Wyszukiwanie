@@ -167,14 +167,6 @@ a:hover {
   background-color: #0080e0;
 }
 
-.alert__no-data {
-  margin-top: 20px;
-  margin-bottom: 0;
-  margin-left: 50px;
-  text-shadow: none;
-  box-shadow: none;
-}
-
 /*Images*/
 .game-image__wrapper {
   text-align: -webkit-center;
@@ -198,20 +190,6 @@ a:hover {
   font-size: 24px;
   color: #f8f8ff;
   background-image: linear-gradient(to bottom, #002060 0%, #002060 100%);
-}
-
-.panel-body__game-list {
-  display: flex;
-  flex-direction: column;
-  margin-left: 0;
-  margin-right: 0;
-  }
-
-.panel-body-table__game-list {
-  display: flex;
-  flex-direction: column;
-  margin-left: -45px;
-  margin-right: 15px;
 }
 
 @media screen and (max-width: 320px) {

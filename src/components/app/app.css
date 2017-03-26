@@ -17,10 +17,10 @@
 }
 
 .enter img {
-
   height: 50px;
   margin-right: 100%;
 }
+
 
 .panel-default {
   border: none;
@@ -30,3 +30,16 @@
   box-shadow: 0 3px 10px #ccc;
 }
 
+.panel-body-table__list {
+  display: flex;
+  flex-direction: column;
+  margin-left: -45px;
+  margin-right: 15px;
+}
+
+.panel-body__list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  margin-right: 0;
+}

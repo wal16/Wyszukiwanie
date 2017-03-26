@@ -109,7 +109,7 @@ export default connect(
       return (
         <Grid>
           <Panel header="Wyszukiwarka gier"
-                 className="panel-body__game-list">
+                 className="panel-body__list">
             <Row className="row-search__game-list">
               <Col className="col-search__game-list" xs={12} sm={5} smOffset={1}>
                 <div className="input-group">
@@ -130,7 +130,7 @@ export default connect(
                 </Button>
               </Col>
             </Row>
-            <div className="panel-body-table__game-list">
+            <div className="panel-body-table__list">
               {
                 searchResults.length !== 0 ? (
                     <Table className="table__game-list table-hover">
