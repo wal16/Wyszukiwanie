@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {NavItem} from 'react-bootstrap'
 
-import {logOut} from '../state/session'
+import {logOut} from '../../state/session'
 
 const LogUserOut = ({logOut}) => (
   <NavItem

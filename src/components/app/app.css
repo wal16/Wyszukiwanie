@@ -3,11 +3,21 @@
   background: #f8f8ff;
   min-height: 100vh;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: #002060;
 }
 
 .props-children h6 {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: 500;
+}
+
+body {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: #002060;
 }
 
 .enter {
@@ -19,14 +29,6 @@
 .enter img {
   height: 50px;
   margin-right: 100%;
-}
-
-
-body {
-  background-image: url("background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
 }
 
 .form-group {
@@ -49,24 +51,20 @@ body {
   width: 100%;
 }
 
-h1 {
-  font-size: 24px;
-  text-align: center;
-}
-
 #logo {
   padding-left: 35%;
 }
 
-.tittle {
+.main-title {
+  margin-top: 40px;
   text-align: center;
-  color: #002060;
   padding-bottom: 15px;
 }
 
-/*.nav-tabs{*/
-  /*border-bottom: none;*/
-/*}*/
+.sub-title {
+  text-align: center;
+  padding-bottom: 15px;
+}
 
 form.login {
   float: none;
@@ -77,9 +75,9 @@ form.login {
   max-width: 500px;
 
 }
-h1.h1login {
-  padding: 20px;
-}
+/*h1.h1login {*/
+  /*padding: 20px;*/
+/*}*/
 
 /*.uncontrolled-tab-example-tab-1{*/
   /*border: none;*/
@@ -115,8 +113,6 @@ h1.h1login {
   color: #f8f8ff;
   background: #0080e0;
 }
-
-
 
 .btn.btn-button {
   box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.2);

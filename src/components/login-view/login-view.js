@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {logIn} from '../state/session'
+import {logIn} from '../../state/session'
 import {
   Col,
   Row,
