@@ -1,4 +1,5 @@
 import reducer from './user'
+import {logOut} from './session'
 
 describe('User reducer', () => {
   it('should return initial state', () => {
@@ -17,7 +18,7 @@ describe('User reducer', () => {
         data: null,
         fetching: false,
         error: null
-      }, { type: 'user/FETCH__BEGIN' })
+      }, {type: 'user/FETCH__BEGIN'})
     ).toEqual({
       data: null,
       fetching: true,
@@ -31,7 +32,7 @@ describe('User reducer', () => {
         data: null,
         fetching: true,
         error: null
-      }, { type: 'user/FETCH__SUCCESS', data: 'Bar' })
+      }, {type: 'user/FETCH__SUCCESS', data: 'Bar'})
     ).toEqual({
       data: 'Bar',
       fetching: false,
@@ -45,7 +46,7 @@ describe('User reducer', () => {
         data: null,
         fetching: true,
         error: null
-      }, { type: 'user/FETCH__FAILED', error: 'Foo' })
+      }, {type: 'user/FETCH__FAILED', error: 'Foo'})
     ).toEqual({
       data: null,
       fetching: false,
@@ -57,11 +58,27 @@ describe('User reducer', () => {
         data: 'Foo',
         fetching: true,
         error: null
-      }, { type: 'user/FETCH__FAILED', error: 'Bar' })
+      }, {type: 'user/FETCH__FAILED', error: 'Bar'})
     ).toEqual({
       data: 'Foo',
       fetching: false,
       error: 'Bar'
+    })
+  })
+
+  it('should return initial state after logout', () => {
+    expect(
+      reducer(
+        {
+          data: 'Foo',
+          fetching: false,
+          error: null
+        }, logOut()
+      )
+    ).toEqual({
+      data: null,
+      fetching: false,
+      error: null
     })
   })
 })
