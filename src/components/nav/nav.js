@@ -4,7 +4,7 @@ import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 import './nav.css'
 
-import LogUserOut from '../logout'
+import LogUserOut from '../logout/logout'
 
 const NavComponent = () => (
   <Navbar fixedTop>

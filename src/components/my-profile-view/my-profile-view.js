@@ -99,13 +99,15 @@ export default connect(
 
           <Col xs={12} md={12}>
             <Panel>
-              <Tabs>
-                <Tab headerClass='pointer'
+              <Tabs defaultActiveKey={1} id="tab">
+                <Tab eventKey={1}
+                     headerClass='pointer'
                      label="Posiadam">
                   <ul>Dummy</ul>
                 </Tab>
 
-                <Tab headerClass='pointer'
+                <Tab eventKey={2}
+                     headerClass='pointer'
                      label="Szukam">
                   <ul>Foo</ul>
                 </Tab>

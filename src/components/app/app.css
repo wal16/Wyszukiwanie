@@ -1,24 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .props-children {
   padding-top: 120px;
   background: #f8f8ff;
   min-height: 100vh;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: #002060;
 }
 
-.props-children h6 {
+body {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: 500;
+  color: #002060;
 }
 
-.enter {
-  margin-top: 50px;
+.form-group {
+  margin: 15px;
+}
+
+.col-centered {
+  float: none;
+  background-color: #f8f8ff;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 10%;
+  padding-top: 20px;
+  border-radius: 5px;
+}
+
+#logo {
+  padding-left: 35%;
+}
+
+.main-title {
+  margin-top: 40px;
   text-align: center;
-  font-size: 40px;
+  padding-bottom: 15px;
 }
 
-.enter img {
-  height: 50px;
-  margin-right: 100%;
+.sub-title {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+form.login {
+  float: none;
+  background-color: #f8f8ff;
+  margin: auto;
+  padding: 10px;
+}
+
+#username,
+#password {
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+/*Tabs*/
+.nav-tabs {
+  border-bottom: 1px solid #002060;
+  margin-bottom: 15px;
+}
+
+.tabs .pointer {
+  cursor: pointer;
+}
+
+.nav-tabs > li {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: #0080e0;
+  color: #f8f8ff;
+}
+
+.nav-tabs > li .active {
+  background-color: #002060;
+  color: #f8f8ff;
+}
+
+.nav-tabs > li.active > a {
+  cursor: pointer;
+  background-color: #002060;
+  color: #f8f8ff;
+  border: solid 1px #002060;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  cursor: pointer;
+  background-color: #002060;
+  color: #f8f8ff;
+  border: solid 1px #002060;
 }
 
 /**/
@@ -54,13 +135,15 @@
   color: #f8f8ff;
 }
 
-a {
+a,
+a:hover,
+a:visited {
   color: #002060;
   text-decoration: none;
 }
 
-a:hover {
-  color: #002060;
+a:focus {
+  outline:0;
   text-decoration: none;
 }
 
@@ -108,4 +191,31 @@ a:hover {
   border-radius: 5px;
   border: #002060;
   box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
+}
+
+/*Button login*/
+.btn-wrapper {
+  text-align: center;
+}
+
+.btn-custom__login,
+.btn-custom__login:visited,
+.btn-custom__login:focus {
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #002060;
+  color: #f8f8ff;
+  font-size: 15px;
+  padding: 10px 1.5rem;
+  border: solid 2px #002060;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-custom__login:hover {
+  border-color: #0080e0;
+  background-color: #0080e0;
+  outline: inherit;
+  color: #f8f8ff;
+  text-decoration: none;
 }
