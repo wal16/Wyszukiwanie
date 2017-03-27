@@ -3,12 +3,10 @@ import {connect} from 'react-redux'
 import {fetchRegistration} from '../../state/registration'
 
 import {
-  Col,
-  Row,
   FormGroup,
   FormControl,
-  ControlLabel,
-  Button
+  Button,
+  Panel
 } from 'react-bootstrap'
 
 export default connect(
@@ -30,73 +28,55 @@ export default connect(
 
     render() {
       return (
-        <div>
-          <Col xs={4}>
-            <h1>Rejestracja</h1>
-            <Row>
-              <form onSubmit={(event) => {
+        <form className="login"
+              onSubmit={(event) => {
                 event.preventDefault()
                 this.props.register(this.state)
               }}>
-                <FormGroup>
-                  <ControlLabel>
-                    <label htmlFor="username">Nazwa użytkownika</label>
-                  </ControlLabel>
+          <Panel>
+            <FormGroup>
+              <FormControl
+                id="username"
+                type="text"
+                value={this.state.username}
+                placeholder="Nazwa użytkownika"
+                onChange={(event) => {
+                  this.setState({username: event.target.value})
+                }}
+              />
 
-                  <FormControl
-                    id="username"
-                    type="text"
-                    value={this.state.username}
-                    placeholder="Nazwa użytkownika"
-                    onChange={(event) => {
-                      this.setState({username: event.target.value})
-                    }}
-                  />
+              <FormControl
+                id="password"
+                type="password"
+                value={this.state.password}
+                placeholder="Hasło"
+                onChange={(event) => {
+                  this.setState({password: event.target.value})
+                }}
+              />
 
-                  <ControlLabel>
-                    <label htmlFor="password">Hasło</label>
-                  </ControlLabel>
+              <FormControl
+                id="email"
+                type="email"
+                value={this.state.email}
+                placeholder="Podaj adres e-mail"
+                onChange={(event) => {
+                  this.setState({email: event.target.value})
+                }}
+              />
+            </FormGroup>
 
-                  <FormControl
-                    id="password"
-                    type="password"
-                    value={this.state.password}
-                    placeholder="Hasło"
-                    onChange={(event) => {
-                      this.setState({password: event.target.value})
-                    }}
-                  />
-
-                  <ControlLabel>
-                    <label htmlFor="email">Podaj adres e-mail</label>
-                  </ControlLabel>
-
-                  <FormControl
-                    id="email"
-                    type="email"
-                    value={this.state.email}
-                    placeholder="Podaj adres e-mail"
-                    onChange={(event) => {
-                      this.setState({email: event.target.value})
-                    }}
-                  />
-
-                </FormGroup>
-
-                <div className="btn-wrapper">
-                  <Button bsStyle="link"
-                          className="btn-custom__login"
-                          type="submit"
-                          required
-                  >
-                    Zarejstruj się
-                  </Button>
-                </div>
-              </form>
-
-            </Row>
-          </Col>
-        </div>
+            <div className="btn-wrapper">
+              <Button bsStyle="link"
+                      className="btn-custom__login"
+                      type="submit"
+                      required
+              >
+                Zarejstruj się
+              </Button>
+            </div>
+          </Panel>
+        </form>
       )
     }
   }

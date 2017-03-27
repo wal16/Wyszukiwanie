@@ -43,9 +43,14 @@ class App extends React.Component {
             <h4 className="sub-title">Aplikacja PożyczME umożliwi Ci wymianę nieużywanych planszówek z&nbsp;innymi
               graczami!</h4>
 
-            <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-              <Tab eventKey={1} title="Logowanie"><LoginView/></Tab>
-              <Tab eventKey={2} title="Rejstracja"><RegistrationView/></Tab>
+            <Tabs defaultActiveKey={1} id="tab">
+              <Tab eventKey={1} title="Logowanie">
+                <LoginView/>
+              </Tab>
+
+              <Tab eventKey={2} title="Rejestracja">
+                <RegistrationView/>
+              </Tab>
             </Tabs>
           </Col>
         </Grid>

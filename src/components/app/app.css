@@ -20,17 +20,6 @@ body {
   color: #002060;
 }
 
-.enter {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 40px;
-}
-
-.enter img {
-  height: 50px;
-  margin-right: 100%;
-}
-
 .form-group {
   margin: 15px;
 }
@@ -38,17 +27,11 @@ body {
 .col-centered {
   float: none;
   background-color: #f8f8ff;
-  min-height: 700px;
+  box-sizing: border-box;
   margin: auto;
   margin-top: 10%;
   padding-top: 20px;
   border-radius: 5px;
-  min-width: 500px;
-  /*box-shadow: 0 3px 10px #ccc;*/
-}
-
-.col-xs-4 {
-  width: 100%;
 }
 
 #logo {
@@ -66,18 +49,12 @@ body {
   padding-bottom: 15px;
 }
 
-/*.h1login {*/
-  /*color: #002060;*/
-/*}*/
-
 form.login {
   float: none;
   background-color: #f8f8ff;
   min-height: 215px;
   margin: auto;
   border-radius: 5px;
-  /*max-width: 500px;*/
-  box-shadow: 0 3px 10px #ccc;
   padding: 10px;
 }
 
@@ -86,22 +63,6 @@ form.login {
   margin-top: 10px;
   margin-bottom: 10px
 }
-/*h1.h1login {*/
-  /*padding: 20px;*/
-/*}*/
-
-/*.uncontrolled-tab-example-tab-1{*/
-  /*border: none;*/
-  /*color: #002060;*/
-/*}*/
-
-/*.uncontrolled-tab-example-tab-2{*/
-  /*border: none;*/
-  /*color: #002060;*/
-/*}*/
-/*#uncontrolled-tab-example .active {*/
-  /*background-color: #f8f8ff;*/
-/*}*/
 
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
@@ -113,11 +74,6 @@ form.login {
   padding: 10px 1.5rem;
   border: solid 1px #002060;
 }
-
-/*.nav-tabs > li > a {*/
-/*margin: 0;*/
-/*border: none;*/
-/*}*/
 
 .nav > li > a:hover,
 .nav > li > a:focus{
