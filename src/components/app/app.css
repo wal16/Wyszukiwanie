@@ -1,19 +1,111 @@
-.props-children{
+.props-children {
   padding-top: 120px;
   background: #f8f8ff;
   min-height: 100vh;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-.enter{
+.props-children h6 {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.enter {
   margin-top: 50px;
   text-align: center;
   font-size: 40px;
 }
 
-.enter img{
-
+.enter img {
   height: 50px;
   margin-right: 100%;
-
 }
 
+/**/
+.panel-default {
+  border: none;
+  color: #002060;
+  border-radius: 5px;
+  background-color: #f8f8ff;
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.panel-body-table__list {
+  display: flex;
+  flex-direction: column;
+  margin-left: -45px;
+  margin-right: 15px;
+}
+
+.panel-body__list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row-header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.glyph {
+  color: #f8f8ff;
+}
+
+a {
+  color: #002060;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #002060;
+  text-decoration: none;
+}
+
+.image__wrapper {
+  text-align: -webkit-center;
+}
+
+.image__wrapper-bottom {
+  text-align: -webkit-center;
+  margin-bottom: 20px;
+}
+
+/*Buttons*/
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-custom,
+.btn-custom:visited,
+.btn-custom:focus {
+  background-color: #0080e0;
+  border-radius: 5px;
+  border: #002060;
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn-custom:hover {
+  background-color: #0080e0;
+  transform: scale(1.1);
+  transition: 0.2s transform linear;
+  border-radius: 5px;
+}
+
+/*Button reset*/
+.btn-custom__reset,
+.btn-custom__reset:visited,
+.btn-custom__reset:focus,
+.btn-custom__reset:hover {
+  margin-top: 18px;
+  margin-left: 25px;
+  outline: none;
+  height: 34px;
+  background-color: #0080e0;
+  border-radius: 5px;
+  border: #002060;
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
+}

@@ -62,7 +62,7 @@ export default connect(
             </Col>
           </Row>
           <Col xs={12} md={4} sm={6}>
-            <div className="user-image__wrapper"
+            <div className="image__wrapper-bottom"
                  key={currentUser.id}>
               {
                 currentUser.picture ? (
