@@ -49,9 +49,7 @@ body {
 form.login {
   float: none;
   background-color: #f8f8ff;
-  min-height: 215px;
   margin: auto;
-  border-radius: 5px;
   padding: 10px;
 }
 
@@ -71,13 +69,7 @@ form.login {
   cursor: pointer;
 }
 
-.active {
-  background-color: #002060;
-  color: #f8f8ff;
-  border-radius: 5px;
-}
-
-.nav-tabs > li > a {
+.nav-tabs > li {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -87,33 +79,32 @@ form.login {
   color: #f8f8ff;
 }
 
-.nav-tabs > li.active > a,
+.nav-tabs > li > a .active,
+.nav-tabs > li > a .active,
+.nav-tabs > li > a .active:active,
+.nav-tabs > li > a .active:hover {
+  background-color: #002060;
+  color: #f8f8ff;
+  /*border-radius: 5px;*/
+}
+
+.nav-tabs > li.active > a {
+  cursor: pointer;
+  background-color: #002060;
+  color: #f8f8ff;
+  border: solid 1px #002060;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   cursor: pointer;
   background-color: #002060;
   color: #f8f8ff;
   border: solid 1px #002060;
-  border-radius: 5px;
 }
-
-
-/*.nav-tabs > li.active > a,*/
-/*.nav-tabs > li.active > a:hover,*/
-/*.nav-tabs > li.active > a:focus {*/
-  /*cursor: pointer;*/
-  /*background-color: #002060;*/
-  /*color: #f8f8ff;*/
-  /*font-size: 15px;*/
-  /*padding: 10px 1.5rem;*/
-  /*border: solid 1px #002060;*/
-/*}*/
-
-/*.nav > li > a:hover,*/
-/*.nav > li > a:focus {*/
-  /*color: #f8f8ff;*/
-  /*background: #0080e0;*/
-/*}*/
 
 /**/
 .panel-default {

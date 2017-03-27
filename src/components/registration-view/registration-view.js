@@ -72,7 +72,7 @@ export default connect(
                       type="submit"
                       required
               >
-                Zarejstruj się
+                Zarejestruj się
               </Button>
             </div>
           </Panel>
