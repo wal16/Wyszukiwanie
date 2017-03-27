@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Nav, NavItem,} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, Image} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 import './nav.css'
@@ -11,8 +11,8 @@ const NavComponent = () => (
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
-          <img src={process.env.PUBLIC_URL + '/img/pozyczme-logo-blue2.svg'}
-               alt="Logo PożyczME"/>
+          <Image src={process.env.PUBLIC_URL + '/img/pozyczme-logo-blue2.svg'}
+                 alt="Logo PożyczME"/>
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle/>
