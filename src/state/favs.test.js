@@ -32,6 +32,20 @@ describe('Favs reducer', () => {
         },
         {
           type: FAV_GAME,
+          gameId: 'foo',
+          favId: 'bar'
+        })
+    ).toEqual({
+      favoriteGameIds: [{gameId: 'foo', favId: 'bar'}]
+    })
+
+    expect(
+      reducer(
+        {
+          favoriteGameIds: [{gameId: 'foo', favId: 'bar'}]
+        },
+        {
+          type: FAV_GAME,
           gameId: 'blah',
           favId: 'dummy'
         })
