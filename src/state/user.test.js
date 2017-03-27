@@ -1,6 +1,6 @@
-import reducer from './users'
+import reducer from './user'
 
-describe('Users reducer', () => {
+describe('User reducer', () => {
   it('should return initial state', () => {
     expect(
       reducer()
@@ -17,7 +17,7 @@ describe('Users reducer', () => {
         data: null,
         fetching: false,
         error: null
-      }, { type: 'users/FETCH__BEGIN' })
+      }, { type: 'user/FETCH__BEGIN' })
     ).toEqual({
       data: null,
       fetching: true,
@@ -31,7 +31,7 @@ describe('Users reducer', () => {
         data: null,
         fetching: true,
         error: null
-      }, { type: 'users/FETCH__SUCCESS', data: 'Bar' })
+      }, { type: 'user/FETCH__SUCCESS', data: 'Bar' })
     ).toEqual({
       data: 'Bar',
       fetching: false,
@@ -45,7 +45,7 @@ describe('Users reducer', () => {
         data: null,
         fetching: true,
         error: null
-      }, { type: 'users/FETCH__FAILED', error: 'Foo' })
+      }, { type: 'user/FETCH__FAILED', error: 'Foo' })
     ).toEqual({
       data: null,
       fetching: false,
@@ -57,7 +57,7 @@ describe('Users reducer', () => {
         data: 'Foo',
         fetching: true,
         error: null
-      }, { type: 'users/FETCH__FAILED', error: 'Bar' })
+      }, { type: 'user/FETCH__FAILED', error: 'Bar' })
     ).toEqual({
       data: 'Foo',
       fetching: false,
