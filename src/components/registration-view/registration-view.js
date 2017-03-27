@@ -5,12 +5,10 @@ import {fetchRegistration} from '../../state/registration'
 import {
   Col,
   Row,
-  Grid,
   FormGroup,
   FormControl,
   ControlLabel,
-  Button,
-  HelpBlock
+  Button
 } from 'react-bootstrap'
 
 export default connect(
@@ -27,7 +25,6 @@ export default connect(
         username: '',
         password: '',
         email: ''
-
       }
     }
 
@@ -35,9 +32,9 @@ export default connect(
       return (
         <div>
           <Col xs={4}>
-          <h1>Rejestracja</h1>
-          <Row>
-            <form onSubmit={(event) => {
+            <h1>Rejestracja</h1>
+            <Row>
+              <form onSubmit={(event) => {
                 event.preventDefault()
                 this.props.register(this.state)
               }}>
@@ -86,17 +83,19 @@ export default connect(
 
                 </FormGroup>
 
-                <Button
-                  type="submit"
-                  bsStyle="button"
-                >
-                  Zarejstruj się
-                </Button>
+                <div className="btn-wrapper">
+                  <Button bsStyle="link"
+                          className="btn-custom__login"
+                          type="submit"
+                  >
+                    Zarejstruj się
+                  </Button>
+                </div>
               </form>
 
-          </Row>
-            </Col>
-          </div>
+            </Row>
+          </Col>
+        </div>
       )
     }
   }

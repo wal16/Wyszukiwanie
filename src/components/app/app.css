@@ -38,7 +38,7 @@ body {
 .col-centered {
   float: none;
   background-color: #f8f8ff;
-  min-height: 500px;
+  min-height: 700px;
   margin: auto;
   margin-top: 10%;
   padding-top: 20px;
@@ -66,13 +66,18 @@ body {
   padding-bottom: 15px;
 }
 
+.h1login {
+  color: #002060;
+}
+
 form.login {
   float: none;
   background-color: #f8f8ff;
-  min-height: 200px;
+  min-height: 215px;
   margin: auto;
-  border-radius: 20px;
+  border-radius: 5px;
   max-width: 500px;
+  box-shadow: 0 3px 10px #ccc;
 
 }
 /*h1.h1login {*/
@@ -114,23 +119,6 @@ form.login {
   background: #0080e0;
 }
 
-.btn.btn-button {
-  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  background-color: #002060;
-  color: #f8f8ff;
-  font-size: 15px;
-  padding: 10px 1.5rem;
-  border: solid 2px #002060;
-  border-radius: 5px;
-}
-
-.btn.btn-button:hover {
-  border-color: #0080e0;
-  background-color: #0080e0;
-  outline: inherit;
-}
-
 /**/
 .panel-default {
   border: none;
@@ -164,18 +152,16 @@ form.login {
   color: #f8f8ff;
 }
 
-a {
-  color: #002060;
-  text-decoration: none;
-}
-
-a:hover {
+a,
+a:hover,
+a:visited {
   color: #002060;
   text-decoration: none;
 }
 
 a:focus {
   outline:0;
+  text-decoration: none;
 }
 
 .image__wrapper {
@@ -222,4 +208,31 @@ a:focus {
   border-radius: 5px;
   border: #002060;
   box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, .2), inset 0 -10px 20px rgba(0, 0, 0, .2);
+}
+
+/*Button login*/
+.btn-wrapper {
+  text-align: center;
+}
+
+.btn-custom__login,
+.btn-custom__login:visited,
+.btn-custom__login:focus {
+  box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.2), inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #002060;
+  color: #f8f8ff;
+  font-size: 15px;
+  padding: 10px 1.5rem;
+  border: solid 2px #002060;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn-custom__login:hover {
+  border-color: #0080e0;
+  background-color: #0080e0;
+  outline: inherit;
+  color: #f8f8ff;
+  text-decoration: none;
 }

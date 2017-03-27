@@ -4,7 +4,6 @@ import {logIn} from '../../state/session'
 import {
   Col,
   Row,
-  Grid,
   FormGroup,
   FormControl,
   ControlLabel,
@@ -21,7 +20,7 @@ export default connect(
   })
 )(
   class LoginView extends React.Component {
-    constructor(props){
+    constructor(props) {
       super(props)
 
       this.state = {
@@ -36,15 +35,15 @@ export default connect(
       } = this.props
 
       return (
-          <div>
+        <div>
           <Col xs={4}>
-          <Row>
+            <Row>
 
-            <form className="login" onSubmit={(event) => {
+              <form className="login" onSubmit={(event) => {
                 event.preventDefault()
                 this.props.logIn(this.state.username, this.state.password)
               }}>
-              <h1 className="h1login">Zaloguj się</h1>
+                {/*<h4 className="h1login">Zaloguj się</h4>*/}
                 <FormGroup>
                   <ControlLabel>
                     <label htmlFor="username">Nazwa użytkownika</label>
@@ -69,29 +68,29 @@ export default connect(
                     type="password"
                     value={this.state.password}
                     placeholder="Hasło"
+
                     onChange={(event) => {
                       this.setState({password: event.target.value})
                     }}
                   />
                 </FormGroup>
-
-                <Button
-                  type="submit"
-                  bsStyle="button"
-                >
-                  Zaloguj
-                </Button>
-
+                <div className="btn-wrapper">
+                  <Button bsStyle="link"
+                          className="btn-custom__login"
+                          type="submit"
+                  >
+                    Zaloguj
+                  </Button>
+                </div>
                 {
                   session.error ? (
-                    <Alert bsStyle="warning">{session.error}</Alert>
-                  ) : null
+                      <Alert bsStyle="warning">{session.error}</Alert>
+                    ) : null
                 }
               </form>
-
-          </Row>
-            </Col>
-          </div>
+            </Row>
+          </Col>
+        </div>
       )
     }
   }
