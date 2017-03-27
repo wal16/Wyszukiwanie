@@ -1,14 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .props-children {
   padding-top: 120px;
   background: #f8f8ff;
   min-height: 100vh;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   color: #002060;
-}
-
-.props-children h6 {
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
-  font-weight: 500;
 }
 
 body {
@@ -16,7 +12,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 500;
   color: #002060;
 }
 
@@ -64,22 +61,59 @@ form.login {
   margin-bottom: 10px
 }
 
+/*Tabs*/
+.nav-tabs {
+  border-bottom: 1px solid #002060;
+  margin-bottom: 15px;
+}
+
+.tabs .pointer {
+  cursor: pointer;
+}
+
+.active {
+  background-color: #002060;
+  color: #f8f8ff;
+  border-radius: 5px;
+}
+
+.nav-tabs > li > a {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: #0080e0;
+  color: #f8f8ff;
+}
+
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   cursor: pointer;
   background-color: #002060;
   color: #f8f8ff;
-  font-size: 15px;
-  padding: 10px 1.5rem;
   border: solid 1px #002060;
+  border-radius: 5px;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus{
-  color: #f8f8ff;
-  background: #0080e0;
-}
+
+/*.nav-tabs > li.active > a,*/
+/*.nav-tabs > li.active > a:hover,*/
+/*.nav-tabs > li.active > a:focus {*/
+  /*cursor: pointer;*/
+  /*background-color: #002060;*/
+  /*color: #f8f8ff;*/
+  /*font-size: 15px;*/
+  /*padding: 10px 1.5rem;*/
+  /*border: solid 1px #002060;*/
+/*}*/
+
+/*.nav > li > a:hover,*/
+/*.nav > li > a:focus {*/
+  /*color: #f8f8ff;*/
+  /*background: #0080e0;*/
+/*}*/
 
 /**/
 .panel-default {
