@@ -1,7 +1,7 @@
 import Api from '../api'
 
-const FAV_GAME = 'favs/FAV_GAME'
-const FETCH_FAVS = 'favs/FETCH_FAVS'
+export const FAV_GAME = 'favs/FAV_GAME'
+export const FETCH_FAVS = 'favs/FETCH_FAVS'
 
 import { LOGOUT } from './session'
 
