@@ -12,9 +12,6 @@ import {fetchGames} from '../../state/games'
 import {fetchUsers} from '../../state/users'
 import {clearLoginErrors} from '../../state/session'
 
-
-
-
 class App extends React.Component {
 
   componentWillMount() {
