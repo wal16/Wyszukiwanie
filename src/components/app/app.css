@@ -66,9 +66,9 @@ body {
   padding-bottom: 15px;
 }
 
-.h1login {
-  color: #002060;
-}
+/*.h1login {*/
+  /*color: #002060;*/
+/*}*/
 
 form.login {
   float: none;
@@ -76,9 +76,15 @@ form.login {
   min-height: 215px;
   margin: auto;
   border-radius: 5px;
-  max-width: 500px;
+  /*max-width: 500px;*/
   box-shadow: 0 3px 10px #ccc;
+  padding: 10px;
+}
 
+#username,
+#password {
+  margin-top: 10px;
+  margin-bottom: 10px
 }
 /*h1.h1login {*/
   /*padding: 20px;*/

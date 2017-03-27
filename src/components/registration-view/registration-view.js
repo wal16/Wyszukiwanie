@@ -87,6 +87,7 @@ export default connect(
                   <Button bsStyle="link"
                           className="btn-custom__login"
                           type="submit"
+                          required
                   >
                     Zarejstruj się
                   </Button>

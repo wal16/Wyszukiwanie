@@ -7,7 +7,7 @@ const FETCH__FAIL = 'registration/FETCH__FAILED'
 export const fetchRegistration = (username, password, email) => dispatch => {
   dispatch({type: FETCH__BEGIN})
   return fetch(
-    Api.url + '/users/login', {
+    Api.url + '/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
