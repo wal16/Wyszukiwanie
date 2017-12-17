@@ -1,0 +1,11 @@
+# deployed package files #
+
+*.DEPLOYED
+
+.idea
+*.DS_Store
+
+*.iml
+Data/*
+/.project
+target/*

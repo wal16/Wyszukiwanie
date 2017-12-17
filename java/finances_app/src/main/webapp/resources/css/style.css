@@ -1,0 +1,28 @@
+.imgClass {
+    width: 330px;
+    height: 110px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.imgGoogleplus {
+    background: url(../img/signin_google.png) no-repeat;
+}
+.imgFacebook {
+    background: url(../img/signin_face.png) no-repeat;
+}
+.jumbotron {
+    /*width: 800px;*/
+    /*height: 300px;*/
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    color: #d5d5d5;
+    background-image: url(../img/indeks.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#id {
+    width: 90%;
+}
