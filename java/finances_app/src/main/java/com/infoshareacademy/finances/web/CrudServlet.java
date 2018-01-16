@@ -96,6 +96,7 @@ public class CrudServlet extends HttpServlet {
             planCreationDto.setUserInfoEntity(userInfoEntity);
             LOGGER.info("############ planCreationDto to save:{}", planCreationDto);
             planDaoService.createOrUpdate(planCreationDto);
+            response.sendRedirect("/main?action=plansSelected");
 
         } else if (quantity != null && !quantity.equals("") && !validToken){
             response.sendRedirect("/main?action=logoutSelected");
@@ -114,6 +115,7 @@ public class CrudServlet extends HttpServlet {
         LOGGER.info("############ D ID ! :{}", request.getAttribute("PlanId"));
 
         request.getRequestDispatcher("createOrEditPlan.jsp").forward(request, response);
+
     }
 
 
