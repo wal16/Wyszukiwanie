@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/java/finances_app/AssetsAnalyzer.iml" filepath="$PROJECT_DIR$/java/finances_app/AssetsAnalyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/reports_app/Reports.iml" filepath="$PROJECT_DIR$/java/reports_app/Reports.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pozyczME/pozyczME.iml" filepath="$PROJECT_DIR$/pozyczME/pozyczME.iml" />
+    </modules>
+  </component>
+</project>
