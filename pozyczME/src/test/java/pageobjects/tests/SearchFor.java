@@ -26,7 +26,7 @@ public class SearchFor {
         public void addToSearch(){
         driver.get("http://app.pinapple.jdqz1.is-academy.pl/games-list");
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        WebElement pageSearch = driver.findElement(By.xpath("//*[@id=\"search\"]"));
+        WebElement pageSearch = driver.findElement(By.xpath("//*[@id='search']"));
     }
 
 
